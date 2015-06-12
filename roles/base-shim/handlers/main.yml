@@ -1,0 +1,11 @@
+- name: networking
+  debug: networking handled
+
+- name: iptables
+  debug: iptables handled
+
+- name: ntp
+  debug: ntp handled
+
+- name: sshd
+  debug: sshd handled
