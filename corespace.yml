@@ -1,0 +1,6 @@
+---
+- hosts: corespace
+  sudo: yes
+  roles:
+  - base-shim
+  - spigot
