@@ -2,7 +2,7 @@
 - name: Make iptables.d
   file: path=/etc/iptables.d state=directory owner=root group=root mode=0740
 - name: Install common packages
-  apt: pkg={{ item }} state=present update_cache=yes
+  apt: pkg={{ item }} state=present update_cache=no
   with_items:
   - ethtool
   - ntp

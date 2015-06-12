@@ -1,0 +1,3 @@
+[submodule "roles/spigot"]
+	path = roles/spigot
+	url = git@github.com:the-maldridge/p0rtalCraft.git
