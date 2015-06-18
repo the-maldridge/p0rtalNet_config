@@ -5,4 +5,5 @@
   - base-shim
   - apache2
   - mwh_site
-  - spigot
+  - vds_site
+  #- spigot
