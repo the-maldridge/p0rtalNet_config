@@ -3,4 +3,5 @@
   sudo: yes
   roles:
   - base-shim
+  - apache2
   - spigot
