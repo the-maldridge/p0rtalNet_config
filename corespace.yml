@@ -4,4 +4,5 @@
   roles:
   - base-shim
   - apache2
+  - mwh_site
   - spigot
