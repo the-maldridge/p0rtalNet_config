@@ -6,4 +6,5 @@
   - apache2
   - mwh_site
   - vds_site
-  #- spigot
+  - spigot
+  - inspircd

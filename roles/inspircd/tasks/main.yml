@@ -1,0 +1,47 @@
+---
+- name: Configure firewall for InspIRCd
+  copy: src=inspircd.rules dest=/etc/iptables.d/inspircd.rules owner=root group=root mode=0640
+  notify:
+  - iptables
+
+- name: Copy InspIRCd build artifacts
+  copy: src=inspircd-bin/bin dest=/opt/inspircd owner=root group=root mode=0755 directory_mode=0755
+  notify:
+  - inspircd
+
+- name: Copy InspIRCd modules
+  copy: src=inspircd-bin/modules dest=/opt/inspircd owner=root group=root mode=0644 directory_mode=0755
+  notify:
+  - inspircd
+
+- include_vars: secret/inspircd_opers.yml
+
+- name: Create configuration directory
+  file: path=/opt/inspircd/conf state=directory owner=root group=irc mode=0750
+
+- name: Configure InspIRCd
+  template: src={{ item }} dest=/opt/inspircd/conf/{{ item }} owner=root group=irc mode=0640
+  with_items:
+  - inspircd.conf
+  - links.conf
+  - modules.conf
+  - opers.conf
+  - motd.txt
+  - rules.txt
+  notify:
+  - inspircd
+
+- name: Make data directory
+  file: path=/opt/inspircd/{{ item }} state=directory owner=irc group=irc mode=0700
+  with_items:
+  - data
+  - logs
+
+- name: Create PermChans database
+  file: path=/opt/inspircd/data/permchannels.conf owner=irc group=irc mode=0600
+
+- name: Add InspIRCd init script
+  copy: src=service dest=/etc/init.d/inspircd owner=root group=root mode=0755
+
+- name: Start InspIRCd
+  service: name=inspircd state=started enabled=yes

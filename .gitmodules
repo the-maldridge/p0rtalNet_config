@@ -4,3 +4,6 @@
 [submodule "roles/vds_site"]
 	path = roles/vds_site
 	url = git@github.com:VintageDrumShop/vds_site.git
+[submodule "roles/inspircd/files/inspircd-bin"]
+	path = roles/inspircd/files/inspircd-bin
+	url = git@github.com:collegiumv/inspircd-bin.git

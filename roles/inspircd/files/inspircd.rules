@@ -1,0 +1,4 @@
+# Firewall configuration written by phy1729
+*filter
+-A INPUT -p tcp -m multiport --destination-port 6667,6697 -j ACCEPT
+COMMIT
