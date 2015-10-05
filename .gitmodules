@@ -10,3 +10,6 @@
 [submodule "roles/gateway"]
 	path = roles/gateway
 	url = git@github.com:the-maldridge/obsd-gw.git
+[submodule "library/ansible_xbps"]
+	path = library/ansible_xbps
+	url = git@github.com:dinoocch/ansible_xbps.git
