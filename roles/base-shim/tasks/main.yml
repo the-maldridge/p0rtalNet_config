@@ -8,3 +8,9 @@
   - ethtool
   - ntp
   - openssh-server
+  when: ansible_lsb.id == "Debian" or ansible_lsb.id == "Ubuntu"
+
+- name: Install common packages
+  xbps: name={{ item }} state=present update_cache=yes
+  with_items:
+  - ntp

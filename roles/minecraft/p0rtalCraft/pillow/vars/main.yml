@@ -1,0 +1,21 @@
+prefixPath: /srv/minecraft/p0rtalCraft/backend
+serverDir: pillow
+
+allowEnd: false
+allowNether: false
+levelName: pillow
+instanceQueryEnabled: false
+instancePort: 25573
+instanceIP: 127.0.0.1
+instanceSeed:
+instanceOnlineMode: false
+instanceGamemode: 2
+instanceMOTD: Hub
+spawnNPCs: false
+spawnAnimals: false
+spawnMonsters: false
+maxPlayers: 15
+pvpEnabled: false
+xrayEnable: false
+minMemory: 1G
+maxMemory: 2G

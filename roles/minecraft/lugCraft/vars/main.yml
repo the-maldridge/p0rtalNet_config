@@ -1,0 +1,22 @@
+prefixPath: /srv/minecraft
+serverDir: lug
+
+allowEnd: true
+allowNether: true
+levelName: world
+instanceQueryEnabled: false
+instanceIP: 69.13.217.92
+instancePort: 25800
+instanceSeed: 0
+instanceGamemode: 0
+instanceDifficulty: 1
+instanceMOTD: LUG LUG LUG
+instanceOnlineMode: True
+spawnNPCs: true
+spawnAnimals: true
+spawnMonsters: true
+maxPlayers: 15
+pvpEnabled: True
+xrayEnable: false
+minMemory: 128M
+maxMemory: 1G

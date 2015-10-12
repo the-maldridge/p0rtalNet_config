@@ -6,5 +6,10 @@
   - apache2
   - mwh_site
   - vds_site
-  - spigot
   - inspircd
+  - minecraft/lugCraft
+  - minecraft/p0rtalCraft/lobby
+  - minecraft/p0rtalCraft/survival
+  - minecraft/p0rtalCraft/pillow
+  - minecraft/p0rtalCraft/cakeIsSatan
+  - spigot-cluster

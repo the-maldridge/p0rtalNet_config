@@ -4,6 +4,12 @@
   notify:
   - iptables
 
+- name: Create irc group
+  group: name=irc state=present system=yes
+
+- name: Create irc user
+  user: name=irc group=irc state=present system=yes createhome=no
+
 - name: Copy InspIRCd build artifacts
   copy: src=inspircd-bin/bin dest=/opt/inspircd owner=root group=root mode=0755 directory_mode=0755
   notify:
@@ -38,10 +44,5 @@
   - logs
 
 - name: Create PermChans database
-  file: path=/opt/inspircd/data/permchannels.conf owner=irc group=irc mode=0600
+  file: path=/opt/inspircd/data/permchannels.conf state=touch owner=irc group=irc mode=0600
 
-- name: Add InspIRCd init script
-  copy: src=service dest=/etc/init.d/inspircd owner=root group=root mode=0755
-
-- name: Start InspIRCd
-  service: name=inspircd state=started enabled=yes
