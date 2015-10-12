@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /opt/inspircd
+exec chpst -u irc:irc ./bin/inspircd --nofork
