@@ -1,0 +1,6 @@
+---
+- name: Install bitlbee
+  xbps: name=bitlbee state=present
+
+- name: Enable bitlbee
+  file: src=/etc/sv/bitlbee dest=/var/service/bitlbee state=link owner=root group=root mode=0777
