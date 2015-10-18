@@ -5,31 +5,28 @@
   - iptables
 
 - name: Install packages for webserver
-  apt: pkg={{ item }} state=present
+  xbps: name={{ item }} state=present
   with_items:
-  - mailutils
-  - apache2
-  - php5
+  - apache
 
-- name: Enable PHP
-  apache2_module: name=php5_cgi state=present
+- name: Configure webserver
+  template: src=httpd.conf dest=/etc/httpd/httpd.conf owner=root group=root mode=0644
+
+- name: Create sites-enabled and sites-available
+  file: path=/etc/httpd/{{ item }} state=directory owner=root group=root mode=0755
+  with_items:
+  - sites-available
+  - sites-enabled
+
+- name: Enable httpd
+  file: src=/etc/sv/apache dest=/var/service/apache state=link owner=root group=root mode=0755
 
 - name: Add sites-available
-  copy: src=sites-available dest=/etc/apache2/ owner=root group=root mode=0644 directory_mode=0755
-  notify:
-  - apache2
-
-- name: Create sites-enabled
-  file: path=/etc/apache2/sites-enabled state=directory owner=root group=root mode=0755
-
-- name: Enable sites
-  file: src=../sites-available/{{ item }}.conf dest=/etc/apache2/sites-enabled/{{ item }}.conf state=link owner=root group=root
-  with_items:
-  - 000-default
+  copy: src=sites-available dest=/etc/httpd/ owner=root group=root mode=0644 directory_mode=0755
   notify:
   - apache2
 
 - name: Disable old default site
-  file: path=/etc/apache2/sites-enabled/default state=absent
+  file: path=/etc/httpd/sites-enabled/default state=absent
   notify:
   - apache2
