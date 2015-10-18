@@ -3,7 +3,7 @@ serverDir: pillow
 
 allowEnd: false
 allowNether: false
-levelName: pillow
+levelName: world
 instanceQueryEnabled: false
 instancePort: 25573
 instanceIP: 127.0.0.1
