@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /opt/UniFi
+exec chpst -u unifi:unifi java -jar lib/ace.jar start

@@ -1,11 +1,11 @@
 - name: networking
-  debug: networking handled
+  debug: msg="networking handled"
 
 - name: iptables
-  debug: iptables handled
+  debug: msg="iptables handled"
 
 - name: ntp
-  debug: ntp handled
+  debug: msg="ntp handled"
 
 - name: sshd
-  debug: sshd handled
+  debug: msg="sshd handled"

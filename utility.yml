@@ -1,0 +1,6 @@
+---
+- hosts: utility
+  sudo: yes
+  roles:
+  - base-shim
+  - unifi-controller
