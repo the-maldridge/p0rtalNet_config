@@ -14,3 +14,7 @@
   xbps: name={{ item }} state=present update_cache=yes
   with_items:
   - ntp
+  when: ansible_lsb.id == "Void"
+
+- name: Configure sshd
+  copy: src=sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644 validate="sshd -tf %s"

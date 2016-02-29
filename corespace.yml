@@ -2,7 +2,7 @@
 - hosts: corespace
   sudo: yes
   roles:
-  - base-shim
+  - base
   - apache2
   - mwh_site
   - vds_site
