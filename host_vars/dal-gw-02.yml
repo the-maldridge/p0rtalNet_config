@@ -1,0 +1,24 @@
+---
+gw_network: 10.0.1.0
+dhcp_self: 10.0.1.1
+dhcp_lower: 10.0.1.2
+dhcp_upper: 10.0.1.128
+
+domain: greenhaven.michaelwashere.net
+hostname: dal-gw-02
+
+int_int: bge0
+ext_int: fxp0
+
+ntp:
+- pool.ntp.org
+
+staticHosts:
+  services:
+    mac: 00:1e:8c:89:78:75
+    addr: 10.0.1.2
+    name: GlobalDynamics
+  WAP:
+    mac: 04:18:d6:92:89:ae
+    addr: 10.0.1.3
+    name: wireless
