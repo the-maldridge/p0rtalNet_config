@@ -7,8 +7,8 @@ dhcp_upper: 10.0.9.128
 domain: events.michaelwashere.net
 hostname: interociter
 
-int_int: bge0
-ext_int: bge1
+int_int: bge1
+ext_int: bge0
 
 ntp:
 - pool.ntp.org
