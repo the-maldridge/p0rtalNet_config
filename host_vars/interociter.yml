@@ -4,11 +4,32 @@ dhcp_self: 10.0.9.1
 dhcp_lower: 10.0.9.2
 dhcp_upper: 10.0.9.128
 
-domain: events.michaelwashere.net
-hostname: interociter
+domain: collegiumv.org
+hostname: tmp-router
 
 int_int: bge1
 ext_int: bge0
 
 ntp:
 - pool.ntp.org
+
+staticHosts:
+  temp-1:
+    mac: 00:22:19:24:7b:8a
+    addr: 10.0.9.10
+    name: temp-1
+  temp-2:
+    mac: 00:22:19:27:e2:d5
+    addr: 10.0.9.11
+    name: temp-2
+  temp-3:
+    mac: 00:22:19:24:7c:49
+    addr: 10.0.9.12
+    name: temp-3
+
+stub-zones:
+  UTD:
+    name: utdallas.edu
+    addresses:
+      primary: 10.180.15.160
+      secondary: 10.182.70.107
