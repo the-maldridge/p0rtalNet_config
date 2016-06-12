@@ -1,8 +1,12 @@
 ---
 - hosts: corespace
-  sudo: yes
+  become: yes
   roles:
-  - base
+  - network
+  - xbps-repoconf
+  - core-daemons
+  - core-programs
+  - sshd
   - apache2
   - mwh_site
   - bitlbee
