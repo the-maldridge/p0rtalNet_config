@@ -1,0 +1,26 @@
+# Firewall configuration written by phy1729
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp --dport 22 -j ACCEPT
+-A OUTPUT -p tcp --dport 22 -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+
+-A OUTPUT -o lo -j ACCEPT
+-A OUTPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -p icmp -j ACCEPT
+
+# DNS
+-A OUTPUT -p udp --dport 53 -j ACCEPT
+-A OUTPUT -p tcp --dport 53 -j ACCEPT
+
+# NTP
+-A OUTPUT -p udp --dport 123 -j ACCEPT
+
+# Allow github for dotfiles and vim plugins
+-A OUTPUT -p tcp -d 192.30.252.0/22 --dport 443 -j ACCEPT
+
+COMMIT

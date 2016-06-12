@@ -32,3 +32,8 @@
 
 - name: Enable the UniFi Service
   file: src=/etc/sv/UniFi dest=/var/service/UniFi state=link
+
+- name: Install UniFi firewall rules
+  copy: src=unifi.rules dest=/etc/iptables.d/unifi.rules owner=root group=root mode=0640
+  notify:
+    - iptables

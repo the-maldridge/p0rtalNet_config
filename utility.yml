@@ -1,6 +1,10 @@
 ---
 - hosts: utility
-  sudo: yes
+  become: yes
   roles:
-  - base-shim
+  - network
+  - xbps-repoconf
+  - core-daemons
+  - core-programs
+  - sshd
   - unifi-controller
