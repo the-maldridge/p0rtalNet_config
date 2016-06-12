@@ -4,3 +4,8 @@
 
 - name: Enable bitlbee
   file: src=/etc/sv/bitlbee dest=/var/service/bitlbee state=link owner=root group=root mode=0777
+
+- name: Install firewall rules
+  copy: src=bitlbee.rules dest=/etc/iptables.d/ owner=root group=root mode=0640
+  notify:
+    - iptables

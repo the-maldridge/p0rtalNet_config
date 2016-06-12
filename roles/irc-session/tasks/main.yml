@@ -1,0 +1,15 @@
+---
+- name: Install weechat
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - weechat
+    - weechat-aspell
+    - weechat-lua
+    - weechat-perl
+    - weechat-python
+    - weechat-tcl
+
+- name: Install firewall rules
+  copy: src=irc-session.rules dest=/etc/iptables.d/ owner=root group=root mode=0640
+  notify:
+    - iptables
