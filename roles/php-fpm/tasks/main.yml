@@ -1,0 +1,19 @@
+---
+- name: Install php-fpm
+  xbps: pkg=php-fpm state=present
+
+- name: Copy php-fpm.conf
+  copy: src=php-fpm.conf dest=/etc/php/php-fpm.conf owner=root group=root mode=0644
+  notify:
+    - php-fpm
+
+- name: Remove default pool
+  file: path=/etc/php/php-fpm.d/www.conf state=absent
+  notify:
+    - php-fpm
+
+- name: Create the php conf.d directory
+  file: path=/etc/php/conf.d state=directory owner=root group=root mode=0755
+
+- name: Enable php-fpm
+  file: src=/etc/sv/php-fpm dest=/var/service/php-fpm state=link owner=root group=root mode=0755

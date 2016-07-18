@@ -1,0 +1,39 @@
+---
+- name: Install php modules
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - php-gd
+    - php-mcrypt
+    - php-sqlite
+
+- name: Create the pydio group
+  group: name=pydio state=present
+
+- name: Create the pydio user
+  user: name=pydio state=present group=pydio
+
+- name: Add nginx to the pydio group
+  user: name=nginx group=pydio
+
+- name: Create pydio directory
+  file: path=/srv/www/pydio state=directory owner=root group=root mode=0755
+
+- name: Copy nginx config file
+  copy: src=pydio.nginx dest=/etc/nginx/sites-available/pydio.conf owner=root group=root mode=0644
+  notify:
+    - nginx
+
+- name: Enable nginx config file
+  file: src=../sites-available/pydio.conf dest=/etc/nginx/sites-enabled/pydio.conf state=link owner=root group=root mode=0644
+  notify:
+    - nginx
+
+- name: Copy the php-fpm pool config
+  copy: src=pydio.php-fpm dest=/etc/php/php-fpm.d/pydio.conf owner=root group=root mode=0644
+  notify:
+    - php-fpm
+
+- name: Copy pydio php.ini
+  copy: src=pydio.ini dest=/etc/php/conf.d/pydio.ini owner=root group=root mode=0644
+  notify:
+    - php-fpm

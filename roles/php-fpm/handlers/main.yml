@@ -1,0 +1,3 @@
+---
+- name: php-fpm
+  command: sv restart php-fpm

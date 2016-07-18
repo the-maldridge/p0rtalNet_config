@@ -1,0 +1,14 @@
+[pydio]
+prefix = /srv/www/$pool
+user = pydio
+group = pydio
+listen = /var/run/pydio.sock
+listen.owner = pydio
+listen.group = nginx
+listen.mode = 0660
+pm = dynamic
+pm.max_children = 5
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+
