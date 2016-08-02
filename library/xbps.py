@@ -225,7 +225,8 @@ def check_packages(module, xbps_path, packages, state):
 
 def main():
     """Returns, calling appropriate command"""
-    mask = os.umask(0)
+
+    mask = os.umask(0) # fix the umask
 
     module = AnsibleModule(
         argument_spec=dict(
@@ -284,7 +285,7 @@ def main():
         elif p['state'] == 'absent':
             remove_packages(module, xbps_path, pkgs)
 
-    os.umask(mask)
+    os.umask(mask) # Reset the umask to original value
 
 # import module snippets
 from ansible.module_utils.basic import *
