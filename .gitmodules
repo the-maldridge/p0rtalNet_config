@@ -1,21 +1,6 @@
-[submodule "roles/spigot"]
-	path = roles/spigot-cluster
-	url = git@github.com:the-maldridge/p0rtalCraft.git
-[submodule "roles/vds_site"]
-	path = roles/vds_site
-	url = git@github.com:VintageDrumShop/vds_site.git
 [submodule "roles/inspircd/files/inspircd-bin"]
 	path = roles/inspircd/files/inspircd-bin
 	url = git@github.com:collegiumv/inspircd-bin.git
 [submodule "roles/gateway"]
 	path = roles/gateway
 	url = git@github.com:the-maldridge/obsd-gw.git
-[submodule "library/ansible_xbps"]
-	path = library/ansible_xbps
-	url = git@github.com:dinoocch/ansible_xbps.git
-[submodule "roles/spigot-runtime"]
-	path = roles/spigot-runtime
-	url = git@github.com:the-maldridge/spigot-runtime.git
-[submodule "roles/spigot-standalone"]
-	path = roles/spigot-standalone
-	url = git@github.com:the-maldridge/spigot-standalone.git
