@@ -1,0 +1,11 @@
+---
+network_address_mode: static
+#network_address: 192.168.1.245/24
+#network_gateway: 192.168.1.1
+
+network_dns_mode: dhcp
+network_dns:
+  - 8.8.8.8
+  - 127.245.146.1
+
+network_output_policy: ACCEPT

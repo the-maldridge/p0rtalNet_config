@@ -18,3 +18,8 @@
     - ntpd
     - socklog-unix
     - nanoklogd
+
+- name: Install ntp rules
+  copy: src=ntp.rules dest=/etc/iptables.d/ntp.rules owner=root group=root mode=0640
+  notify:
+    - iptables

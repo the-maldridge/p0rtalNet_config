@@ -6,7 +6,10 @@ dal-gw-02
 interociter
 
 [test]
-earth
+temp1
 
 [utility]
 GlobalDynamics
+
+[workstations]
+earth
