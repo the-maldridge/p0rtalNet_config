@@ -16,7 +16,7 @@
   user: name=nginx group=pydio
 
 - name: Create pydio directory
-  file: path=/srv/www/pydio state=directory owner=root group=root mode=0755
+  file: path=/srv/www/pydio state=directory owner=root group=pydio mode=0755
 
 - name: Copy nginx config file
   copy: src=pydio.nginx dest=/etc/nginx/sites-available/pydio.conf owner=root group=root mode=0644
