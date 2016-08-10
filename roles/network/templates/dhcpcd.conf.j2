@@ -1,11 +1,14 @@
 controlgroup wheel
+persistent
+{% if network_address_mode=='dhcp' %}
+# Additional options for DHCP
 hostname
 duid
-persistent
 {% for option in network_dhcp_options %}
 option {{ option }}
 {% endfor %}
 require dhcp_server_identifier
+{% endif %}
 slaac private
 
 interface {{ ansible_default_ipv4.interface }}
