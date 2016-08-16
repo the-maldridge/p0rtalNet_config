@@ -11,4 +11,5 @@
   - bitlbee
   - irc-session
   - inspircd
+  - { role: certbot, certbot_domain: pydio.michaelwashere.net, certbot_contact_email: aldridge.mac@gmail.com, certbot_webroot: /srv/www/pydio }
   - pydio

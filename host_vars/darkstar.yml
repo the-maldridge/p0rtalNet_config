@@ -3,3 +3,8 @@ network_address_mode: static
 network_address: 69.13.217.92/24
 network_gateway: 69.13.217.89
 network_dns_mode: static
+
+pydio_domain: pydio.michaelwashere.net
+pydio_webroot: /srv/www/pydio
+pydio_certificate_path: /etc/letsencrypt/live/pydio.michaelwashere.net/fullchain.pem
+pydio_key_path: /etc/letsencrypt/live/pydio.michaelwashere.net/privkey.pem

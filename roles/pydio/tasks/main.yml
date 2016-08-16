@@ -18,8 +18,11 @@
 - name: Create pydio directory
   file: path=/srv/www/pydio state=directory owner=root group=pydio mode=0755
 
+- name: Copy dhparam.pem
+  copy: src=dhparam.pem dest=/etc/nginx/dhparam.pem owner=root group=root mode=0644
+
 - name: Copy nginx config file
-  copy: src=pydio.nginx dest=/etc/nginx/sites-available/pydio.conf owner=root group=root mode=0644
+  template: src=pydio.conf dest=/etc/nginx/sites-available/pydio.conf owner=root group=root mode=0644
   notify:
     - nginx
 
@@ -37,3 +40,8 @@
   copy: src=pydio.ini dest=/etc/php/conf.d/pydio.ini owner=root group=root mode=0644
   notify:
     - php-fpm
+
+- name: Copy pydio firewall rules
+  copy: src=pydio.rules dest=/etc/iptables.d/pydio.rules owner=root group=root mode=0640
+  notify:
+    - iptables
