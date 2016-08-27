@@ -13,3 +13,18 @@
 [submodule "roles/sshd"]
 	path = roles/sshd
 	url = git@github.com:void-ansible-roles/sshd.git
+[submodule "roles/mosh"]
+	path = roles/mosh
+	url = git@github.com:void-ansible-roles/mosh.git
+[submodule "roles/unifi-controller"]
+	path = roles/unifi-controller
+	url = git@github.com:void-ansible-roles/unifi-controller.git
+[submodule "roles/nginx"]
+	path = roles/nginx
+	url = git@github.com:void-ansible-roles/nginx.git
+[submodule "roles/php-fpm"]
+	path = roles/php-fpm
+	url = git@github.com:void-ansible-roles/php-fpm.git
+[submodule "roles/xbps-repoconf"]
+	path = roles/xbps-repoconf
+	url = git@github.com:void-ansible-roles/xbps-repoconf.git
