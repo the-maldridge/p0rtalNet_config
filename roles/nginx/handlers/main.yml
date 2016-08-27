@@ -1,2 +1,0 @@
-- name: nginx
-  command: sv restart nginx
