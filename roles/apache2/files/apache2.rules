@@ -1,4 +1,0 @@
-# Firewall configuration written by phy1729
-*filter
--A INPUT -p tcp --dport 80 -j ACCEPT
-COMMIT

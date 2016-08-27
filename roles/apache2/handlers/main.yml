@@ -1,2 +1,0 @@
-- name: apache2
-  command: sv restart apache
