@@ -4,3 +4,6 @@
 [submodule "roles/gateway"]
 	path = roles/gateway
 	url = git@github.com:the-maldridge/obsd-gw.git
+[submodule "roles/certbot"]
+	path = roles/certbot
+	url = git@github.com:void-ansible-roles/certbot.git
