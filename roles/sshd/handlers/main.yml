@@ -1,3 +1,0 @@
----
-- name: sshd
-  command: sv restart sshd
