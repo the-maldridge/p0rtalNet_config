@@ -46,17 +46,22 @@
   - data
   - logs
 
+- name: Check for PermChans database
+  stat: path=/opt/inspircd/data/permchannels.conf
+  register: permchans
+
 - name: Create PermChans database
   file: path=/opt/inspircd/data/permchannels.conf state=touch owner=irc group=irc mode=0600
+  when: permchans.stat.exists == false
 
 - name: Create runit service dir
   file: path=/etc/sv/inspircd state=directory owner=root group=root mode=0755
-  when: ansible_lsb.id == "Void"
+  when: ansible_lsb.id == "VoidLinux"
 
 - name: Copy runit task
   copy: src=run dest=/etc/sv/inspircd/run owner=root group=root mode=0755
-  when: ansible_lsb.id == "Void"
+  when: ansible_lsb.id == "VoidLinux"
 
 - name: Enable inspircd runit service
   file: src=/etc/sv/inspircd dest=/var/service/inspircd state=link
-  when: ansible_lsb.id == "Void"
+  when: ansible_lsb.id == "VoidLinux"
