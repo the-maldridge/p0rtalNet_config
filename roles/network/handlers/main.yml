@@ -1,6 +1,0 @@
----
-- name: dhcpcd
-  command: sv restart dhcpcd
-
-- name: iptables
-  command: /usr/local/sbin/iptables-reload
