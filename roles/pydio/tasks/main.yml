@@ -27,7 +27,7 @@
     - nginx
 
 - name: Enable nginx config file
-  file: src=../sites-available/pydio.conf dest=/etc/nginx/sites-enabled/pydio.conf state=link owner=root group=root mode=0644
+  file: src=../sites-available/pydio.conf dest=/etc/nginx/sites-enabled/pydio.conf state=link
   notify:
     - nginx
 
