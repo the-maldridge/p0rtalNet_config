@@ -1,0 +1,9 @@
+---
+network_output_policy: ACCEPT
+
+xbps_repoconf_repos:
+  p0rtalNet-nonfree:
+    address: "http://pkgs.michaelwashere.net/nonfree"
+    serveraddr: pkgs.michaelwashere.net
+    serverport: 80
+    fingerprint: "12:45:59:39:50:b3:96:01:49:32:ce:52:79:4d:17:27"
