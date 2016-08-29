@@ -37,3 +37,6 @@
 [submodule "roles/i3"]
 	path = roles/i3
 	url = git@github.com:void-ansible-roles/i3
+[submodule "roles/netdata"]
+	path = roles/netdata
+	url = git@github.com:void-ansible-roles/netdata.git
