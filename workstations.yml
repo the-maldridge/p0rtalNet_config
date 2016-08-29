@@ -4,3 +4,4 @@
   roles:
     - network
     - xbps-repoconf
+    - i3

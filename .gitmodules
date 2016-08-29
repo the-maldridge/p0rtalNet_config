@@ -31,3 +31,9 @@
 [submodule "roles/xbps-mini-builder"]
 	path = roles/xbps-mini-repo
 	url = git@github.com:void-ansible-roles/xbps-mini-builder.git
+[submodule "roles/xorg"]
+	path = roles/xorg
+	url = git@github.com:void-ansible-roles/xorg
+[submodule "roles/i3"]
+	path = roles/i3
+	url = git@github.com:void-ansible-roles/i3
