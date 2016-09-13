@@ -7,3 +7,6 @@ xbps_repository_address: lug.utdallas.edu
 xbps_repository_port: 443
 
 ssh_banner: assets/sshd_banners/portalnet
+
+monit_bind: 0.0.0.0
+monit_readonly: true

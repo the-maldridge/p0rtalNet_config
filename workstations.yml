@@ -6,3 +6,4 @@
     - xbps-repoconf
     - i3
     - netdata
+    - monit
