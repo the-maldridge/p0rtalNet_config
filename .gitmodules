@@ -43,3 +43,18 @@
 [submodule "roles/monit"]
 	path = roles/monit
 	url = git@github.com:void-ansible-roles/monit.git
+[submodule "roles/greeter-theme/files/p0rtalNet-greeter-theme"]
+	path = roles/greeter-theme/files/p0rtalNet-greeter-theme
+	url = git@github.com:the-maldridge/p0rtalNet-greeter-theme
+[submodule "roles/lightdm"]
+	path = roles/lightdm
+	url = git@github.com:void-ansible-roles/lightdm.git
+[submodule "roles/lightdm-webkit-greeter"]
+	path = roles/lightdm-webkit-greeter
+	url = git@github.com:void-ansible-roles/lightdm-webkit-greeter.git
+[submodule "lightdm-webkit-greeter"]
+	path = lightdm-webkit-greeter
+	url = git@github.com:void-ansible-roles/lightdm-webkit-greeter.git
+[submodule "roles/dbus"]
+	path = roles/dbus
+	url = git@github.com:void-ansible-roles/dbus.git

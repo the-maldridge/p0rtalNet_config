@@ -1,0 +1,6 @@
+---
+- name: Copy theme
+  copy: src=p0rtalNet-greeter-theme/ dest=/usr/share/lightdm-webkit/themes/p0rtalNet owner=root group=root mode=ugo+rX
+
+- name: Correct permissions on theme folder
+  file: path=/usr/share/lightdm-webkit/themes/p0rtalNet owner=root group=root mode=0755

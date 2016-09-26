@@ -2,8 +2,6 @@
 - hosts: workstations
   become: yes
   roles:
-    - network
     - xbps-repoconf
     - i3
-    - netdata
-    - monit
+    - greeter-theme
