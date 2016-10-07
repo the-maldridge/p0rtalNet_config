@@ -1,5 +1,6 @@
 ---
 network_output_policy: ACCEPT
+network_enable_wpa_supplicant: true
 
 xbps_repoconf_repos:
   p0rtalNet-nonfree:
