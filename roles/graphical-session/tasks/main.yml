@@ -1,0 +1,41 @@
+---
+- name: Install Terminal Components
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - rxvt-unicode
+    - urxvt-perls
+    - font-inconsolata-otf
+
+- name: Install dotfiles deps
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - feh
+    - tmux
+    
+- name: Install Web browsers
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - firefox
+    - opera
+    - chromium
+
+- name: Install development tools
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - base-devel
+    - emacs
+    - git-all
+    - python-pip
+
+- name: Install Mail programs
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - thunderbird
+    - gnupg2
+    - pinentry-gtk
+
+- name: Install misc. programs
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - mosh
+    - xlockmore

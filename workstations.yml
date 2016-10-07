@@ -3,5 +3,5 @@
   become: yes
   roles:
     - xbps-repoconf
-    - i3
+    - graphical-session
     - greeter-theme
