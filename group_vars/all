@@ -10,3 +10,5 @@ ssh_banner: assets/sshd_banners/portalnet
 
 monit_bind: 0.0.0.0
 monit_readonly: true
+
+ntp_server: pool.ntp.org

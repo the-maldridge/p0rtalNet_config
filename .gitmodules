@@ -58,3 +58,6 @@
 [submodule "roles/dbus"]
 	path = roles/dbus
 	url = git@github.com:void-ansible-roles/dbus.git
+[submodule "roles/ntp"]
+	path = roles/ntp
+	url = git@github.com:void-ansible-roles/ntp.git
