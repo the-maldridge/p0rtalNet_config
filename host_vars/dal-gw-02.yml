@@ -46,3 +46,15 @@ staticHosts:
     mac: 14:2d:27:65:60:af
     addr: 10.0.1.14
     name: maldridge-chromebook
+  livingroom-left:
+    mac: 5c:cf:7f:d2:e9:98
+    addr: 10.0.1.50
+    name: livingroom-left
+  livingroom-right:
+    mac: 60:01:94:01:2e:b8
+    addr: 10.0.1.51
+    name: livingroom-right
+  hall-led:
+    mac: 60:01:94:0e:dc:b5
+    addr: 10.0.1.52
+    name: hall-led
