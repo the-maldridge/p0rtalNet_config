@@ -58,3 +58,7 @@ staticHosts:
     mac: 60:01:94:0e:dc:b5
     addr: 10.0.1.52
     name: hall-led
+  maldridge-led:
+    mac: 60:01:94:0e:dd:c1
+    addr: 10.0.1.53
+    name: maldridge-led
