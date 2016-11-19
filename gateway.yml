@@ -3,5 +3,7 @@
   become: yes
   become_method: doas
   roles:
-  - gateway
-
+    - sg-base
+    - sg-dhcp
+    - sg-dns
+    - sg-ntp

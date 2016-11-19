@@ -2,8 +2,8 @@
 	path = roles/inspircd/files/inspircd-bin
 	url = git@github.com:collegiumv/inspircd-bin.git
 [submodule "roles/gateway"]
-	path = roles/gateway
-	url = git@github.com:the-maldridge/obsd-gw.git
+	path = roles/sg-base
+	url = git@github.com:SimpleGateway/sg-base.git
 [submodule "roles/certbot"]
 	path = roles/certbot
 	url = git@github.com:void-ansible-roles/certbot.git
@@ -64,3 +64,12 @@
 [submodule "library/ansible_xbps"]
 	path = library/ansible_xbps
 	url = git@github.com:void-ansible-roles/ansible_xbps.git
+[submodule "roles/sg-dns"]
+	path = roles/sg-dns
+	url = git@github.com:SimpleGateway/sg-dns.git
+[submodule "roles/sg-dhcp"]
+	path = roles/sg-dhcp
+	url = git@github.com:SimpleGateway/sg-dhcp.git
+[submodule "roles/sg-ntp"]
+	path = roles/sg-ntp
+	url = git@github.com:SimpleGateway/sg-ntp.git
