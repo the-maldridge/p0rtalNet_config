@@ -1,9 +1,6 @@
 [submodule "roles/inspircd/files/inspircd-bin"]
 	path = roles/inspircd/files/inspircd-bin
 	url = git@github.com:collegiumv/inspircd-bin.git
-[submodule "roles/gateway"]
-	path = roles/sg-base
-	url = git@github.com:SimpleGateway/sg-base.git
 [submodule "roles/certbot"]
 	path = roles/certbot
 	url = git@github.com:void-ansible-roles/certbot.git
