@@ -70,3 +70,6 @@
 [submodule "roles/sg-ntp"]
 	path = roles/sg-ntp
 	url = git@github.com:SimpleGateway/sg-ntp.git
+[submodule "roles/sg-base"]
+	path = roles/sg-base
+	url = git@github.com:SimpleGateway/sg-base.git
