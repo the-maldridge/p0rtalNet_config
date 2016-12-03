@@ -1,0 +1,69 @@
+---
+- name: Create the Home Assistant user
+  user:
+    name: hass
+    state: present
+
+- name: Install virtualenv
+  xbps:
+    pkg: python3-virtualenv
+    state: present
+
+- name: Install Home Assistant
+  pip:
+    name: homeassistant
+    state: present
+    virtualenv: /home/hass/HomeAssistant
+    virtualenv_python: python3
+  become: yes
+  become_user: hass
+
+- name: Create ~/.homeassistant/
+  file:
+    path: /home/hass/.homeassistant
+    state: directory
+    owner: hass
+    group: hass
+    mode: 0755
+
+- name: Configure Home Assistant
+  copy:
+    src: configuration.yaml
+    dest: /home/hass/.homeassistant/configuration.yaml
+    owner: hass
+    group: hass
+    mode: 0644
+  notify:
+    - hass
+
+- name: Configure monit
+  copy:
+    src: hass.monit
+    dest: /etc/monit/conf.d/hass
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - monit
+
+- name: Install HomeAssistant Service (1/2)
+  file:
+    path: /etc/sv/hass
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install HomeAssistant Service (2/2)
+  copy:
+    src: run
+    dest: /etc/sv/hass/run
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable HomeAssistant
+  file:
+    src: /etc/sv/hass
+    dest: /var/service/hass
+    state: link

@@ -2,10 +2,9 @@
 - hosts: utility
   become: yes
   roles:
-    - network
     - xbps-repoconf
     - core-daemons
     - core-programs
     - sshd
     - unifi-controller
-    - monit
+    - hass

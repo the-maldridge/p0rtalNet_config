@@ -1,0 +1,11 @@
+check host LivingRoomLEDLeft with address 10.0.1.50
+      if failed ping then alert
+
+check host LivingRoomLEDRight with address 10.0.1.51
+      if failed ping then alert
+
+check host HallLED with address 10.0.1.52
+      if failed ping then alert
+
+check host maldridgeLED with address 10.0.1.53
+      if failed ping then alert

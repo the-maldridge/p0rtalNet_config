@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. /home/hass/HomeAssistant/bin/activate
+exec chpst -u hass:hass hass
