@@ -1,51 +1,70 @@
 ---
-sg_common_domain: greenhaven.michaelwashere.net
-sg_common_hostname: dal-gw-02
-sg_common_int_int: bge0
-sg_common_ext_int: fxp0
-sg_common_int_ip: 10.0.1.1
-sg_common_network: 10.0.1.0
+sg_globalconf:
+  hostname: dal-gw-02
+  domain: greenhaven.michaelwashere.net
+  domain_address: 10.0.1.1
+  pf:
+    block_policy: drop
+  dns:
+    SOA: 2016120400
+  ntp:
+    clocks:
+      - pool.ntp.org
 
-sg_dhcp_pool_lower: 10.0.1.2
-sg_dhcp_pool_upper: 10.0.1.128
-
-sg_ntp:
-- pool.ntp.org
-
-sg_common_staticHosts:
-  - name: GlobalDynamics
-    mac: 00:1e:8c:89:78:75
-    addr: 10.0.1.2
-  - name: wireless
-    mac: 04:18:d6:92:89:ae
-    addr: 10.0.1.3
-  - name: sip-gateway
-    mac: 9c:ad:ef:12:32:a9
-    addr: 10.0.1.4
-  - name: theGibson
-    mac: bc:5f:f4:7b:59:21
-    addr: 10.0.1.10
-  - name: maldridgePhone
-    mac: 64:bc:0c:43:03:b9
-    addr: 10.0.1.11
-  - name: earth
-    mac: f0:1f:af:3a:ce:a6
-    addr: 10.0.1.12
-  - name: earth
-    mac: 70:18:8b:b9:79:87
-    addr: 10.0.1.13
-  - name: maldridge-chromebook
-    mac: 14:2d:27:65:60:af
-    addr: 10.0.1.14
-  - name: livingroom-left
-    mac: 5c:cf:7f:d2:e9:98
-    addr: 10.0.1.50
-  - name: livingroom-right
-    mac: 60:01:94:01:2e:b8
-    addr: 10.0.1.51
-  - name: hall-led
-    mac: 60:01:94:0e:dc:b5
-    addr: 10.0.1.52
-  - name: maldridge-led
-    mac: 60:01:94:0e:dd:c1
-    addr: 10.0.1.53
+sg_network:
+  - name: fxp0
+    desc: External Spectrum Link
+    address: dhcp
+    services:
+      - ssh
+  - name: bge0
+    desc: p0rtalNet Greenhaven Network
+    address: 10.0.1.1
+    cidr: 10.0.1.0/24
+    arpa: 1.0.10.in-addr.arpa
+    services:
+      - nat
+      - ssh
+      - dhcp
+      - dns
+      - ntp
+    serviceconf:
+      dhcp:
+        pool: 10.0.1.0/24
+    hosts:
+      - name: GlobalDynamics
+        mac: 00:1e:8c:89:78:75
+        addr: 10.0.1.2
+      - name: wireless
+        mac: 04:18:d6:92:89:ae
+        addr: 10.0.1.3
+      - name: sip-gateway
+        mac: 9c:ad:ef:12:32:a9
+        addr: 10.0.1.4
+      - name: theGibson
+        mac: bc:5f:f4:7b:59:21
+        addr: 10.0.1.10
+      - name: maldridgePhone
+        mac: 64:bc:0c:43:03:b9
+        addr: 10.0.1.11
+      - name: earth
+        mac: f0:1f:af:3a:ce:a6
+        addr: 10.0.1.12
+      - name: earth
+        mac: 70:18:8b:b9:79:87
+        addr: 10.0.1.13
+      - name: maldridge-chromebook
+        mac: 14:2d:27:65:60:af
+        addr: 10.0.1.14
+      - name: livingroom-left
+        mac: 5c:cf:7f:d2:e9:98
+        addr: 10.0.1.50
+      - name: livingroom-right
+        mac: 60:01:94:01:2e:b8
+        addr: 10.0.1.51
+      - name: hall-led
+        mac: 60:01:94:0e:dc:b5
+        addr: 10.0.1.52
+      - name: maldridge-led
+        mac: 60:01:94:0e:dd:c1
+        addr: 10.0.1.53
