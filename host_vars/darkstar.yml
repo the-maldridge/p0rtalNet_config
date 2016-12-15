@@ -1,8 +1,13 @@
 ---
-network_address_mode: static
-network_address: 69.13.217.92/24
-network_gateway: 69.13.217.89
-network_dns_mode: static
+network_interfaces:
+  - name: default
+    mode: static
+    mode6: disabled
+    resolvermode: static
+    addresses:
+      - 69.13.217.92/24
+    routers:
+      - 69.13.217.89
 
 pydio_domain: pydio.michaelwashere.net
 pydio_webroot: /srv/www/pydio
