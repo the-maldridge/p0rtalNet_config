@@ -1,5 +1,5 @@
 ---
-- hosts: workstations
+- hosts: workstation
   become: yes
   roles:
     - xbps-repoconf

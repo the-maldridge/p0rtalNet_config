@@ -7,8 +7,15 @@ dal-gw-02
 [utility]
 GlobalDynamics
 
-[workstations]
+[workstation-x64]
 earth
 theGibson
+
+[workstation-i686]
 eniac
 deepblue
+monolith
+
+[workstation:children]
+workstation-x64
+workstation-i686
