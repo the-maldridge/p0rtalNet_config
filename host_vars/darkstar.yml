@@ -17,3 +17,8 @@ pydio_key_path: /etc/letsencrypt/live/pydio.michaelwashere.net/privkey.pem
 xbps_mini_builder_pkgs: assets/config/xbps-mini-builder/packages.list
 xbps_mini_builder_conf: assets/config/xbps-mini-builder/xbps-src.conf
 xbps_mini_builder_servername: pkgs.michaelwashere.net
+
+sshd_KexAlgorithms:
+  - curve25519-sha256@libssh.org
+  - diffie-hellman-group-exchange-sha256
+  - diffie-hellman-group14-sha1

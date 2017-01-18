@@ -6,8 +6,10 @@ xbps_repository_multilib_nonfree: https://lug.utdallas.edu/mirror/void/current/m
 xbps_repository_address: lug.utdallas.edu
 xbps_repository_port: 443
 
-ssh_banner: assets/sshd_banners/portalnet
+sshd_banner: assets/sshd_banners/portalnet
 
 monit_readonly: true
 
 ntp_server: pool.ntp.org
+
+xbps_repoconf_repos:
