@@ -11,5 +11,3 @@ sshd_banner: assets/sshd_banners/portalnet
 monit_readonly: true
 
 ntp_server: pool.ntp.org
-
-xbps_repoconf_repos:

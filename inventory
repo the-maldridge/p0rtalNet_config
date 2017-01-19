@@ -10,10 +10,10 @@ GlobalDynamics
 [workstation-x64]
 earth
 theGibson
+deepblue
 
 [workstation-i686]
 eniac
-deepblue
 monolith
 
 [workstation:children]
