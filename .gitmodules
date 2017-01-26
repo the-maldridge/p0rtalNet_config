@@ -73,6 +73,3 @@
 [submodule "roles/sg-base"]
 	path = roles/sg-base
 	url = git@github.com:SimpleGateway/sg-base.git
-[submodule "filter_plugins/sg-filters"]
-	path = filter_plugins/sg-filters
-	url = git@github.com:simplegateway/sg-filters.git
