@@ -2,14 +2,14 @@
 - hosts: corespace
   become: yes
   roles:
-  - network
-  - xbps-repoconf
-  - core-daemons
-  - core-programs
-  - sshd
-  - mosh
-  - bitlbee
-  - irc-session
-  - { role: certbot, certbot_domain: pydio.michaelwashere.net, certbot_contact_email: aldridge.mac@gmail.com, certbot_webroot: /srv/www/pydio }
-  - pydio
-  - xbps-mini-repo
+    - network
+    - xbps-repoconf
+    - core-daemons
+    - core-programs
+    - sshd
+    - mosh
+    - bitlbee
+    - irc-session
+    - acmetool
+    - pydio
+    - xbps-mini-repo
