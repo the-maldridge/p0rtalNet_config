@@ -28,12 +28,16 @@ light:
     devices:
       10.0.1.50:
         name: LED Left
+        mode: 'rgb'
       10.0.1.51:
         name: LED Right
+        mode: 'rgb'
       10.0.1.52:
         name: Hall
+        mode: 'rgb'
       10.0.1.53:
         name: Michael Bedroom
+        mode: 'rgb'
 
 group:
   Living Room LEDs:
