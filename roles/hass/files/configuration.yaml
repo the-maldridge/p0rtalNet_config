@@ -1,3 +1,4 @@
+---
 homeassistant:
   name: Greenhaven
   latitude: 32.9722
@@ -13,8 +14,8 @@ conversation:
 history:
 logbook:
 
-# Allow Alexa to control things
 emulated_hue:
+  type: alexa
 
 light:
   - platform: x10
