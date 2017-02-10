@@ -56,6 +56,9 @@ sg_network:
       - name: maldridge-chromebook
         mac: 14:2d:27:65:60:af
         addr: 10.0.1.14
+      - name: ian-desktop
+        addr: 10.0.1.20
+        addr: 70:71:bc:44:f7:77
       - name: livingroom-left
         mac: 5c:cf:7f:d2:e9:98
         addr: 10.0.1.50
