@@ -1,5 +1,10 @@
 ---
 - hosts: gateway
+  gather_facts: no
+  roles:
+    - sg-ansible-setup
+
+- hosts: gateway
   become: yes
   become_method: doas
   roles:
@@ -7,4 +12,3 @@
     - sg-dhcp
     - sg-dns
     - sg-ntp
-    - greenhaven-fw

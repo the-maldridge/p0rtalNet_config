@@ -1,9 +1,0 @@
-- name: Copy greenhaven rules
-  copy:
-    src: 10-greenhaven.conf
-    dest: /etc/pf.d/10-greenhaven.conf
-    owner: root
-    group: wheel
-    mode: 0644
-  notify:
-    - pf.conf

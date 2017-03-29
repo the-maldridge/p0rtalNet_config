@@ -73,3 +73,6 @@
 [submodule "roles/acmetool"]
 	path = roles/acmetool
 	url = git@github.com:void-ansible-roles/acmetool.git
+[submodule "roles/sg-ansible-setup"]
+	path = roles/sg-ansible-setup
+	url = git@github.com:SimpleGateway/sg-ansible-setup.git

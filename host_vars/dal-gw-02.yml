@@ -1,8 +1,13 @@
 ---
+sg_pkg_server: mirror.esc7.net
+sg_pkg_path: https://mirror.esc7.net/%m/
+
 sg_globalconf:
-  hostname: dal-gw-02
-  domain: greenhaven.michaelwashere.net
+  hostname: dal-gw-02.greenhaven.michaelwashere.net
   domain_address: 10.0.1.1
+  bootresolvers:
+    - 8.8.8.8
+    - 8.8.4.4
   pf:
     block_policy: drop
   dns:
@@ -10,64 +15,98 @@ sg_globalconf:
   ntp:
     clocks:
       - pool.ntp.org
+  ssh:
+    permit_password: false
+    listen_egress: true
 
-sg_network:
-  - name: fxp0
-    desc: External Spectrum Link
-    address: dhcp
-    services:
-      - ssh
-  - name: bge0
-    desc: p0rtalNet Greenhaven Network
-    address: 10.0.1.1
+sg_networks:
+  - name: home
+    desc: Main Home Network
     cidr: 10.0.1.0/24
-    arpa: 1.0.10.in-addr.arpa
+    arpa: 10.in-addr.arpa
+    attach_to: bge0
+    domain: greenhaven.michaelwashere.net
     services:
+      - jumphost
       - nat
       - ssh
       - dhcp
       - dns
       - ntp
     serviceconf:
+      dns:
+        adminmail: dnsadmin.michaelwashere.net
+        authname: dal-gw-02.greenhaven.michaelwashere.net
+        domain_address: 10.0.1.1
+        nameservers:
+          - 10.0.1.1
       dhcp:
-        pool: 10.0.1.0/24
-    hosts:
-      - name: GlobalDynamics
-        mac: 00:1e:8c:89:78:75
-        addr: 10.0.1.2
-      - name: wireless
-        mac: 04:18:d6:92:89:ae
-        addr: 10.0.1.3
-      - name: sip-gateway
-        mac: 9c:ad:ef:12:32:a9
-        addr: 10.0.1.4
-      - name: theGibson
-        mac: bc:5f:f4:7b:59:21
-        addr: 10.0.1.10
-      - name: maldridgePhone
-        mac: 64:bc:0c:43:03:b9
-        addr: 10.0.1.11
-      - name: earth
-        mac: f0:1f:af:3a:ce:a6
-        addr: 10.0.1.12
-      - name: earth
-        mac: 70:18:8b:b9:79:87
-        addr: 10.0.1.13
-      - name: maldridge-chromebook
-        mac: 14:2d:27:65:60:af
-        addr: 10.0.1.14
-      - name: ian-desktop
-        mac: 70:71:bc:44:f7:77
-        addr: 10.0.1.20
-      - name: livingroom-left
-        mac: 5c:cf:7f:d2:e9:98
-        addr: 10.0.1.50
-      - name: livingroom-right
-        mac: 60:01:94:01:2e:b8
-        addr: 10.0.1.51
-      - name: hall-led
-        mac: 60:01:94:0e:dc:b5
-        addr: 10.0.1.52
-      - name: maldridge-led
-        mac: 60:01:94:0e:dd:c1
-        addr: 10.0.1.53
+        pools:
+          - 10.0.1.64/26
+        routers: 10.0.1.1
+        dns: 10.0.1.1
+        ntp: 10.0.1.1
+        allow_unknown: true
+      nat:
+        nat_to: fxp0
+        mode: manual
+        autonat:
+          - 10.0.1.0/24
+    hosts: "{{ greenhaven_hosts }}"
+
+
+sg_interfaces:
+  - name: fxp0
+    desc: External Spectrum Link
+    address: dhcp
+  - name: bge0
+    desc: p0rtalNet Greenhaven Network
+    address: 10.0.1.1/24
+
+greenhaven_hosts:
+  - name: GlobalDynamics
+    mac: 00:1e:8c:89:78:75
+    addr: 10.0.1.2
+  - name: wireless
+    mac: 04:18:d6:92:89:ae
+    addr: 10.0.1.3
+  - name: sip-gateway
+    mac: 9c:ad:ef:12:32:a9
+    addr: 10.0.1.4
+  - name: theGibson
+    mac: bc:5f:f4:7b:59:21
+    addr: 10.0.1.10
+  - name: maldridgePhone
+    mac: 64:bc:0c:43:03:b9
+    addr: 10.0.1.11
+  - name: earth
+    mac: f0:1f:af:3a:ce:a6
+    addr: 10.0.1.12
+  - name: earth
+    mac: 70:18:8b:b9:79:87
+    addr: 10.0.1.13
+  - name: maldridge-chromebook
+    mac: 14:2d:27:65:60:af
+    addr: 10.0.1.14
+  - name: ian-desktop
+    desc: Ian Desktop
+    mac: 70:71:bc:44:f7:77
+    addr: 10.0.1.20
+    pf:
+      in:
+        - proto: tcp
+          src: any
+          to: fxp0
+          port: 2222
+  - name: livingroom-left
+    mac: 5c:cf:7f:d2:e9:98
+    addr: 10.0.1.50
+  - name: livingroom-right
+    mac: 60:01:94:01:2e:b8
+    addr: 10.0.1.51
+  - name: hall-led
+    mac: 60:01:94:0e:dc:b5
+    addr: 10.0.1.52
+  - name: maldridge-led
+    mac: 60:01:94:0e:dd:c1
+    addr: 10.0.1.53
