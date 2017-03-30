@@ -73,6 +73,9 @@ greenhaven_hosts:
   - name: sip-gateway
     mac: 9c:ad:ef:12:32:a9
     addr: 10.0.1.4
+  - name: unifi
+    mac: f0:9f:c2:15:38:c4
+    addr: 10.0.1.5
   - name: theGibson
     mac: bc:5f:f4:7b:59:21
     addr: 10.0.1.10
