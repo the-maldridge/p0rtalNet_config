@@ -1,0 +1,15 @@
+*filter
+-A OUTPUT -p tcp -d 192.168.100.1 --dport 80 -j ACCEPT
+
+-A OUTPUT -p tcp -d 10.0.1.1 --dport 22 -j ACCEPT
+
+-A OUTPUT -p tcp -d 10.0.1.2 --dport 22 -j ACCEPT
+
+-A OUTPUT -p tcp -d 10.0.1.3 --dport 22 -j ACCEPT
+
+-A OUTPUT -p tcp -d 10.0.1.5 --dport 22 -j ACCEPT
+-A OUTPUT -p tcp -d 10.0.1.5 --dport 80 -j ACCEPT
+-A OUTPUT -p tcp -d 10.0.1.5 --dport 443 -j ACCEPT
+-A OUTPUT -p tcp -d 10.0.1.5 --dport 8080 -j ACCEPT
+-A OUTPUT -p tcp -d 10.0.1.5 --dport 8443 -j ACCEPT
+COMMIT
