@@ -6,5 +6,4 @@
     - core-daemons
     - core-programs
     - sshd
-    - unifi-controller
     - hass
