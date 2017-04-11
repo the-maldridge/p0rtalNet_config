@@ -46,6 +46,16 @@
   notify:
     - monit
 
+- name: Install HomeAssistant firewall rules
+  copy:
+    src: hass.rules
+    dest: /etc/iptables.d/hass.rules
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - iptables
+
 - name: Install HomeAssistant Service (1/2)
   file:
     path: /etc/sv/hass
