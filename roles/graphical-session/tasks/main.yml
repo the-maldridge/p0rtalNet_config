@@ -2,9 +2,10 @@
 - name: Install Terminal Components
   xbps: pkg={{ item }} state=present
   with_items:
+    - font-inconsolata-otf
     - rxvt-unicode
     - urxvt-perls
-    - font-inconsolata-otf
+    - xsel
 
 - name: Install dotfiles deps
   xbps: pkg={{ item }} state=present
