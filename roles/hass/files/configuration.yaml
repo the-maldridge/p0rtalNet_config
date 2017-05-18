@@ -13,9 +13,7 @@ updater:
 conversation:
 history:
 logbook:
-
-emulated_hue:
-  type: alexa
+sun:
 
 light:
   - platform: x10
@@ -56,3 +54,11 @@ scene:
       group.Living_Room_LEDs: on
       light.Hall: on
       light.Michaels_Bedroom: on
+
+device_tracker:
+  - platform: ping
+    hosts:
+      maldridge: 10.0.1.11
+
+device_sun_light_trigger:
+  light_group: group.Living_Room_LEDs

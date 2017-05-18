@@ -28,13 +28,16 @@
 
 - name: Configure Home Assistant
   copy:
-    src: configuration.yaml
-    dest: /home/hass/.homeassistant/configuration.yaml
+    src: "{{ item }}.yaml"
+    dest: /home/hass/.homeassistant/{{ item }}.yaml
     owner: hass
     group: hass
     mode: 0644
   notify:
     - hass
+  with_items:
+    - configuration
+    - known_devices
 
 - name: Configure monit
   copy:
