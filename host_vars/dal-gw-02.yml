@@ -112,3 +112,11 @@ greenhaven_hosts:
   - name: maldridge-led
     mac: 60:01:94:0e:dd:c1
     addr: 10.0.1.53
+  - name: tradfri
+    mac: b0:72:bf:27:90:9d
+    addr: 10.0.1.54
+    pf:
+      out:
+        - proto: tcp
+          dest: any
+          port: "{80 442}"
