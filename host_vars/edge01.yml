@@ -3,7 +3,7 @@ sg_pkg_server: mirror.esc7.net
 sg_pkg_path: https://mirror.esc7.net/%m/
 
 sg_globalconf:
-  hostname: dal-gw-02.greenhaven.michaelwashere.net
+  hostname: edge01.mtv.michaelwashere.net
   domain_address: 10.0.1.1
   bootresolvers:
     - 8.8.8.8
@@ -25,7 +25,7 @@ sg_networks:
     cidr: 10.0.1.0/24
     arpa: 10.in-addr.arpa
     attach_to: bge0
-    domain: greenhaven.michaelwashere.net
+    domain: mtv.michaelwashere.net
     services:
       - jumphost
       - nat
@@ -35,7 +35,7 @@ sg_networks:
       - ntp
     serviceconf:
       dns:
-        adminmail: dnsadmin.michaelwashere.net
+        adminmail: mtv.michaelwashere.net
         domain_address: 10.0.1.1
         nameservers:
           - 10.0.1.1
@@ -51,7 +51,7 @@ sg_networks:
         mode: manual
         autonat:
           - 10.0.1.0/24
-    hosts: "{{ greenhaven_hosts }}"
+    hosts: "{{ mtv_hosts }}"
 
 
 sg_interfaces:
@@ -59,10 +59,10 @@ sg_interfaces:
     desc: External Spectrum Link
     address: dhcp
   - name: bge0
-    desc: p0rtalNet Greenhaven Network
+    desc: p0rtalNet MTV Network
     address: 10.0.1.1/24
 
-greenhaven_hosts:
+mtv_hosts:
   - name: GlobalDynamics
     mac: 00:1e:8c:89:78:75
     addr: 10.0.1.2
@@ -90,33 +90,6 @@ greenhaven_hosts:
   - name: maldridge-chromebook
     mac: 14:2d:27:65:60:af
     addr: 10.0.1.14
-  - name: ian-desktop
-    desc: Ian Desktop
-    mac: 70:71:bc:44:f7:77
-    addr: 10.0.1.20
-    pf:
-      in:
-        - proto: tcp
-          src: any
-          to: fxp0
-          port: 2222
-  - name: livingroom-left
-    mac: 5c:cf:7f:d2:e9:98
-    addr: 10.0.1.50
-  - name: livingroom-right
-    mac: 60:01:94:01:2e:b8
-    addr: 10.0.1.51
-  - name: hall-led
-    mac: 60:01:94:0e:dc:b5
-    addr: 10.0.1.52
-  - name: maldridge-led
-    mac: 60:01:94:0e:dd:c1
-    addr: 10.0.1.53
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54
-    pf:
-      out:
-        - proto: tcp
-          dest: any
-          port: "{80 442}"
