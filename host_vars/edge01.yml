@@ -1,6 +1,6 @@
 ---
-sg_pkg_server: mirror.esc7.net
-sg_pkg_path: https://mirror.esc7.net/%m/
+sg_pkg_server: mirrors.sonic.net
+sg_pkg_path: https://{{ sg_pkg_server }}/%m/
 
 sg_globalconf:
   hostname: edge01.mtv.michaelwashere.net
