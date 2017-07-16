@@ -90,6 +90,9 @@ mtv_hosts:
   - name: maldridge-chromebook
     mac: 14:2d:27:65:60:af
     addr: 10.0.1.14
+  - name: stargazer
+    mac: f4:4d:30:6f:70:c9
+    addr: 10.0.1.16
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54

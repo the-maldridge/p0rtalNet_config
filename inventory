@@ -12,11 +12,11 @@ earth
 theGibson
 deepblue
 tricorder
+stargazer
 
 [workstation-i686]
 eniac
 monolith
-stargazer
 
 [workstation:children]
 workstation-x64
