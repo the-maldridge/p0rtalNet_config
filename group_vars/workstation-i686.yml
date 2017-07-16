@@ -3,3 +3,5 @@ network_output_policy: ACCEPT
 network_enable_wpa_supplicant: true
 
 LWG_theme_name: p0rtalNet
+
+xbps_repoconf_repos:

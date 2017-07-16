@@ -1,4 +1,2 @@
 ---
 network_enable_wpa_supplicant: false
-
-xbps_repoconf_repos:
