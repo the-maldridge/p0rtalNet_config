@@ -52,9 +52,6 @@
 [submodule "roles/ntp"]
 	path = roles/ntp
 	url = git@github.com:void-ansible-roles/ntp.git
-[submodule "library/ansible_xbps"]
-	path = library/ansible_xbps
-	url = git@github.com:void-ansible-roles/ansible_xbps.git
 [submodule "roles/sg-dns"]
 	path = roles/sg-dns
 	url = git@github.com:SimpleGateway/sg-dns.git
