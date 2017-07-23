@@ -93,6 +93,12 @@ mtv_hosts:
   - name: stargazer
     mac: f4:4d:30:6f:70:c9
     addr: 10.0.1.16
+  - name: deepblue
+    mac: 54:ab:3a:4c:8c:7e
+    addr: 10.0.1.17
+  - name: deepblue
+    mac: 4c:eb:42:d9:da:e6
+    addr: 10.0.1.18
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54
