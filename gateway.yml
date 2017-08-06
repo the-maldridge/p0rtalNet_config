@@ -12,3 +12,4 @@
     - sg-dhcp
     - sg-dns
     - sg-ntp
+    - sg-pxeboot

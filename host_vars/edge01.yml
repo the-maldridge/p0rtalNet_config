@@ -33,6 +33,7 @@ sg_networks:
       - dhcp
       - dns
       - ntp
+      - pxeboot
     serviceconf:
       dns:
         adminmail: mtv.michaelwashere.net
@@ -46,6 +47,8 @@ sg_networks:
         dns: 10.0.1.1
         ntp: 10.0.1.1
         allow_unknown: true
+        pxeboot_fname: pxelinux.0
+        pxeboot_next: 10.0.1.1
       nat:
         nat_to: fxp0
         mode: manual
