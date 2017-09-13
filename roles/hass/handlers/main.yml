@@ -1,3 +1,0 @@
----
-- name: hass
-  command: sv restart hass

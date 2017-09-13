@@ -1,7 +1,0 @@
----
-- name: Verify Server
-  stat: path={{ prefixPath }}/{{ serverDir }}
-  register: st
-
-- fail: msg="Whoops! ServerDir does not exist!"
-  when: st.stat.exists == False
