@@ -2,7 +2,7 @@
 
 SECRETS_DIR = secret
 
-secrets: mkdir_secrets inspircd_inspircd_power_diepass inspircd_inspircd_power_restartpass inspircd_links_minecraft_recvpass inspircd_links_minecraft_sendpass inspircd_modules_cloak_key inspircd_opers
+secrets: mkdir_secrets inspircd_inspircd_power_diepass inspircd_inspircd_power_restartpass inspircd_modules_cloak_key inspircd_opers
 
 mkdir_secrets:
 	mkdir -pm 0700 ${SECRETS_DIR}

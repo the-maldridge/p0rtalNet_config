@@ -1,3 +1,5 @@
 ---
 - name: inspircd
-  service: name=inspircd state=reloaded
+  service:
+    name: inspircd
+    state: reloaded

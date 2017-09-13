@@ -9,6 +9,7 @@
     - sshd
     - mosh
     - bitlbee
+    - inspircd
     - irc-session
     - acmetool
     - pydio
