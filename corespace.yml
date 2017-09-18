@@ -12,5 +12,7 @@
     - inspircd
     - irc-session
     - acmetool
+    - nginx
+    - jekyll
     - pydio
     - xbps-mini-repo

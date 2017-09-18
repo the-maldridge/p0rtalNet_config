@@ -14,7 +14,22 @@ acmetool:
     - site: pydio.michaelwashere.net
       names:
         - pydio.michaelwashere.net
+    - site: michaelwashere.net
+      names:
+        - michaelwashere.net
+        - www.michaelwashere.net
   hostmaster_email: aldridge.mac@gmail.com
+
+jekyll_sites:
+  - site_name: mwh
+    site_path: /srv/www/mwh
+    site_url: michaelwashere.net
+    source_url: https://github.com/the-maldridge/the-maldridge.github.io
+    source_port: 443
+    use_ssl: true
+    ssl_certificate_path: /var/lib/acme/live/michaelwashere.net/fullchain
+    ssl_key_path: /var/lib/acme/live/michaelwashere.net/privkey
+    webserver: nginx
 
 pydio_domain: pydio.michaelwashere.net
 pydio_use_acmetool: true
