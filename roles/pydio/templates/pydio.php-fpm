@@ -1,5 +1,5 @@
 [pydio]
-prefix = /srv/www/$pool
+prefix = {{ pydio_webroot }}
 user = pydio
 group = pydio
 listen = /var/run/pydio.sock
