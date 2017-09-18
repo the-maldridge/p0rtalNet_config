@@ -1,3 +1,0 @@
-*filter
--A OUTPUT -p tcp -m multiport --dports 5222,5269 -j ACCEPT
-COMMIT
