@@ -33,7 +33,7 @@ jekyll_sites:
 
 pydio_domain: pydio.michaelwashere.net
 pydio_use_acmetool: true
-pydio_webroot: /tank/pydio
+pydio_webroot: /mnt/margarine/pydio
 pydio_certificate_path: /var/lib/acme/live/pydio.michaelwashere.net/fullchain
 pydio_key_path: /var/lib/acme/live/pydio.michaelwashere.net/privkey
 
