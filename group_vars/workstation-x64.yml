@@ -2,8 +2,6 @@
 network_output_policy: ACCEPT
 network_enable_wpa_supplicant: true
 
-LWG_theme_name: p0rtalNet
-
 xbps_repoconf_repos:
   - name: p0rtalNet-nonfree
     address: "http://pkgs.michaelwashere.net/nonfree"
