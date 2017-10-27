@@ -17,7 +17,6 @@
   xbps: pkg={{ item }} state=present
   with_items:
     - firefox
-    - opera
     - chromium
 
 - name: Install development tools
