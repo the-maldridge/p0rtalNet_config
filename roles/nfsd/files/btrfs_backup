@@ -1,0 +1,1 @@
+0 0 * * * root rsync -auvz /mnt/aluminium-mountain/ /mnt/vault/mountain_mirror/ 2>&1 > /dev/null

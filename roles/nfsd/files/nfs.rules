@@ -1,0 +1,4 @@
+*filter
+-A INPUT -s 10.0.1.0/24 -j ACCEPT
+-A OUTPUT -d 10.0.1.0/24 -j ACCEPT
+COMMIT

@@ -6,3 +6,4 @@
     - core-daemons
     - core-programs
     - sshd
+    - nfsd

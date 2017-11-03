@@ -1,0 +1,57 @@
+---
+- name: Install packages
+  xbps:
+    pkg:
+      - nfs-utils
+      - rsync
+
+- name: Configure flat drive
+  mount:
+    path: /mnt/vault
+    src: UUID=a8885fc5-85fa-4aa7-b224-a695fc843fde
+    fstype: ext4
+    state: present
+
+- name: Configure BTRFS mount
+  mount:
+    path: /mnt/aluminium-mountain
+    src: UUID=82889515-2228-4c3c-be3c-d48202745c4a
+    fstype: btrfs
+    state: present
+
+- name: Install NFS firewall rules
+  copy:
+    src: nfs.rules
+    dest: /etc/iptables.d/nfs.rules
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - iptables
+
+- name: Install NFS configuration file
+  copy:
+    src: exports
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - nfsd
+
+- name: Install pool backup cron job
+  copy:
+    src: btrfs_backup
+    dest: /etc/cron.d/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Enable NFSd
+  runit:
+    name: "{{ item }}"
+    enabled: true
+  with_items:
+    - nfs-server
+    - statd
+    - rpcbind
