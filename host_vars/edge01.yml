@@ -1,6 +1,6 @@
 ---
 sg_pkg_server: mirrors.sonic.net
-sg_pkg_path: https://{{ sg_pkg_server }}/%m/
+sg_pkg_path: https://{{ sg_pkg_server }}/pub/OpenBSD
 
 sg_globalconf:
   hostname: edge01.mtv.michaelwashere.net
@@ -59,7 +59,7 @@ sg_networks:
 
 sg_interfaces:
   - name: fxp0
-    desc: External Spectrum Link
+    desc: External Sonic Link
     address: dhcp
   - name: bge0
     desc: p0rtalNet MTV Network
