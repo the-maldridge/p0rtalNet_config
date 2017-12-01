@@ -1,0 +1,7 @@
+---
+influxdb:
+  remote_sources:
+    - thegibson.mtv.michaelwashere.net
+
+grafana:
+  public_bind: true

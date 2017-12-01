@@ -64,3 +64,12 @@
 [submodule "roles/jekyll"]
 	path = roles/jekyll
 	url = git@github.com:void-ansible-roles/jekyll
+[submodule "roles/telegraf"]
+	path = roles/telegraf
+	url = git@github.com:void-ansible-roles/telegraf.git
+[submodule "roles/influxdb"]
+	path = roles/influxdb
+	url = git@github.com:void-ansible-roles/influxdb.git
+[submodule "roles/grafana"]
+	path = roles/grafana
+	url = git@github.com:void-ansible-roles/grafana.git

@@ -5,3 +5,4 @@
     - xbps-repoconf
     - ntp
     - graphical-session
+    - telegraf
