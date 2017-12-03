@@ -2,11 +2,11 @@
 - hosts: utility
   become: yes
   roles:
-    # - xbps-repoconf
-    # - core-daemons
-    # - core-programs
-    # - sshd
-    # - nfsd
+    - xbps-repoconf
+    - core-daemons
+    - core-programs
+    - sshd
+    - nfsd
     - telegraf
     - influxdb
     - grafana

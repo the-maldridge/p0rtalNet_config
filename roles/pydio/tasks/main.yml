@@ -23,24 +23,42 @@
     name: nginx
     group: pydio
 
-- name: Install nginx config file
+- name: Configure nginx
+  include_role:
+    name: nginx
+    tasks_from: base-site
+  vars:
+    - site:
+        name: pydio
+        urls: "{{ pydio_domain }}"
+        use_ssl: true
+        root_path: "{{ pydio_webroot }}"
+        static_root: false
+        ssl_certificate_path: "{{ pydio_certificate_path }}"
+        ssl_key_path: "{{ pydio_key_path }}"
+        ssl_stapling: "{{ pydio_ssl_stapling }}"
+        
+
+- name: Configure auxiliary nginx settings
   template:
-    src: pydio.conf
-    dest: /etc/nginx/sites-available/pydio.conf
+    src: additional-settings.conf
+    dest: "/etc/nginx/locations.d/{{ pydio_domain | first }}/"
     owner: root
     group: root
     mode: 0644
   notify:
     - nginx
 
-- name: Enable nginx config file
-  file:
-    src: ../sites-available/pydio.conf
-    dest: /etc/nginx/sites-enabled/pydio.conf
-    state: link
+- name: Configure nginx locations
+  copy:
+    src: pydio-locations.conf
+    dest: "/etc/nginx/locations.d/{{ pydio_domain | first }}/"
+    owner: root
+    group: root
+    mode: 0644
   notify:
     - nginx
-
+        
 - name: Install the php-fpm pool config
   template:
     src: pydio.php-fpm
@@ -60,13 +78,3 @@
     mode: 0644
   notify:
     - php-fpm
-
-- name: Copy pydio firewall rules
-  copy:
-    src: pydio.rules
-    dest: /etc/iptables.d/pydio.rules
-    owner: root
-    group: root
-    mode: 0640
-  notify:
-    - iptables
