@@ -5,6 +5,7 @@
     - xbps-repoconf
     - core-daemons
     - core-programs
+    - cron
     - sshd
     - nfsd
     - telegraf

@@ -2,7 +2,6 @@
 - name: Install core-daemons
   xbps: pkg={{ item }} state=present
   with_items:
-    - dcron
     - openntpd
     - socklog-void
 
@@ -14,7 +13,6 @@
 - name: Enable core-daemons
   file: src=/etc/sv/{{ item }} dest=/var/service/{{ item }} state=link owner=root group=root
   with_items:
-    - crond
     - ntpd
     - socklog-unix
     - nanoklogd
