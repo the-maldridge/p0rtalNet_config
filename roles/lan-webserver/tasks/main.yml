@@ -1,0 +1,20 @@
+---
+- name: Make Webroot
+  file:
+    path: /srv/www/local_webroot
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Configure Site
+  include_role:
+    name: nginx
+    tasks_from: base-site
+  vars:
+    - site:
+        name: local
+        urls:
+          - www.mtv.michaelwashere.net
+        root_path: /srv/www/local_webroot
+        autoindex: true

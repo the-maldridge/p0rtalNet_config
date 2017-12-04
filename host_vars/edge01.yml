@@ -69,6 +69,9 @@ mtv_hosts:
   - name: GlobalDynamics
     mac: 00:1e:8c:89:78:75
     addr: 10.0.1.2
+    dns:
+      CNAME:
+        - www
   - name: wireless
     mac: 00:0b:82:a9:03:53
     addr: 10.0.1.3
