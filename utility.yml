@@ -3,8 +3,8 @@
   become: yes
   roles:
     - xbps-repoconf
-    - core-daemons
     - core-programs
+    - openntp
     - cron
     - sshd
     - nfsd

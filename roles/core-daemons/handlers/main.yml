@@ -1,3 +1,0 @@
----
-- name: ntpd
-  command: sv restart ntpd

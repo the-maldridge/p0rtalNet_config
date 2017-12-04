@@ -21,3 +21,8 @@ monolith
 [workstation:children]
 workstation-x64
 workstation-i686
+
+[mtv]
+theGibson
+GlobalDynamics
+stargazer

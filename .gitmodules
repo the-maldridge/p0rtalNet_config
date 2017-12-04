@@ -76,3 +76,6 @@
 [submodule "roles/cron"]
 	path = roles/cron
 	url = git@github.com:void-ansible-roles/cron.git
+[submodule "roles/openntp"]
+	path = roles/openntp
+	url = git@github.com:void-ansible-roles/openntp.git
