@@ -16,7 +16,6 @@ stargazer
 
 [workstation-i686]
 eniac
-monolith
 
 [workstation:children]
 workstation-x64
