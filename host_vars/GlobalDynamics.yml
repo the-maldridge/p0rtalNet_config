@@ -1,4 +1,7 @@
 ---
+local_web_urls:
+  - www.mtv.michaelwashere.net
+
 influxdb:
   remote_sources:
     - thegibson.mtv.michaelwashere.net

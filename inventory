@@ -21,7 +21,13 @@ eniac
 workstation-x64
 workstation-i686
 
+[satellite]
+frostberg
+
 [mtv]
 theGibson
 GlobalDynamics
 stargazer
+
+[aus]
+frostberg

@@ -14,7 +14,6 @@
   vars:
     - site:
         name: local
-        urls:
-          - www.mtv.michaelwashere.net
+        urls: "{{ local_web_urls }}"
         root_path: /srv/www/local_webroot
         autoindex: true

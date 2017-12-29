@@ -1,0 +1,10 @@
+---
+- hosts: satellite
+  become: yes
+  roles:
+    - xbps-repoconf
+    - core-programs
+    - openntp
+    - sshd
+    - lan-webserver
+    - conn-reset
