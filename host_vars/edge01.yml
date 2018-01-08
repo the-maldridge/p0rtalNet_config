@@ -108,3 +108,6 @@ mtv_hosts:
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54
+  - name: home-mini
+    mac: 64:bc:0c:46:c1:25
+    addr: 10.0.1.55
