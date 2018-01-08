@@ -105,6 +105,12 @@ mtv_hosts:
   - name: deepblue
     mac: 4c:eb:42:d9:da:e6
     addr: 10.0.1.18
+  - name: GasaiYuno
+    mac: a0:48:1c:0b:28:49
+    addr: 10.0.1.30
+  - name: GasaiYuno
+    mac: 0c:84:dc:8e:ee:88
+    addr: 10.0.1.31
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54
