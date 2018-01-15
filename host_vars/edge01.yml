@@ -82,10 +82,10 @@ mtv_hosts:
     mac: f0:9f:c2:15:38:c4
     addr: 10.0.1.5
   - name: theGibson
-    mac: bc:5f:f4:7b:59:21
+    mac: 1c:1b:0d:eb:ce:f0
     addr: 10.0.1.10
   - name: maldridgePhone
-    mac: 64:bc:0c:43:03:b9
+    mac: 88:b4:a6:7d:93:01
     addr: 10.0.1.11
   - name: earth
     mac: f0:1f:af:3a:ce:a6
