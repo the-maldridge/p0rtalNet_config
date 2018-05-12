@@ -1,0 +1,61 @@
+---
+- name: Create group
+  group:
+    name: noobfarm
+    state: present
+
+- name: Create User
+  user:
+    name: noobfarm
+    group: noobfarm
+    create_home: yes
+    home: /mnt/margarine/noobfarm2
+    comment: Noobfarm service user
+
+- name: Configure webserver
+  include_role:
+    name: nginx
+    tasks_from: base-site
+  vars:
+    - site:
+        name: noobfarm
+        urls:
+          - noobfarm.org
+        static_root: false
+        use_ssl: true
+        ssl_stapling: true
+        ssl_certificate_path: /var/lib/acme/live/noobfarm.org/fullchain
+        ssl_key_path: /var/lib/acme/live/noobfarm.org/privkey
+  notify:
+    - nginx
+
+- name: Configure root location
+  copy:
+    src: root.conf
+    dest: /etc/nginx/locations.d/noobfarm.org/root.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - nginx
+
+- name: Install Service (1/2)
+  file:
+    path: /etc/sv/noobfarm
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install Service (2/2)
+  copy:
+    src: run
+    dest: /etc/sv/noobfarm/run
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable services
+  runit:
+    name: noobfarm
+    enabled: yes

@@ -18,6 +18,9 @@ acmetool:
       names:
         - michaelwashere.net
         - www.michaelwashere.net
+    - site: noobfarm.org
+      names:
+        - noobfarm.org
   hostmaster_email: aldridge.mac@gmail.com
 
 jekyll_sites:
