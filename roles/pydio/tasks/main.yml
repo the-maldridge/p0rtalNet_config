@@ -1,12 +1,4 @@
 ---
-- name: Install php modules
-  xbps:
-    pkg:
-      - php-gd
-      - php-mcrypt
-      - php-sqlite
-    state: present
-
 - name: Create the pydio group
   group:
     name: pydio
