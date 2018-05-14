@@ -1,0 +1,2 @@
+---
+nfsd_restic_repopass: "{{ lookup('file', 'secret/nfsd_restic_repopass') }}"

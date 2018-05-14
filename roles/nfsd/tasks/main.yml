@@ -3,7 +3,32 @@
   xbps:
     pkg:
       - nfs-utils
+      - restic
       - rsync
+      - snooze
+
+- name: Create backup group
+  group:
+    name: backup
+    state: present
+
+- name: Create backup user
+  user:
+    name: backup
+    group: backup
+    state: present
+
+- name: Create mounts
+  file:
+    path: /mnt/{{ item.name }}
+    state: directory
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: 0755
+  with_items:
+    - { name: aluminium-mountain }
+    - { name: vault }
+    - { name: firevault, owner: backup, group: backup }
 
 - name: Configure flat drive
   mount:
@@ -18,6 +43,37 @@
     src: UUID=82889515-2228-4c3c-be3c-d48202745c4a
     fstype: btrfs
     state: present
+
+- name: Configure FireVault
+  mount:
+    path: /mnt/firevault
+    src: UUID=a1228b9c-a326-45f5-a675-0e21d4de83f9
+    fstype: ext4
+    state: present
+
+- name: Install restic repository password
+  template:
+    src: restic.passwd.j2
+    dest: /etc/restic.passwd
+    owner: root
+    group: backup
+    mode: 0640
+
+- name: Install backup script
+  copy:
+    src: backup_daily
+    dest: /usr/local/bin/backup_daily
+    owner: root
+    group: backup
+    mode: 750
+
+- name: Create the backup home
+  file:
+    path: /mnt/vault/restic
+    state: directory
+    owner: backup
+    group: backup
+    mode: 0755
 
 - name: Install NFS firewall rules
   copy:
@@ -39,14 +95,6 @@
   notify:
     - nfsd
 
-- name: Install pool backup cron job
-  copy:
-    src: btrfs_backup
-    dest: /etc/cron.d/
-    owner: root
-    group: root
-    mode: 0644
-
 - name: Enable NFSd
   runit:
     name: "{{ item }}"
@@ -55,3 +103,24 @@
     - nfs-server
     - statd
     - rpcbind
+
+- name: Install backup service (1/2)
+  file:
+    path: /etc/sv/backup_service
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install backup service (2/2)
+  copy:
+    src: run
+    dest: /etc/sv/backup_service/run
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable backup service
+  runit:
+    name: backup_service
+    enabled: true

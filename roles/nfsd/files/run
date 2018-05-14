@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Grant some special powers to restic
+setcap cap_dac_read_search=+ep /usr/bin/restic
+chown root:backup /usr/bin/restic
+chmod 0750 /usr/bin/restic
+
+exec chpst -u backup:backup snooze /usr/local/bin/backup_daily
