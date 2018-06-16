@@ -8,7 +8,7 @@
   user:
     name: noobfarm
     group: noobfarm
-    create_home: yes
+    createhome: yes
     home: /mnt/margarine/noobfarm2
     comment: Noobfarm service user
 
