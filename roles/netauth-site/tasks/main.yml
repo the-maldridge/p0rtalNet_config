@@ -1,0 +1,16 @@
+---
+- name: Configure Webserver
+  include_role:
+    name: nginx
+    tasks_from: base-site
+  vars:
+    - site:
+        name: netauth
+        root_path: /srv/www/netauth
+        urls:
+          - netauth.org
+          - www.netauth.org
+        use_ssl: true
+        ssl_stapling: true
+        ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
+        ssl_key_path: /var/lib/acme/live/netauth.org/privkey

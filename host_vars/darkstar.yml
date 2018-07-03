@@ -18,6 +18,10 @@ acmetool:
     - site: noobfarm.org
       names:
         - noobfarm.org
+    - site: netauth.org
+      names:
+        - netauth.org
+        - www.netauth.org
   hostmaster_email: aldridge.mac@gmail.com
 
 jekyll_sites:
