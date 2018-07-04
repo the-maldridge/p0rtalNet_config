@@ -1,9 +1,9 @@
 ---
-xbps_repository_address: lug.utdallas.edu
-xbps_repository_main: https://{{ xbps_repository_address }}/mirror/void/current
-xbps_repository_nonfree: https://{{ xbps_repository_address }}/mirror/void/current/nonfree
-xbps_repository_multilib: https://{{ xbps_repository_address }}/mirror/void/current/multilib
-xbps_repository_multilib_nonfree: https://{{ xbps_repository_address }}/mirror/void/current/multilib/nonfree
+xbps_repository_address: mirrors.servercentral.com
+xbps_repository_main: https://{{ xbps_repository_address }}/voidlinux/current
+xbps_repository_nonfree: https://{{ xbps_repository_address }}/voidlinux/current/nonfree
+xbps_repository_multilib: https://{{ xbps_repository_address }}/voidlinux/current/multilib
+xbps_repository_multilib_nonfree: https://{{ xbps_repository_address }}/voidlinux/current/multilib/nonfree
 xbps_repository_port: 443
 
 sshd_banner: assets/sshd_banners/portalnet
