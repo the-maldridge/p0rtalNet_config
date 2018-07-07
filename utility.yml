@@ -8,6 +8,3 @@
     - sshd
     - nfsd
     - lan-webserver
-    - telegraf
-    - influxdb
-    - grafana
