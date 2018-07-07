@@ -50,7 +50,7 @@ sg_networks:
         pxeboot_fname: pxelinux.0
         pxeboot_next: 10.0.1.1
       nat:
-        nat_to: fxp0
+        nat_to: msk0
         mode: manual
         autonat:
           - 10.0.1.0/24
@@ -58,7 +58,7 @@ sg_networks:
 
 
 sg_interfaces:
-  - name: fxp0
+  - name: msk0
     desc: External Sonic Link
     address: dhcp
   - name: bge0
