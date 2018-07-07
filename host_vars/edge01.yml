@@ -67,7 +67,7 @@ sg_interfaces:
 
 mtv_hosts:
   - name: GlobalDynamics
-    mac: 00:1e:8c:89:78:75
+    mac: e0:d5:5e:80:ff:50
     addr: 10.0.1.2
     dns:
       CNAME:
