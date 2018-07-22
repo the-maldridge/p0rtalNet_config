@@ -22,6 +22,7 @@ acmetool:
       names:
         - netauth.org
         - www.netauth.org
+        - docs.netauth.org
   hostmaster_email: aldridge.mac@gmail.com
 
 jekyll_sites:
