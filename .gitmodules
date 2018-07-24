@@ -79,3 +79,6 @@
 [submodule "roles/openntp"]
 	path = roles/openntp
 	url = git@github.com:void-ansible-roles/openntp.git
+[submodule "roles/hugo"]
+	path = roles/hugo
+	url = https://github.com/void-ansible-roles/hugo
