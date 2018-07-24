@@ -15,5 +15,5 @@
     - jekyll
     - xbps-mini-repo
     - noobfarm
-    - netauth-site
     - hugo
+    - mdbook

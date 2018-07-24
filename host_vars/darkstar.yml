@@ -51,6 +51,18 @@ hugo_sites:
     ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
     ssl_key_path: /var/lib/acme/live/netauth.org/privkey
 
+mdbook_sites:
+  - name: netauth_docs
+    root_path: /srv/www/netauth_docs
+    urls:
+      - docs.netauth.org
+    source_url: https://github.com/NetAuth/docs
+    source_port: 443
+    use_ssl: true
+    ssl_stapling: true
+    ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
+    ssl_key_path: /var/lib/acme/live/netauth.org/privkey
+
 xbps_mini_builder_pkgs: assets/config/xbps-mini-builder/packages.list
 xbps_mini_builder_conf: assets/config/xbps-mini-builder/xbps-src.conf
 xbps_mini_builder_servernames:

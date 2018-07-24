@@ -82,3 +82,6 @@
 [submodule "roles/hugo"]
 	path = roles/hugo
 	url = https://github.com/void-ansible-roles/hugo
+[submodule "roles/mdbook"]
+	path = roles/mdbook
+	url = https://github.com/void-ansible-roles/mdbook
