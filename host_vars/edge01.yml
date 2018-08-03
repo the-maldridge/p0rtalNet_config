@@ -87,12 +87,6 @@ mtv_hosts:
   - name: maldridgePhone
     mac: 88:b4:a6:7d:93:01
     addr: 10.0.1.11
-  - name: earth
-    mac: f0:1f:af:3a:ce:a6
-    addr: 10.0.1.12
-  - name: earth
-    mac: 70:18:8b:b9:79:87
-    addr: 10.0.1.13
   - name: maldridge-chromebook
     mac: 14:2d:27:65:60:af
     addr: 10.0.1.14
