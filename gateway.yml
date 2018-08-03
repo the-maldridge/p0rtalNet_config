@@ -1,10 +1,12 @@
 ---
 - hosts: gateway
   gather_facts: no
+  strategy: linear
   roles:
     - sg-ansible-setup
 
 - hosts: gateway
+  strategy: linear
   become: yes
   become_method: doas
   roles:
