@@ -23,6 +23,9 @@ acmetool:
         - netauth.org
         - www.netauth.org
         - docs.netauth.org
+    - site: maldridge.us
+      names:
+        - maldridge.us
   hostmaster_email: aldridge.mac@gmail.com
 
 jekyll_sites:
@@ -50,6 +53,17 @@ hugo_sites:
     ssl_stapling: true
     ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
     ssl_key_path: /var/lib/acme/live/netauth.org/privkey
+  - name: maldridge_us
+    root_path: /srv/www/maldridge_us
+    urls:
+      - maldridge.us
+    source_url: http://git.michaelwashere.net/maldridge/maldridge.us.git
+    source_host: git.michaelwashere.net
+    source_port: 443
+    use_ssl: true
+    ssl_stapling: true
+    ssl_certificate_path: /var/lib/acme/live/maldridge.us/fullchain
+    ssl_key_path: /var/lib/acme/live/maldridge.us/privkey
 
 mdbook_sites:
   - name: netauth_docs
