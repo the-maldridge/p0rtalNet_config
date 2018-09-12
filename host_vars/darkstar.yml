@@ -28,19 +28,6 @@ acmetool:
         - maldridge.us
   hostmaster_email: aldridge.mac@gmail.com
 
-jekyll_sites:
-  - name: mwh
-    root_path: /srv/www/mwh
-    urls:
-      - michaelwashere.net
-      - www.michaelwashere.net
-    source_url: https://github.com/the-maldridge/the-maldridge.github.io
-    source_port: 443
-    use_ssl: true
-    ssl_stapling: true
-    ssl_certificate_path: /var/lib/acme/live/michaelwashere.net/fullchain
-    ssl_key_path: /var/lib/acme/live/michaelwashere.net/privkey
-
 hugo_sites:
   - name: netauth
     root_path: /srv/www/netauth
@@ -64,6 +51,17 @@ hugo_sites:
     ssl_stapling: true
     ssl_certificate_path: /var/lib/acme/live/maldridge.us/fullchain
     ssl_key_path: /var/lib/acme/live/maldridge.us/privkey
+  - name: mwh
+    root_path: /srv/www/mwh
+    urls:
+      - michaelwashere.net
+      - www.michaelwashere.net
+    source_url: https://github.com/the-maldridge/mwh_site.git
+    source_port: 443
+    use_ssl: true
+    ssl_stapling: true
+    ssl_certificate_path: /var/lib/acme/live/michaelwashere.net/fullchain
+    ssl_key_path: /var/lib/acme/live/michaelwashere.net/privkey
 
 mdbook_sites:
   - name: netauth_docs
