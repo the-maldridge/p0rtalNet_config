@@ -73,7 +73,7 @@ mtv_hosts:
       CNAME:
         - www
   - name: wireless
-    mac: 00:0b:82:a9:03:53
+    mac: 04:18:d6:92:89:ae
     addr: 10.0.1.3
   - name: sip-gateway
     mac: 9c:ad:ef:12:32:a9
