@@ -10,8 +10,7 @@
     - mosh
     - inspircd
     - irc-session
-    - acmetool
-    - nginx
+    - caddy
     - xbps-mini-repo
     - noobfarm
     - hugo

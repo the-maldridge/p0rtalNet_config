@@ -9,24 +9,10 @@ network_interfaces:
     routers:
       - 69.13.217.89
 
-acmetool:
-  sites:
-    - site: michaelwashere.net
-      names:
-        - michaelwashere.net
-        - www.michaelwashere.net
-    - site: noobfarm.org
-      names:
-        - noobfarm.org
-    - site: netauth.org
-      names:
-        - netauth.org
-        - www.netauth.org
-        - docs.netauth.org
-    - site: maldridge.us
-      names:
-        - maldridge.us
-  hostmaster_email: aldridge.mac@gmail.com
+VAR_webserver: caddy
+
+caddy:
+  tls_hostmaster: aldridge.mac@gmail.com
 
 hugo_sites:
   - name: netauth
@@ -36,10 +22,8 @@ hugo_sites:
       - www.netauth.org
     source_url: https://github.com/NetAuth/netauth.org
     source_port: 443
-    use_ssl: true
-    ssl_stapling: true
-    ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
-    ssl_key_path: /var/lib/acme/live/netauth.org/privkey
+    tls:
+      stapling: true
   - name: maldridge_us
     root_path: /srv/www/maldridge_us
     urls:
@@ -47,10 +31,8 @@ hugo_sites:
     source_url: http://git.michaelwashere.net/maldridge/maldridge.us.git
     source_host: git.michaelwashere.net
     source_port: 443
-    use_ssl: true
-    ssl_stapling: true
-    ssl_certificate_path: /var/lib/acme/live/maldridge.us/fullchain
-    ssl_key_path: /var/lib/acme/live/maldridge.us/privkey
+    tls:
+      stapling: true
   - name: mwh
     root_path: /srv/www/mwh
     urls:
@@ -58,10 +40,8 @@ hugo_sites:
       - www.michaelwashere.net
     source_url: https://github.com/the-maldridge/mwh_site.git
     source_port: 443
-    use_ssl: true
-    ssl_stapling: true
-    ssl_certificate_path: /var/lib/acme/live/michaelwashere.net/fullchain
-    ssl_key_path: /var/lib/acme/live/michaelwashere.net/privkey
+    tls:
+      stapling: true
 
 mdbook_sites:
   - name: netauth_docs
@@ -70,10 +50,8 @@ mdbook_sites:
       - docs.netauth.org
     source_url: https://github.com/NetAuth/docs
     source_port: 443
-    use_ssl: true
-    ssl_stapling: true
-    ssl_certificate_path: /var/lib/acme/live/netauth.org/fullchain
-    ssl_key_path: /var/lib/acme/live/netauth.org/privkey
+    tls:
+      stapling: true
 
 xbps_mini_builder_pkgs: assets/config/xbps-mini-builder/packages.list
 xbps_mini_builder_conf: assets/config/xbps-mini-builder/xbps-src.conf
