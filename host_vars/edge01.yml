@@ -102,6 +102,9 @@ mtv_hosts:
   - name: GasaiYuno
     mac: 0c:84:dc:8e:ee:88
     addr: 10.0.1.31
+  - name: vorpalinity
+    mac: 94:c6:91:a4:46:83
+    addr: 10.0.1.32
   - name: tradfri
     mac: b0:72:bf:27:90:9d
     addr: 10.0.1.54
