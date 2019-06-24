@@ -17,20 +17,16 @@
   xbps: pkg={{ item }} state=present
   with_items:
     - firefox
-    - chromium
 
 - name: Install development tools
   xbps: pkg={{ item }} state=present
   with_items:
-    - base-devel
     - emacs
     - git-all
-    - python-pip
 
 - name: Install Mail programs
   xbps: pkg={{ item }} state=present
   with_items:
-    - thunderbird
     - gnupg2
     - pinentry-gtk
 
