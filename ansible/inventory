@@ -1,14 +1,10 @@
 [corespace]
 darkstar
 
-[gateway]
-edge01
-
 [utility]
 GlobalDynamics
 
 [workstation_x64]
-earth
 theGibson
 deepblue
 tricorder

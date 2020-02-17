@@ -34,30 +34,6 @@
 [submodule "roles/dbus"]
 	path = ansible/roles/dbus
 	url = git@github.com:void-ansible-roles/dbus.git
-[submodule "roles/ntp"]
-	path = ansible/roles/ntp
-	url = git@github.com:void-ansible-roles/ntp.git
-[submodule "roles/sg-dns"]
-	path = ansible/roles/sg-dns
-	url = git@github.com:SimpleGateway/sg-dns.git
-[submodule "roles/sg-dhcp"]
-	path = ansible/roles/sg-dhcp
-	url = git@github.com:SimpleGateway/sg-dhcp.git
-[submodule "roles/sg-ntp"]
-	path = ansible/roles/sg-ntp
-	url = git@github.com:SimpleGateway/sg-ntp.git
-[submodule "roles/sg-base"]
-	path = ansible/roles/sg-base
-	url = git@github.com:SimpleGateway/sg-base.git
-[submodule "roles/acmetool"]
-	path = ansible/roles/acmetool
-	url = git@github.com:void-ansible-roles/acmetool.git
-[submodule "roles/sg-ansible-setup"]
-	path = ansible/roles/sg-ansible-setup
-	url = git@github.com:SimpleGateway/sg-ansible-setup.git
-[submodule "roles/sg-pxeboot"]
-	path = ansible/roles/sg-pxeboot
-	url = git@github.com:SimpleGateway/sg-pxeboot.git
 [submodule "roles/grafana"]
 	path = ansible/roles/grafana
 	url = git@github.com:void-ansible-roles/grafana.git
