@@ -26,8 +26,6 @@
         proxy:
           - to: http://127.0.1.1:2001
             from: /
-  notify:
-    - "{{ VAR_webserver | default('nginx') }}"
 
 - name: Install Service (1/2)
   file:

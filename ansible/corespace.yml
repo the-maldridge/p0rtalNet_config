@@ -2,12 +2,8 @@
 - hosts: corespace
   become: yes
   roles:
-    - network
-    - xbps-repoconf
-    - core-programs
-    - cron
-    - sshd
     - mosh
+    - cron
     - inspircd
     - irc-session
     - caddy

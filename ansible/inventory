@@ -7,19 +7,19 @@ edge01
 [utility]
 GlobalDynamics
 
-[workstation-x64]
+[workstation_x64]
 earth
 theGibson
 deepblue
 tricorder
 stargazer
 
-[workstation-i686]
+[workstation_i686]
 eniac
 
 [workstation:children]
-workstation-x64
-workstation-i686
+workstation_x64
+workstation_i686
 
 [satellite]
 frostberg

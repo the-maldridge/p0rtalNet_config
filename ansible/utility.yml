@@ -2,9 +2,5 @@
 - hosts: utility
   become: yes
   roles:
-    - xbps-repoconf
-    - core-programs
-    - openntp
-    - sshd
     - nfsd
     - lan-webserver

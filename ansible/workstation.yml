@@ -2,6 +2,4 @@
 - hosts: workstation
   become: yes
   roles:
-    - xbps-repoconf
-    - ntp
     - graphical-session

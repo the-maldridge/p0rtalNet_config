@@ -1,2 +1,2 @@
 ---
-network_enable_wpa_supplicant: true
+network_enable_wpa_supplicant: false
