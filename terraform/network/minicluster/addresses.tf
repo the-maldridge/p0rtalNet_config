@@ -5,6 +5,6 @@ resource "junos_security_address_book" "cluster_addresses" {
   network_address {
     name        = "bootmaster"
     description = "Address of the bootmaster"
-    value       = "192.168.32.4/32"
+    value       = "192.168.32.2/32"
   }
 }

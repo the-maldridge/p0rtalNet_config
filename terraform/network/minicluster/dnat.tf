@@ -1,6 +1,6 @@
 resource "junos_security_nat_destination_pool" "bootmaster" {
   name    = "bootmaster"
-  address = "192.168.32.4/32"
+  address = "192.168.32.2/32"
 }
 
 resource "junos_security_nat_destination" "bootmaster_ssh" {
