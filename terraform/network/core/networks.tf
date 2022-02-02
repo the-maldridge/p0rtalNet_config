@@ -88,36 +88,3 @@ resource "junos_security_policy" "zone_to_self" {
     match_application         = ["any"]
   }
 }
-
-resource "junos_access_address_assignment_pool" "pool" {
-  for_each   = var.networks
-
-  name = format("%s-dhcp", each.key)
-
-  family {
-    type    = "inet"
-    network = each.value.cidr
-
-    inet_range {
-      name = "primary"
-      low  = cidrhost(each.value.cidr, 2)
-      high = cidrhost(each.value.cidr, -2)
-    }
-
-    dhcp_attributes {
-      router             = [cidrhost(each.value.cidr, 1)]
-      #propagate_settings = junos_interface_logical.upstream.name
-    }
-  }
-}
-
-resource "junos_system_services_dhcp_localserver_group" "local_dhcp" {
-  name             = "local-dhcp"
-
-  dynamic "interface" {
-    for_each = var.networks
-    content {
-      name = format("irb.%d", interface.value.vlan_id)
-    }
-  }
-}
