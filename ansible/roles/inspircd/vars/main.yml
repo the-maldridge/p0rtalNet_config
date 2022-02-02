@@ -1,4 +1,0 @@
----
-inspircd_inspircd_power_diepass: "{{ lookup('file', 'secret/inspircd_inspircd_power_diepass') }}"
-inspircd_inspircd_power_restartpass: "{{ lookup('file', 'secret/inspircd_inspircd_power_restartpass') }}"
-inspircd_modules_cloak_key: "{{ lookup('file', 'secret/inspircd_modules_cloak_key') }}"

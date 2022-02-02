@@ -1,3 +1,0 @@
----
-- name: nfsd
-  command: exportfs -r

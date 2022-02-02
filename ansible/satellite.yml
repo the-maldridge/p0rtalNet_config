@@ -1,5 +1,0 @@
----
-- hosts: satellite
-  become: yes
-  roles:
-    - lan-webserver

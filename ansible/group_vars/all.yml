@@ -7,14 +7,3 @@ xbps_repository_multilib_nonfree: https://{{ xbps_repository_address }}/voidlinu
 xbps_repository_port: 443
 
 sshd_banner: assets/sshd_banners/portalnet
-
-monit_readonly: true
-
-telegraf:
-  remotes:
-    - host: globaldynamics.mtv.michaelwashere.net
-      port: 9000
-  output:
-    influxdb:
-      url: "http://globaldynamics.mtv.michaelwashere.net:8086"
-  agent:

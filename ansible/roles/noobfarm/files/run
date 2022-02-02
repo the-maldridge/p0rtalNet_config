@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec chpst -u noobfarm:noobfarm /usr/local/bin/noobfarm2 --web_bind 127.0.1.1 --web_port 2001 --json_root /mnt/margarine/noobfarm2/

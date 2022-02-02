@@ -6,6 +6,5 @@
   roles:
     - network
     - xbps-repoconf
-    - core-programs
     - sshd
     - openntp

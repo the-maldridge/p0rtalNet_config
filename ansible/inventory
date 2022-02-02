@@ -1,9 +1,3 @@
-[corespace]
-darkstar
-
-[utility]
-GlobalDynamics
-
 [workstation_x64]
 theGibson
 deepblue
@@ -16,14 +10,3 @@ eniac
 [workstation:children]
 workstation_x64
 workstation_i686
-
-[satellite]
-frostberg
-
-[mtv]
-theGibson
-GlobalDynamics
-stargazer
-
-[aus]
-frostberg

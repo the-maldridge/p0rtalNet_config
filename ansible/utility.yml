@@ -1,6 +1,0 @@
----
-- hosts: utility
-  become: yes
-  roles:
-    - nfsd
-    - lan-webserver

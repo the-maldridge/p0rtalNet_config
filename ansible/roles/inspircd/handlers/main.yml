@@ -1,5 +1,0 @@
----
-- name: inspircd
-  service:
-    name: inspircd
-    state: reloaded
