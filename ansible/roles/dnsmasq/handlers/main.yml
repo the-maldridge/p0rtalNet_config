@@ -1,0 +1,5 @@
+---
+- name: dnsmasq
+  runit:
+    name: dnsmasq
+    state: restarted

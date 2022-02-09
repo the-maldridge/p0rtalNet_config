@@ -1,10 +1,23 @@
 ---
+- hosts: network_control
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+    - void.network.static
+    - void.network.dns
+
+- hosts: "all:!network_control"
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+    - void.network.dhcpcd
+
 - hosts: all
   become: yes
   become_method: sudo
   become_user: root
   roles:
-    - network
     - xbps-repoconf
     - sshd
-    - openntp

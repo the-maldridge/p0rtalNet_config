@@ -1,0 +1,21 @@
+---
+- name: Install Packages
+  xbps:
+    pkg: dnsmasq
+    state: present
+
+- name: Setup Configuration File
+  template:
+    src: dnsmasq.conf.j2
+    dest: /etc/dnsmasq.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - dnsmasq
+
+- name: Enable Service
+  runit:
+    name: dnsmasq
+    enabled: true
+    state: started

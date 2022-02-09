@@ -10,3 +10,9 @@ eniac
 [workstation:children]
 workstation_x64
 workstation_i686
+
+[network_control]
+psvcs ansible_host=192.168.31.2
+
+[musl]
+psvcs

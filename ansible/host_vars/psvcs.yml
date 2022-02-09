@@ -1,0 +1,74 @@
+---
+network_output_policy: ACCEPT
+network_hostname: psvcs.dal.michaelwashere.net
+
+network_boot_hosts:
+  - name: mirrors.servercentral.net
+    addr: 204.93.249.148
+
+network_static_dns_resolvers:
+  - 8.8.8.8
+
+network_static_interfaces:
+  - name: enp1s0
+    type: trunk
+  - name: mgmt0
+    type: vlan
+    parent: enp1s0
+    id: 99
+    addrs:
+      - 192.168.31.2/24
+  - name: res0
+    type: vlan
+    parent: enp1s0
+    id: 10
+    addrs:
+      - 192.168.16.2/24
+  - name: guest0
+    type: vlan
+    parent: enp1s0
+    id: 15
+    addrs:
+      - 192.168.17.2/24
+  - name: svcs0
+    type: vlan
+    parent: enp1s0
+    id: 20
+    addrs:
+      - 192.168.18.2/24
+  - name: iot0
+    type: vlan
+    parent: enp1s0
+    id: 25
+    addrs:
+      - 192.168.19.2/24
+  - name: tel0
+    type: vlan
+    parent: enp1s0
+    id: 30
+    addrs:
+      - 192.168.20.2/24
+
+network_static_routes:
+  - to: default
+    via: 192.168.31.1
+
+dnsmasq_networks:
+  - name: mgmt
+    cidr: 192.168.31.0/24
+    interface: mgmt0
+  - name: residential
+    cidr: 192.168.16.0/24
+    interface: res0
+  - name: guest
+    cidr: 192.168.17.0/24
+    interface: guest0
+  - name: services
+    cidr: 192.168.18.0/24
+    interface: svcs0
+  - name: iot
+    cidr: 192.168.19.0/24
+    interface: iot0
+  - name: telephony
+    cidr: 192.168.20.0/24
+    interface: tel0

@@ -1,0 +1,20 @@
+keep-in-foreground
+log-queries
+log-facility=-
+domain=dal.michaelwashere.net
+
+# Common DHCP Options
+dhcp-option=option:domain-name,dal.michaelwashere.net
+dhcp-option=option:T1,300
+dhcp-option=option:T2,525
+{% for network in dnsmasq_networks %}
+
+###
+# Network: {{network.name}}
+###
+interface={{network.interface}}
+dhcp-range={{network.interface}},{{network.cidr|ansible.netcommon.nthhost(5)}},{{network.cidr|ansible.netcommon.nthhost(64)}},600
+dhcp-option={{network.interface}},option:router,{{network.cidr|ansible.netcommon.nthhost(1)}}
+dhcp-option={{network.interface}},option:dns-server,{{network.cidr|ansible.netcommon.nthhost(2)}}
+dhcp-option={{network.interface}},option:netmask,{{network.cidr|ansible.netcommon.ipaddr('netmask')}}
+{% endfor %}
