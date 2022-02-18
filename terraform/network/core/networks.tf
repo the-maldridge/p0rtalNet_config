@@ -10,11 +10,11 @@ resource "junos_vlan" "vlans" {
 
 resource "junos_interface_logical" "irb" {
   depends_on = [junos_security_zone.zone]
-  for_each = var.networks
+  for_each   = var.networks
 
-  name             = format("irb.%d", each.value.vlan_id)
-  description      = each.value.description
-  security_zone    = junos_security_zone.zone[each.key].name
+  name          = format("irb.%d", each.value.vlan_id)
+  description   = each.value.description
+  security_zone = junos_security_zone.zone[each.key].name
 
   family_inet {
     address {

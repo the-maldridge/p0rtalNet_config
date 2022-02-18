@@ -15,8 +15,8 @@ resource "junos_interface_logical" "upstream" {
   family_inet {
     dhcp {
       srx_old_option_name = true
-      vendor_id = "juniper-srx300"
-      update_server = true
+      vendor_id           = "juniper-srx300"
+      update_server       = true
     }
   }
 }
