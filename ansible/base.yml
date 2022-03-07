@@ -1,5 +1,5 @@
 ---
-- hosts: network_control
+- hosts: static_ip
   become: yes
   become_method: sudo
   become_user: root
@@ -7,7 +7,7 @@
     - void.network.static
     - void.network.dns
 
-- hosts: "all:!network_control"
+- hosts: "all:!static_ip"
   become: yes
   become_method: sudo
   become_user: root

@@ -7,3 +7,5 @@ xbps_repository_multilib_nonfree: https://{{ xbps_repository_address }}/voidlinu
 xbps_repository_port: 443
 
 sshd_banner: assets/sshd_banners/portalnet
+
+network_fqdn: "{{network_hostname}}.dal.michaelwashere.net"

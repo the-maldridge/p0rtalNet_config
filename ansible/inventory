@@ -16,6 +16,11 @@ psvcs ansible_host=192.168.31.2
 
 [docker]
 ziggy ansible_host=192.168.16.5
+globaldynamics ansible_host=192.168.16.2
+
+[static_ip]
+psvcs
+globaldynamics
 
 [musl]
 psvcs
