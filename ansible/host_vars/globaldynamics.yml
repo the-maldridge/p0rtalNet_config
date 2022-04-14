@@ -27,3 +27,7 @@ network_static_interfaces:
     id: 99
     addrs:
       - 192.168.31.3/24
+
+podman_networks:
+  - name: mgmt
+    parent: mgmt0

@@ -17,4 +17,7 @@ dhcp-range={{network.interface}},{{network.cidr|ansible.netcommon.nthhost(5)}},{
 dhcp-option={{network.interface}},option:router,{{network.cidr|ansible.netcommon.nthhost(1)}}
 dhcp-option={{network.interface}},option:dns-server,{{network.cidr|ansible.netcommon.nthhost(2)}}
 dhcp-option={{network.interface}},option:netmask,{{network.cidr|ansible.netcommon.ipaddr('netmask')}}
+{% for host in network.hosts|default([]) %}
+dhcp-host={{host.mac}},{{host.addr}},{{host.name}}
+{% endfor %}
 {% endfor %}

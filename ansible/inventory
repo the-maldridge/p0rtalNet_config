@@ -14,7 +14,7 @@ workstation_i686
 [network_control]
 psvcs ansible_host=192.168.31.2
 
-[docker]
+[container]
 ziggy ansible_host=192.168.16.5
 globaldynamics ansible_host=192.168.16.2
 

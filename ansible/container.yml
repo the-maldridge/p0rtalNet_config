@@ -1,0 +1,14 @@
+---
+- hosts: container
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+    - podman
+
+- hosts: globaldynamics
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+    - container-openwisp
