@@ -64,6 +64,22 @@ dnsmasq_networks:
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
+    hosts:
+      - name: globaldynamics
+        addr: 192.168.16.2
+        mac: fc:3f:db:08:55:d9
+      - name: salt-mine
+        addr: 192.168.16.3
+        mac: b0:b9:8a:45:88:a8
+      - name: dllstxrn01ds0
+        addr: 192.168.16.4
+        mac: 00:19:e1:ee:7a:c5
+      - name: ziggy
+        addr: 192.168.16.5
+        mac: e0:d5:5e:80:ff:50
+      - name: thegibson
+        addr: 192.168.16.10
+        mac: 1c:1b:0d:eb:ce:f0
   - name: guest
     cidr: 192.168.17.0/24
     interface: guest0
