@@ -1,6 +1,7 @@
 ---
 network_output_policy: ACCEPT
 network_input_policy: ACCEPT
+network_forward_policy: ACCEPT
 network_hostname: global-dynamics
 
 network_boot_hosts:
@@ -8,22 +9,18 @@ network_boot_hosts:
     addr: 204.93.249.148
 
 network_static_dns_resolvers:
-  - 192.168.16.1
+  - 192.168.31.1
 
 network_static_routes:
   - to: default
-    via: 192.168.16.1
+    via: 192.168.31.1
 
 network_static_interfaces:
   - name: eno1
-    type: access
-    addrs:
-      - 192.168.16.2/24
-  - name: enp0s20f0u3
     type: trunk
   - name: mgmt0
     type: vlan
-    parent: enp0s20f0u3
+    parent: eno1
     id: 99
     addrs:
       - 192.168.31.3/24

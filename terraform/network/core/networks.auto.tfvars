@@ -29,6 +29,12 @@ networks = {
     cidr                = "192.168.20.0/24"
     enable_upstream_nat = true
   }
+  dmz = {
+    description         = "DMZ Network"
+    vlan_id             = 35
+    cidr                = "192.168.21.0/24"
+    enable_upstream_nat = true
+  }
   mgmt = {
     description         = "Management Network"
     vlan_id             = 99

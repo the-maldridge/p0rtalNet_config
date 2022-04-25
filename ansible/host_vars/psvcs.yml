@@ -48,10 +48,16 @@ network_static_interfaces:
     id: 30
     addrs:
       - 192.168.20.2/24
+  - name: dmz0
+    type: vlan
+    parent: enp1s0
+    id: 35
+    addrs:
+      - 192.168.21.2/24
 
 network_static_routes:
   - to: default
-    via: 192.168.31.1
+    via: 192.168.18.1
 
 dnsmasq_networks:
   - name: mgmt
@@ -65,9 +71,6 @@ dnsmasq_networks:
     cidr: 192.168.16.0/24
     interface: res0
     hosts:
-      - name: globaldynamics
-        addr: 192.168.16.2
-        mac: fc:3f:db:08:55:d9
       - name: salt-mine
         addr: 192.168.16.3
         mac: b0:b9:8a:45:88:a8
@@ -77,6 +80,9 @@ dnsmasq_networks:
       - name: ziggy
         addr: 192.168.16.5
         mac: e0:d5:5e:80:ff:50
+      - name: globaldynamics
+        addr: 192.168.16.6
+        mac: fc:3f:db:08:55:d9
       - name: thegibson
         addr: 192.168.16.10
         mac: 1c:1b:0d:eb:ce:f0
@@ -92,3 +98,6 @@ dnsmasq_networks:
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
+  - name: dmz
+    cidr: 192.168.21.0/24
+    interface: dmz0
