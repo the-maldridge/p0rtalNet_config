@@ -1,0 +1,53 @@
+---
+- name: Create Build Directory
+  file:
+    path: /usr/share/p0rtalNet/containers/ssh-bastion
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install Container Build File
+  copy:
+    src: Dockerfile
+    dest: /usr/share/p0rtalNet/containers/ssh-bastion/Dockerfile
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install Container Entrypoint
+  copy:
+    src: entrypoint.sh
+    dest: /usr/share/p0rtalNet/containers/ssh-bastion/entrypoint.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Build Container
+  containers.podman.podman_image:
+    name: local/ssh-bastion
+    path: /usr/share/p0rtalNet/containers/ssh-bastion/
+
+- name: Create Persistent Home Volume
+  containers.podman.podman_volume:
+    name: bastion_home
+    state: present
+
+- name: Create Persistent Config Volume
+  containers.podman.podman_volume:
+    name: bastion_conf
+    state: present
+
+- name: Install Container
+  containers.podman.podman_container:
+    name: bastion
+    state: started
+    image: localhost/local/ssh-bastion
+    mac_address: 02:00:00:01:00:01
+    network: dmz
+    hostname: p0rtalNet-bastion
+    dns:
+      - 192.168.31.2
+    volume:
+      - bastion_home:/home
+      - bastion_conf:/etc/ssh
