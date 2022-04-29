@@ -63,3 +63,17 @@ resource "junos_security_policy" "res_to_all" {
     match_application         = ["any"]
   }
 }
+
+resource "junos_security_policy" "svcs_http" {
+  for_each = toset(["mgmt"])
+
+  from_zone = junos_security_zone.zone[each.value].name
+  to_zone   = junos_security_zone.zone["services"].name
+
+  policy {
+    name                      = "${each.value}-to-services"
+    match_source_address      = ["any"]
+    match_destination_address = ["any"]
+    match_application         = [junos_application.http.name]
+  }
+}

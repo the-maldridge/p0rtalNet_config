@@ -9,9 +9,9 @@
     name: openwisp
     state: started
     image: ghcr.io/the-maldridge/openwisp-aio:v0.0.3
-    mac_address: 02:00:00:00:00:01
-    network: mgmt
+    mac_address: 02:00:00:02:00:01
+    network: svcs
     dns:
-      - 192.168.31.2
+      - 192.168.18.2
     volume:
       - openwisp_data:/persist

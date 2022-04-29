@@ -63,10 +63,6 @@ dnsmasq_networks:
   - name: mgmt
     cidr: 192.168.31.0/24
     interface: mgmt0
-    hosts:
-      - name: openwisp
-        addr: 192.168.31.10
-        mac: 02:00:00:00:00:01
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
@@ -92,6 +88,10 @@ dnsmasq_networks:
   - name: services
     cidr: 192.168.18.0/24
     interface: svcs0
+    hosts:
+      - name: openwisp
+        addr: 192.168.18.10
+        mac: 02:00:00:02:00:01
   - name: iot
     cidr: 192.168.19.0/24
     interface: iot0

@@ -24,6 +24,10 @@ network_static_interfaces:
     id: 99
     addrs:
       - 192.168.31.3/24
+  - name: svcs0
+    type: vlan
+    parent: eno1
+    id: 20
   - name: dmz0
     type: vlan
     parent: eno1
@@ -34,3 +38,5 @@ podman_networks:
     parent: mgmt0
   - name: dmz
     parent: dmz0
+  - name: svcs
+    parent: svcs0
