@@ -63,22 +63,17 @@ dnsmasq_networks:
   - name: mgmt
     cidr: 192.168.31.0/24
     interface: mgmt0
+    hosts:
+      - name: globaldynamics
+        addr: 192.168.31.3
+        mac: fc:3f:db:08:55:d9
+      - name: ziggy
+        addr: 192.168.31.4
+        mac: e0:d5:5e:80:ff:50
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
     hosts:
-      - name: salt-mine
-        addr: 192.168.16.3
-        mac: b0:b9:8a:45:88:a8
-      - name: dllstxrn01ds0
-        addr: 192.168.16.4
-        mac: 00:19:e1:ee:7a:c5
-      - name: ziggy
-        addr: 192.168.16.5
-        mac: e0:d5:5e:80:ff:50
-      - name: globaldynamics
-        addr: 192.168.16.6
-        mac: fc:3f:db:08:55:d9
       - name: thegibson
         addr: 192.168.16.10
         mac: 1c:1b:0d:eb:ce:f0
@@ -89,6 +84,9 @@ dnsmasq_networks:
     cidr: 192.168.18.0/24
     interface: svcs0
     hosts:
+      - name: salt-mine
+        addr: 192.168.18.5
+        mac: b0:b9:8a:45:88:a8
       - name: openwisp
         addr: 192.168.18.10
         mac: 02:00:00:02:00:01
@@ -98,6 +96,10 @@ dnsmasq_networks:
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
+    hosts:
+      - name: dllstxrn01ds0
+        addr: 192.168.20.5
+        mac: 00:19:e1:ee:7a:c5
   - name: dmz
     cidr: 192.168.21.0/24
     interface: dmz0
