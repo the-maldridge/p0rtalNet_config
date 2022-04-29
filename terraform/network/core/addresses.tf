@@ -7,4 +7,10 @@ resource "junos_security_address_book" "dmz_addresses" {
     description = "SSH Bastion Host"
     value       = "192.168.21.5/32"
   }
+
+  network_address {
+    name        = "minecraft"
+    description = "Minecraft Service"
+    value       = "192.168.21.6/32"
+  }
 }

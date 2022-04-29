@@ -15,12 +15,13 @@ workstation_i686
 psvcs ansible_host=192.168.31.2
 
 [container]
-ziggy ansible_host=192.168.16.5
+ziggy ansible_host=192.168.31.4
 globaldynamics ansible_host=192.168.31.3
 
 [static_ip]
 psvcs
 globaldynamics
+ziggy
 
 [musl]
 psvcs

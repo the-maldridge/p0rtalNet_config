@@ -20,4 +20,7 @@ dhcp-option={{network.interface}},option:netmask,{{network.cidr|ansible.netcommo
 {% for host in network.hosts|default([]) %}
 dhcp-host={{host.mac}},{{host.addr}},{{host.name}}
 {% endfor %}
+{% for host in network.hosts|default([]) %}
+host-record={{host.name}}.dal.michaelwashere.net,{{host.addr}}
+{% endfor %}
 {% endfor %}

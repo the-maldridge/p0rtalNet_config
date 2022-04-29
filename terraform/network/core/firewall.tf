@@ -3,6 +3,11 @@ resource "junos_security_nat_destination_pool" "dmz_bastion" {
   address = "192.168.21.5/32"
 }
 
+resource "junos_security_nat_destination_pool" "dmz_minecraft" {
+  name    = "dmz-minecraft"
+  address = "192.168.21.6/32"
+}
+
 resource "junos_security_nat_destination" "inbound_dnat" {
   name = "inbound-dnat"
 
@@ -20,6 +25,16 @@ resource "junos_security_nat_destination" "inbound_dnat" {
       pool = junos_security_nat_destination_pool.dmz_bastion.name
     }
   }
+
+  rule {
+    name                = "minecraft"
+    destination_address = "0.0.0.0/0"
+    destination_port    = ["25565"]
+    then {
+      type = "pool"
+      pool = junos_security_nat_destination_pool.dmz_minecraft.name
+    }
+  }
 }
 
 resource "junos_security_policy" "inbound_svcs" {
@@ -33,6 +48,13 @@ resource "junos_security_policy" "inbound_svcs" {
     match_source_address      = ["any"]
     match_destination_address = ["ssh-bastion"]
     match_application         = [junos_application.ssh.name]
+  }
+
+  policy {
+    name                      = "minecraft"
+    match_source_address      = ["any"]
+    match_destination_address = ["minecraft"]
+    match_application         = [junos_application.minecraft.name]
   }
 }
 

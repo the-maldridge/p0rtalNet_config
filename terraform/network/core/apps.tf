@@ -9,3 +9,9 @@ resource "junos_application" "http" {
   protocol         = "tcp"
   destination_port = 80
 }
+
+resource "junos_application" "minecraft" {
+  name             = "minecraft"
+  protocol         = "tcp"
+  destination_port = 25565
+}

@@ -34,7 +34,7 @@
     owner: root
     group: root
     mode: 0755
-  when: podman_newtorks|default([])
+  when: podman_networks|default([])
 
 - name: Install DHCP Service (2/2)
   copy:
@@ -43,11 +43,11 @@
     owner: root
     group: root
     mode: 0755
-  when: podman_newtorks|default([])
+  when: podman_networks|default([])
 
 - name: Enable DHCP Service
   service:
     name: cni-dhcp
     enabled: true
     state: started
-  when: podman_newtorks|default([])
+  when: podman_networks|default([])
