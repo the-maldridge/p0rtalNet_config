@@ -7,7 +7,7 @@ resource "junos_interface_physical" "core_sw1" {
 
 resource "junos_interface_physical" "nas" {
   name         = "ge-0/0/3"
-  vlan_members = [junos_vlan.vlans["residential"].vlan_id]
+  vlan_members = [junos_vlan.vlans["services"].vlan_id]
 }
 
 resource "junos_interface_physical" "svcs_host1" {
