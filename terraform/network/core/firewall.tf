@@ -99,3 +99,15 @@ resource "junos_security_policy" "svcs_http" {
     match_application         = [junos_application.http.name]
   }
 }
+
+resource "junos_security_policy" "res_to_tel" {
+  from_zone = junos_security_zone.zone["residential"].name
+  to_zone   = junos_security_zone.zone["telephony"].name
+
+  policy {
+    name                      = "res-to-tel-ssh"
+    match_source_address      = ["any"]
+    match_destination_address = ["any"]
+    match_application         = [junos_application.ssh.name]
+  }
+}
