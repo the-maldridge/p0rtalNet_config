@@ -14,3 +14,14 @@ resource "junos_security_address_book" "dmz_addresses" {
     value       = "192.168.21.6/32"
   }
 }
+
+resource "junos_security_address_book" "peer_addresses" {
+  name        = "peer-addresses"
+  attach_zone = [junos_security_zone.zone["peer_internal"].name]
+
+  network_address {
+    name        = "minicluster"
+    description = "minicluster subnet"
+    value       = "192.168.32.0/24"
+  }
+}

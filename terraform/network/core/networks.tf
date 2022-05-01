@@ -30,6 +30,8 @@ resource "junos_security_zone" "zone" {
 
   inbound_protocols = ["all"]
   inbound_services  = ["all"]
+
+  address_book_configure_singly = true
 }
 
 resource "junos_security_nat_source" "nat_to_upstream" {
@@ -51,7 +53,7 @@ resource "junos_security_nat_source" "nat_to_upstream" {
   rule {
     name = format("%s-nat-to-upstream", each.key)
     match {
-      source_address = [each.value.cidr]
+      source_address = flatten([[each.value.cidr], lookup(each.value, "additional_nat_source", [])])
     }
     then {
       type = "interface"
