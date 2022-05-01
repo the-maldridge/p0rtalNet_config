@@ -28,6 +28,10 @@ network_static_interfaces:
     type: vlan
     parent: eno1
     id: 20
+  - name: tel0
+    type: vlan
+    parent: eno1
+    id: 30
   - name: dmz0
     type: vlan
     parent: eno1
