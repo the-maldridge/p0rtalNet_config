@@ -13,3 +13,4 @@
   roles:
     - container-openwisp
     - container-bastion
+    - container-bird

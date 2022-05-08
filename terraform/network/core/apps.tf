@@ -15,3 +15,9 @@ resource "junos_application" "minecraft" {
   protocol         = "tcp"
   destination_port = 25565
 }
+
+resource "junos_application" "wg_peers" {
+  name             = "wireguard_bgp"
+  protocol         = "udp"
+  destination_port = 51821
+}

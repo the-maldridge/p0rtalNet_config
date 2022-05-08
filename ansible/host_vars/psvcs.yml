@@ -54,6 +54,12 @@ network_static_interfaces:
     id: 35
     addrs:
       - 192.168.21.2/24
+  - name: peer0
+    type: vlan
+    parent: enp1s0
+    id: 101
+    addrs:
+      - 169.254.255.254/24
 
 network_static_routes:
   - to: default
@@ -116,3 +122,13 @@ dnsmasq_networks:
       - name: minecraft
         addr: 192.168.21.6
         mac: 02:00:00:01:00:02
+  - name: peer
+    cidr: 169.254.255.0/24
+    interface: peer0
+    hosts:
+      - name: minicluster
+        mac: 28:8a:1c:d0:04:87
+        addr: 169.254.255.2
+      - name: mesh1edge1
+        addr: 169.254.255.3
+        mac: 02:00:00:ff:00:01

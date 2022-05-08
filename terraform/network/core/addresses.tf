@@ -24,4 +24,10 @@ resource "junos_security_address_book" "peer_addresses" {
     description = "minicluster subnet"
     value       = "192.168.32.0/24"
   }
+
+  network_address {
+    name        = "mesh1edge1"
+    description = "mesh1edge1 peering router"
+    value       = "169.254.255.3/32"
+  }
 }

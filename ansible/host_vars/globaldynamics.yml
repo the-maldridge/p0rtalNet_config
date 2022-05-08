@@ -36,6 +36,10 @@ network_static_interfaces:
     type: vlan
     parent: eno1
     id: 35
+  - name: peer0
+    type: vlan
+    parent: eno1
+    id: 101
 
 podman_networks:
   - name: mgmt
@@ -44,3 +48,5 @@ podman_networks:
     parent: dmz0
   - name: svcs
     parent: svcs0
+  - name: peering
+    parent: peer0

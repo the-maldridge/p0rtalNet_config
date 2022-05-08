@@ -43,3 +43,10 @@ resource "junos_bgp_neighbor" "minicluster" {
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.1"
 }
+
+resource "junos_bgp_neighbor" "mesh1edge1" {
+  ip               = "169.254.255.3"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.1"
+}

@@ -1,0 +1,72 @@
+---
+- name: Load Secrets
+  include_vars:
+    file: secret/bgp_peers.yml
+
+- name: Create Build Directory
+  file:
+    path: /usr/share/p0rtalNet/containers/bird
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install Container Build File
+  copy:
+    src: Dockerfile
+    dest: /usr/share/p0rtalNet/containers/bird/Dockerfile
+    owner: root
+    group: root
+    mode: 0644
+  register: buildfile
+
+- name: Install container Entrypoint
+  copy:
+    src: entrypoint.sh
+    dest: /usr/share/p0rtalNet/containers/bird/entrypoint.sh
+    owner: root
+    group: root
+    mode: 0755
+  register: entrypoint
+
+- name: Build Container
+  containers.podman.podman_image:
+    name: local/bird
+    path: /usr/share/p0rtalNet/containers/bird
+    force: "{{ buildfile.changed or entrypoint.changed }}"
+  register: container
+
+- name: Install Container
+  containers.podman.podman_container:
+    name: bird
+    state: started
+    image: localhost/local/bird
+    mac_address: 02:00:00:ff:00:01
+    network: peering
+    hostname: mesh1edge1
+    cap_add:
+      - NET_ADMIN
+      - NET_BIND_SERVICE
+      - NET_BROADCAST
+      - NET_RAW
+    dns:
+      - 169.254.255.254
+    volumes:
+      - /usr/share/p0rtalNet/containers/bird:/data
+    recreate: "{{container.changed}}"
+
+- name: Install Bird Configuration
+  template:
+    src: bird.conf.j2
+    dest: /usr/share/p0rtalNet/containers/bird/bird.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install wg-quick Config
+  template:
+    src: peer0.conf.j2
+    dest: /usr/share/p0rtalNet/containers/bird/peer0.conf
+    owner: root
+    group: root
+    mode: 0400
