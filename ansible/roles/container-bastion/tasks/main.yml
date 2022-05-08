@@ -14,6 +14,7 @@
     owner: root
     group: root
     mode: 0644
+  register: buildfile
 
 - name: Install Container Entrypoint
   copy:
@@ -22,11 +23,13 @@
     owner: root
     group: root
     mode: 0755
+  register: entrypoint
 
 - name: Build Container
   containers.podman.podman_image:
     name: local/ssh-bastion
     path: /usr/share/p0rtalNet/containers/ssh-bastion/
+    force: "{{ buildfile.changed or entrypoint.changed }}"
 
 - name: Create Persistent Home Volume
   containers.podman.podman_volume:
@@ -37,6 +40,7 @@
   containers.podman.podman_volume:
     name: bastion_conf
     state: present
+  register: container
 
 - name: Install Container
   containers.podman.podman_container:
@@ -51,3 +55,4 @@
     volume:
       - bastion_home:/home
       - bastion_conf:/etc/ssh
+    recreate: "{{container.changed}}"
