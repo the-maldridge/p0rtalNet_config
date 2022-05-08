@@ -101,6 +101,20 @@ resource "junos_security_policy" "dmz_to_mgmt" {
   }
 }
 
+resource "junos_security_policy" "dmz_to_res" {
+  depends_on = [junos_security_address_book.dmz_addresses]
+
+  from_zone = junos_security_zone.zone["dmz"].name
+  to_zone   = junos_security_zone.zone["residential"].name
+
+  policy {
+    name                      = "bastion-to-res"
+    match_source_address      = ["ssh-bastion"]
+    match_destination_address = ["any"]
+    match_application         = [junos_application.ssh.name]
+  }
+}
+
 resource "junos_security_policy" "res_to_all" {
   for_each = toset(["dmz", "services"])
 
