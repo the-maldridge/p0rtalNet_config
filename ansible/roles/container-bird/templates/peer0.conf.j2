@@ -3,6 +3,7 @@
 Address = {{peer.local_addr}}
 {% endfor %}
 PrivateKey = {{bgp_wg_privkey}}
+ListenPort = 51821
 
 {% for peer in bgp_wg_peers %}
 [Peer]
