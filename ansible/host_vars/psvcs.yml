@@ -76,6 +76,12 @@ dnsmasq_networks:
       - name: ziggy
         addr: 192.168.31.4
         mac: e0:d5:5e:80:ff:50
+      - name: coresw1
+        addr: 192.168.31.60
+        mac: 6c:cd:d6:c4:43:98
+      - name: leafsw1
+        addr: 192.168.31.61
+        mac: c8:9e:43:a4:c5:f4
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
