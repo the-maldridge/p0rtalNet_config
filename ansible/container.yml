@@ -14,3 +14,4 @@
     - container-openwisp
     - container-bastion
     - container-bird
+    - container-ddns
