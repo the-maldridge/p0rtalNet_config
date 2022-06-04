@@ -70,6 +70,12 @@ dnsmasq_networks:
     cidr: 192.168.31.0/24
     interface: mgmt0
     hosts:
+      - name: edge1
+        addr: 192.168.31.1
+        mac: f4:cc:55:20:96:c5
+      - name: psvcs
+        addr: 192.168.31.2
+        mac: a4:bb:6d:29:58:62
       - name: globaldynamics
         addr: 192.168.31.3
         mac: fc:3f:db:08:55:d9
