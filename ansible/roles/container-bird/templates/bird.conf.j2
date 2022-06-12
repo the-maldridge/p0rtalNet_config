@@ -25,6 +25,9 @@ filter pn_external_routables {
   if (net = 192.168.20.0/24) then {
     accept;
   }
+  if (net = 192.168.21.0/24) then {
+    accept;
+  }
   if (net = 192.168.32.0/24) then {
     accept;
   }
@@ -50,7 +53,7 @@ template bgp pn_external {
 }
 
 {% for peer in bgp_wg_peers %}
-protocol bgp trmg from pn_external {
+protocol bgp {{peer.name}} from pn_external {
   local    {{peer.local_addr|ansible.netcommon.ipaddr('address')}} as 64579;
   neighbor {{peer.addr|ansible.netcommon.ipaddr('address')}} as {{peer.as}};
   direct;

@@ -36,6 +36,33 @@
     force: "{{ buildfile.changed or entrypoint.changed }}"
   register: container
 
+- name: Install Bird Configuration
+  template:
+    src: bird.conf.j2
+    dest: /usr/share/p0rtalNet/containers/bird/bird.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create wg directory
+  file:
+    path: /usr/share/p0rtalNet/containers/bird/wg
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install wg-quick Config
+  template:
+    src: peer.conf.j2
+    dest: /usr/share/p0rtalNet/containers/bird/wg/{{item.name}}0.conf
+    owner: root
+    group: root
+    mode: 0400
+  loop: "{{ bgp_wg_peers }}"
+  loop_control:
+    label: "{{ item.name }}"
+
 - name: Install Container
   containers.podman.podman_container:
     name: bird
@@ -54,19 +81,3 @@
     volumes:
       - /usr/share/p0rtalNet/containers/bird:/data
     recreate: "{{container.changed}}"
-
-- name: Install Bird Configuration
-  template:
-    src: bird.conf.j2
-    dest: /usr/share/p0rtalNet/containers/bird/bird.conf
-    owner: root
-    group: root
-    mode: 0644
-
-- name: Install wg-quick Config
-  template:
-    src: peer0.conf.j2
-    dest: /usr/share/p0rtalNet/containers/bird/peer0.conf
-    owner: root
-    group: root
-    mode: 0400

@@ -1,0 +1,12 @@
+[Interface]
+Address = {{item.local_addr}}
+PrivateKey = {{item.privkey}}
+ListenPort = {{item.listenport}}
+Table = off
+
+[Peer]
+# friendly_name = {{item.name}}
+PublicKey = {{item.pubkey}}
+AllowedIPs = 0.0.0.0/0
+Endpoint = {{item.endpoint}}
+PersistentKeepalive = 30
