@@ -79,11 +79,14 @@ resource "junos_security_policy" "inbound_peers" {
   from_zone = "upstream"
   to_zone   = junos_security_zone.zone["peer_internal"].name
 
-  policy {
-    name                      = "wg-bgp"
-    match_source_address      = ["any"]
-    match_destination_address = ["mesh1edge1"]
-    match_application         = [junos_application.wg_peers.name]
+  dynamic "policy" {
+    for_each = toset(["51821", "51822", "51823"])
+    content {
+      name                      = "wg-bgp-${policy.value}"
+      match_source_address      = ["any"]
+      match_destination_address = ["mesh1edge1"]
+      match_application         = [junos_application.wg_peers[policy.value].name]
+    }
   }
 }
 
@@ -166,5 +169,19 @@ resource "junos_security_policy" "res_to_peers" {
     match_source_address      = ["any"]
     match_destination_address = ["minicluster"]
     match_application         = ["any"]
+  }
+}
+
+resource "junos_security_policy" "peers_to_internal" {
+  depends_on = [junos_security_address_book.peer_addresses]
+
+  from_zone = junos_security_zone.zone["peer_internal"].name
+  to_zone   = junos_security_zone.zone["dmz"].name
+
+  policy {
+    name                      = "peer-to-dmz"
+    match_source_address      = ["any"]
+    match_destination_address = ["any"]
+    match_application         = [junos_application.http.name]
   }
 }
