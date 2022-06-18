@@ -19,5 +19,6 @@
   become_method: sudo
   become_user: root
   roles:
+    - void.network.iptables
     - xbps-repoconf
     - sshd
