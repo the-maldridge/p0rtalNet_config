@@ -19,6 +19,7 @@
   containers.podman.podman_container:
     name: ddns
     state: started
+    restart_policy: always
     image: ghcr.io/qdm12/ddns-updater:latest
     mac_address: 02:00:00:02:00:02
     network: svcs

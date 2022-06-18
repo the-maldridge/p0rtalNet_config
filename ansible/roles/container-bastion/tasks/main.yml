@@ -46,6 +46,7 @@
   containers.podman.podman_container:
     name: bastion
     state: started
+    restart_policy: always
     image: localhost/local/ssh-bastion
     mac_address: 02:00:00:01:00:01
     network: dmz

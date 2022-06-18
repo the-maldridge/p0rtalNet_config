@@ -67,6 +67,7 @@
   containers.podman.podman_container:
     name: bird
     state: started
+    restart_policy: always
     image: localhost/local/bird
     mac_address: 02:00:00:ff:00:01
     network: peering
