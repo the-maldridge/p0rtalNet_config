@@ -111,6 +111,9 @@ dnsmasq_networks:
       - name: ddns-client
         addr: 192.168.18.11
         mac: 02:00:00:02:00:02
+      - name: brother-laser
+        addr: 192.168.18.12
+        mac: b4:22:00:3b:db:f6
   - name: iot
     cidr: 192.168.19.0/24
     interface: iot0
