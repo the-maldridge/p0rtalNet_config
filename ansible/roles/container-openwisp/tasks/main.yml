@@ -9,7 +9,7 @@
     name: openwisp
     state: started
     restart_policy: always
-    image: ghcr.io/the-maldridge/openwisp-aio:v0.0.3
+    image: ghcr.io/the-maldridge/openwisp-aio:v0.0.4
     mac_address: 02:00:00:02:00:01
     network: svcs
     dns:
