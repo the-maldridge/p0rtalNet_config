@@ -49,10 +49,13 @@ networks = {
     additional_nat_source = []
   }
   peer_internal = {
-    description           = "Internal Peering Network"
-    vlan_id               = 101
-    cidr                  = "169.254.255.0/24"
-    enable_upstream_nat   = true
-    additional_nat_source = ["192.168.32.0/24"]
+    description         = "Internal Peering Network"
+    vlan_id             = 101
+    cidr                = "169.254.255.0/24"
+    enable_upstream_nat = true
+    additional_nat_source = [
+      "192.168.32.0/24",
+      "172.16.30.0/24",
+    ]
   }
 }
