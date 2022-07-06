@@ -124,13 +124,13 @@ dnsmasq_networks:
     cidr: 192.168.20.0/24
     interface: tel0
     hosts:
-      - name: DLLSTXRN01T
+      - name: DLLSTXPO01T
         addr: 192.168.20.4
         mac: 00:1D:46:F1:B2:70
-      - name: DLLSTXRN01DS0
+      - name: DLLSTXPO01DS0
         addr: 192.168.20.5
         mac: 00:19:e1:ee:7a:c5
-      - name: DLLSTXRN01K0
+      - name: DLLSTXPO01K0
         addr: 192.168.20.6
         mac: a4:bb:6d:22:5b:7a
   - name: dmz
