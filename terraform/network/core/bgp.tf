@@ -23,7 +23,8 @@ resource "junos_policyoptions_policy_statement" "send_direct" {
       protocol = ["access-internal"]
     }
     then {
-      action = "accept"
+      action   = "accept"
+      next_hop = "self"
     }
   }
 }
@@ -53,6 +54,13 @@ resource "junos_bgp_neighbor" "mesh1edge1" {
 
 resource "junos_bgp_neighbor" "bag_bcm" {
   ip               = "169.254.255.4"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.1"
+}
+
+resource "junos_bgp_neighbor" "bag_net" {
+  ip               = "169.254.255.5"
   routing_instance = "default"
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.1"

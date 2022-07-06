@@ -34,3 +34,10 @@ resource "junos_bgp_neighbor" "p0rtalNet_core" {
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.4"
 }
+
+resource "junos_bgp_neighbor" "bag_net" {
+  ip               = "169.254.255.5"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.4"
+}

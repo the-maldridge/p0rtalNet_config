@@ -99,6 +99,7 @@ resource "junos_access_address_assignment_pool" "local_dhcp_pool" {
       maximum_lease_time = 300
       t1_percentage = 50
       t2_percentage = 85
+      router = ["172.16.30.1"]
     }
 
     host {
