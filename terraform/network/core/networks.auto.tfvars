@@ -24,7 +24,7 @@ networks = {
     description           = "Internet Of Things"
     vlan_id               = 25
     cidr                  = "192.168.19.0/24"
-    enable_upstream_nat   = false
+    enable_upstream_nat   = true
     additional_nat_source = []
   }
   telephony = {
