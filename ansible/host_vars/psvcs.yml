@@ -120,6 +120,13 @@ dnsmasq_networks:
   - name: iot
     cidr: 192.168.19.0/24
     interface: iot0
+    hosts:
+      - name: ts1
+        addr: 192.168.19.10
+        mac: 70:74:14:92:f2:76
+      - name: ts2
+        addr: 192.168.19.11
+        mac: 70:74:14:93:c1:23
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
