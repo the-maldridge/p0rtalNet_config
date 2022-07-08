@@ -19,6 +19,9 @@ filter pn_external_accept {
 }
 
 filter pn_external_routables {
+  if (net = 192.168.16.0/24) then {
+    accept;
+  }
   if (net = 192.168.18.0/24) then {
     accept;
   }

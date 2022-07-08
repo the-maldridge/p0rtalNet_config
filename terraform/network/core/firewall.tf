@@ -167,7 +167,7 @@ resource "junos_security_policy" "res_to_peers" {
   policy {
     name                      = "res-to-cluster"
     match_source_address      = ["any"]
-    match_destination_address = ["minicluster"]
+    match_destination_address = ["any"]
     match_application         = ["any"]
   }
 }
