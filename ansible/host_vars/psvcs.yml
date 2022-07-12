@@ -127,6 +127,9 @@ dnsmasq_networks:
       - name: ts2
         addr: 192.168.19.11
         mac: 70:74:14:93:c1:23
+      - name: sprinkler
+        addr: 192.168.19.12
+        mac: 2c:f4:32:29:b7:b5
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
