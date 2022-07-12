@@ -119,7 +119,7 @@ resource "junos_security_policy" "dmz_to_res" {
 }
 
 resource "junos_security_policy" "res_to_all" {
-  for_each = toset(["dmz", "services"])
+  for_each = toset(["dmz", "services", "iot"])
 
   from_zone = junos_security_zone.zone["residential"].name
   to_zone   = each.key
