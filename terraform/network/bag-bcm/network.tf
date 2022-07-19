@@ -97,15 +97,19 @@ resource "junos_access_address_assignment_pool" "local_dhcp_pool" {
 
     dhcp_attributes {
       maximum_lease_time = 300
-      t1_percentage = 50
-      t2_percentage = 85
-      router = ["172.16.30.1"]
+      t1_percentage      = 50
+      t2_percentage      = 85
+      router             = ["172.16.30.1"]
+
+      option = [
+        "128 string Nortel-i2004-A,172.16.30.5:7000,1,10.",
+      ]
     }
 
     host {
-      name = "bcm"
+      name             = "bcm"
       hardware_address = "00:1b:25:31:0a:a9"
-      ip_address = "172.16.30.5"
+      ip_address       = "172.16.30.5"
     }
   }
 }
