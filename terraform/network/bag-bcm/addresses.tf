@@ -19,4 +19,10 @@ resource "junos_security_address_book" "peer_addresses" {
     description = "Core Router Peer"
     value       = "169.254.255.1/32"
   }
+
+  network_address {
+    name        = "sneakynet-bag"
+    description = "SneakyNet Bag Router"
+    value       = "172.16.31.0/24"
+  }
 }
