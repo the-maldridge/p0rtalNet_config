@@ -1,0 +1,21 @@
+---
+- name: Install Package
+  xbps:
+    pkg: avahi
+    state: present
+
+- name: Install Configuration
+  copy:
+    src: avahi-daemon.conf
+    dest: /etc/avahi/avahi-daemon.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - avahi
+
+- name: Enable Service
+  service:
+    name: avahi-daemon
+    state: started
+    enabled: true
