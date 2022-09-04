@@ -120,6 +120,9 @@ dnsmasq_networks:
       - name: hass
         addr: 192.168.18.13
         mac: 02:00:00:02:00:03
+      - name: esphome
+        addr: 192.168.18.14
+        mac: 02:00:00:02:00:04
   - name: iot
     cidr: 192.168.19.0/24
     interface: iot0

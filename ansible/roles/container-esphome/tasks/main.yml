@@ -1,0 +1,18 @@
+---
+- name: Create Persistent Volume
+  containers.podman.podman_volume:
+    name: esphome_data
+    state: present
+
+- name: Install Container
+  containers.podman.podman_container:
+    name: esphome
+    state: started
+    restart_policy: always
+    image: docker.io/esphome/esphome:2022.8.1
+    mac_address: 02:00:00:02:00:04
+    network: svcs
+    dns:
+      - 192.168.19.2
+    volume:
+      - esphome_data:/config

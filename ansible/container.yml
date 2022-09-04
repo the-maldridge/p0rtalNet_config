@@ -17,3 +17,4 @@
     - container-ddns
     - container-speedtest
     - container-hass
+    - container-esphome
