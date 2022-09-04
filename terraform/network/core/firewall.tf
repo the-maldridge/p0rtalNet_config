@@ -185,3 +185,15 @@ resource "junos_security_policy" "peers_to_internal" {
     match_application         = [junos_application.http.name]
   }
 }
+
+resource "junos_security_policy" "svcs_to_iot" {
+  from_zone = junos_security_zone.zone["services"].name
+  to_zone   = junos_security_zone.zone["iot"].name
+
+  policy {
+    name                      = "services-to-iot"
+    match_source_address      = ["any"]
+    match_destination_address = ["any"]
+    match_application         = ["any"]
+  }
+}
