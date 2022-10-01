@@ -1,3 +1,4 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
 [Interface]
 Address = {{item.local_addr}}
 PrivateKey = {{item.privkey}}
@@ -8,5 +9,7 @@ Table = off
 # friendly_name = {{item.name}}
 PublicKey = {{item.pubkey}}
 AllowedIPs = 0.0.0.0/0
+{% if item.endpoint is defined %}
 Endpoint = {{item.endpoint}}
+{% endif %}
 PersistentKeepalive = 30
