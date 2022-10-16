@@ -44,7 +44,7 @@ resource "junos_security_nat_destination" "inbound_dnat" {
   rule {
     name                = "wireguard_bgp"
     destination_address = "0.0.0.0/0"
-    destination_port    = ["51821"]
+    destination_port    = ["51821", "51822", "51823", "52820"]
     then {
       type = "pool"
       pool = junos_security_nat_destination_pool.peer_bgp.name
@@ -80,7 +80,7 @@ resource "junos_security_policy" "inbound_peers" {
   to_zone   = junos_security_zone.zone["peer_internal"].name
 
   dynamic "policy" {
-    for_each = toset(["51821", "51822", "51823"])
+    for_each = toset(["51821", "51822", "51823", "52820"])
     content {
       name                      = "wg-bgp-${policy.value}"
       match_source_address      = ["any"]
@@ -171,6 +171,20 @@ resource "junos_security_policy" "peers_to_internal" {
     match_source_address      = ["any"]
     match_destination_address = ["any"]
     match_application         = [junos_application.http.name]
+  }
+}
+
+resource "junos_security_policy" "peers_to_telephony" {
+  depends_on = [junos_security_address_book.telephony_addresses]
+
+  from_zone = junos_security_zone.zone["peer_internal"].name
+  to_zone   = junos_security_zone.zone["telephony"].name
+
+  policy {
+    name                      = "peer-to-telephony"
+    match_source_address      = ["any"]
+    match_destination_address = ["DLLSTXPO01DS0"]
+    match_application         = ["any"]
   }
 }
 

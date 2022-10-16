@@ -11,6 +11,9 @@ filter reject_huge_prefixes {
 }
 
 filter pn_external_accept {
+  if (net ~ 192.168.30.0/24) then {
+    accept;
+  }
   if (net ~ 192.168.16.0/20) then {
     print "Reject: overlaps with local net: ", net, " ", bgp_path;
     reject;

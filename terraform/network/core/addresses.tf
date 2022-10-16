@@ -31,3 +31,14 @@ resource "junos_security_address_book" "peer_addresses" {
     value       = "169.254.255.3/32"
   }
 }
+
+resource "junos_security_address_book" "telephony_addresses" {
+  name        = "telephony-addresses"
+  attach_zone = [junos_security_zone.zone["telephony"].name]
+
+  network_address {
+    name        = "DLLSTXPO01DS0"
+    description = "BCM50"
+    value       = "192.168.20.5/32"
+  }
+}
