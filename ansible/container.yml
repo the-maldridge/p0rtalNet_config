@@ -18,3 +18,4 @@
     - container-speedtest
     - container-hass
     - container-esphome
+    - container-jellyfin

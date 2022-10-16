@@ -1,0 +1,51 @@
+---
+- name: Install System Packages
+  xbps:
+    pkg: nfs-utils
+    state: present
+
+- name: Enable rpcbind
+  service:
+    name: rpcbind
+    state: started
+    enabled: true
+
+- name: Enable statd
+  service:
+    name: statd
+    state: started
+    enabled: true
+
+- name: Create Persistent Config Volume
+  containers.podman.podman_volume:
+    name: jellyfin_config
+    state: present
+
+- name: Create Persistent Cache Volume
+  containers.podman.podman_volume:
+    name: jellyfin_cache
+    state: present
+
+- name: Create NFS Volume
+  containers.podman.podman_volume:
+    name: jellyfin_media_aluminium
+    state: present
+    options:
+      - type=nfs4
+      - o=ro
+      - device=salt-mine.dal.michaelwashere.net:/level_one/aluminium-mountain
+
+- name: Install Container
+  containers.podman.podman_container:
+    name: jellyfin
+    state: started
+    restart_policy: always
+    image: docker.io/jellyfin/jellyfin:10.8.5
+    mac_address: 02:00:00:02:00:05
+    network: svcs
+    dns:
+      - 192.168.18.2
+    volume:
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
+      - jellyfin_media_aluminium:/media1:ro

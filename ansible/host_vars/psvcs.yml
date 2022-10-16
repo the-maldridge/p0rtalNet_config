@@ -123,6 +123,9 @@ dnsmasq_networks:
       - name: esphome
         addr: 192.168.18.14
         mac: 02:00:00:02:00:04
+      - name: jellyfin
+        addr: 192.168.18.15
+        mac: 02:00:00:02:00:05
   - name: iot
     cidr: 192.168.19.0/24
     interface: iot0
