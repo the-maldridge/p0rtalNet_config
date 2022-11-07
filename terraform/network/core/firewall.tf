@@ -181,7 +181,21 @@ resource "junos_security_policy" "peers_to_telephony" {
   policy {
     name                      = "peer-to-telephony"
     match_source_address      = ["any"]
-    match_destination_address = ["DLLSTXPO01DS0"]
+    match_destination_address = ["DLLSTXPO01DS0", "DLLSTXPO01T"]
+    match_application         = ["any"]
+  }
+}
+
+resource "junos_security_policy" "telephony_to_peers" {
+  depends_on = [junos_security_address_book.telephony_addresses]
+
+  from_zone = junos_security_zone.zone["telephony"].name
+  to_zone   = junos_security_zone.zone["peer_internal"].name
+
+  policy {
+    name                      = "telephony-to-peer"
+    match_source_address      = ["DLLSTXPO01T"]
+    match_destination_address = ["any"]
     match_application         = ["any"]
   }
 }

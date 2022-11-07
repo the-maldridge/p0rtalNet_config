@@ -41,4 +41,9 @@ resource "junos_security_address_book" "telephony_addresses" {
     description = "BCM50"
     value       = "192.168.20.5/32"
   }
+  network_address {
+    name        = "DLLSTXPO01T"
+    description = "Tandem"
+    value       = "192.168.20.4/32"
+  }
 }
