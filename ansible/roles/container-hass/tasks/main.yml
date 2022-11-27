@@ -9,7 +9,7 @@
     name: hass
     state: started
     restart_policy: always
-    image: ghcr.io/home-assistant/home-assistant:2022.8.7
+    image: ghcr.io/home-assistant/home-assistant:2022.11.4
     mac_address: 02:00:00:02:00:03
     network: svcs
     env:
