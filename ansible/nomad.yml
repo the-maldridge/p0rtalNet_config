@@ -1,0 +1,8 @@
+---
+- hosts: nomad_server
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - nomad-server
+

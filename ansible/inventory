@@ -18,6 +18,12 @@ psvcs ansible_host=192.168.31.2
 ziggy ansible_host=192.168.31.4
 globaldynamics ansible_host=192.168.31.3
 
+[nomad_server]
+marvin
+
+[sherman]
+marvin
+
 [static_ip]
 psvcs
 globaldynamics
@@ -26,3 +32,4 @@ ziggy
 [musl]
 psvcs
 ziggy
+marvin
