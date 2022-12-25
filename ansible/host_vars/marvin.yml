@@ -1,0 +1,13 @@
+---
+ansible_host: 192.168.16.54
+
+network_output_policy: ACCEPT
+network_input_policy: ACCEPT
+
+nomad_volumes:
+  - name: esphome
+    path: /mnt/ext/nomad/esphome
+    read_only: false
+  - name: hass
+    path: /mnt/ext/nomad/hass
+    read_only: false
