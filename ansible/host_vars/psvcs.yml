@@ -82,6 +82,9 @@ dnsmasq_networks:
       - name: ziggy
         addr: 192.168.31.4
         mac: e0:d5:5e:80:ff:50
+      - name: aruba0
+        addr: 192.168.31.10
+        mac: 44:48:c1:c5:d7:4e
       - name: coresw1
         addr: 192.168.31.60
         mac: 6c:cd:d6:c4:43:98
