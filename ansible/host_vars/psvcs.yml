@@ -111,9 +111,6 @@ dnsmasq_networks:
       - name: salt-mine
         addr: 192.168.18.5
         mac: b0:b9:8a:45:88:a8
-      - name: openwisp
-        addr: 192.168.18.10
-        mac: 02:00:00:02:00:01
       - name: ddns-client
         addr: 192.168.18.11
         mac: 02:00:00:02:00:02
