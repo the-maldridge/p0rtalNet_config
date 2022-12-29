@@ -1,5 +1,5 @@
 ---
-ansible_host: 192.168.16.54
+ansible_host: kdns.michaelwashere.net
 
 network_output_policy: ACCEPT
 network_input_policy: ACCEPT
