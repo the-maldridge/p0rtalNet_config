@@ -142,6 +142,9 @@ dnsmasq_networks:
       - name: multivac
         addr: 192.168.19.20
         mac: 3c:33:00:03:0a:ac
+      - name: univac
+        addr: 192.168.19.21
+        mac: 50:2b:73:d9:e6:fd
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
