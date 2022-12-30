@@ -139,6 +139,9 @@ dnsmasq_networks:
       - name: sprinkler
         addr: 192.168.19.12
         mac: 2c:f4:32:29:b7:b5
+      - name: multivac
+        addr: 192.168.19.20
+        mac: 3c:33:00:03:0a:ac
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
