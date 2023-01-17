@@ -55,6 +55,7 @@ networks = {
     enable_upstream_nat = true
     additional_nat_source = [
       "192.168.32.0/24",
+      "172.16.29.0/24",
       "172.16.30.0/24",
       "172.16.31.0/24",
     ]

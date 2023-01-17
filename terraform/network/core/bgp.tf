@@ -65,3 +65,10 @@ resource "junos_bgp_neighbor" "bag_net" {
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.1"
 }
+
+resource "junos_bgp_neighbor" "sneakynet" {
+  ip               = "169.254.255.6"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.1"
+}
