@@ -101,6 +101,48 @@ dnsmasq_networks:
       - name: thegibson
         addr: 192.168.16.10
         mac: 1c:1b:0d:eb:ce:f0
+      - name: fleet00
+        mac: e4:42:a6:19:ec:13
+        addr: 192.168.16.100
+      - name: fleet01
+        mac: c8:21:58:11:1c:af
+        addr: 192.168.16.101
+      - name: fleet02
+        mac: c8:21:58:56:1c:06
+        addr: 192.168.16.102
+      - name: fleet03
+        mac: c8:21:58:06:99:dd
+        addr: 192.168.16.103
+      - name: fleet04
+        mac: c8:21:58:0b:12:42
+        addr: 192.168.16.104
+      - name: fleet05
+        mac: c8:21:58:87:4b:d2
+        addr: 192.168.16.105
+      - name: fleet06
+        mac: c8:21:58:0d:7d:61
+        addr: 192.168.16.106
+      - name: fleet07
+        mac: c8:21:58:09:67:99
+        addr: 192.168.16.107
+      - name: fleet08
+        mac: c8:21:58:07:23:17
+        addr: 192.168.16.108
+      - name: fleet09
+        mac: c8:21:58:56:96:09
+        addr: 192.168.16.109
+      - name: fleet10
+        mac: c8:21:58:07:23:da
+        addr: 192.168.16.110
+      - name: fleet11
+        mac: c8:21:58:11:1c:41
+        addr: 192.168.16.111
+      - name: fleet12
+        mac: c8:21:58:02:8f:73
+        addr: 192.168.16.112
+      - name: fleet13
+        mac: c8:21:58:0d:74:56
+        addr: 192.168.16.113
   - name: guest
     cidr: 192.168.17.0/24
     interface: guest0
