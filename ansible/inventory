@@ -24,6 +24,10 @@ marvin
 [sherman]
 marvin
 
+[debon_infra]
+multivac
+univac
+
 [static_ip]
 psvcs
 globaldynamics
