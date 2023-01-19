@@ -25,4 +25,10 @@ resource "junos_security_address_book" "peer_addresses" {
     description = "SneakyNet Bag Router"
     value       = "172.16.31.0/24"
   }
+
+  network_address {
+    name        = "sneakynet-rack"
+    description = "SneakyNet Services Rack"
+    value       = "172.16.29.0/24"
+  }
 }

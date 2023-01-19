@@ -25,7 +25,9 @@ resource "junos_interface_logical" "peer_vlan" {
 }
 
 resource "junos_interface_physical" "peer_port" {
-  name        = "ge-0/0/1"
+  for_each = toset(["1", "2", "3"])
+
+  name        = format("ge-0/0/%d", each.key)
   description = "Router Peer Port"
 
   vlan_members = [junos_vlan.peer.name]
@@ -46,7 +48,7 @@ resource "junos_security_policy" "accept_from_peer" {
 
   policy {
     name                      = "sneakynet-to-local"
-    match_source_address      = ["sneakynet-bag", "any"]
+    match_source_address      = ["sneakynet-bag", "sneakynet-rack"]
     match_destination_address = ["any"]
     match_application         = ["any"]
   }

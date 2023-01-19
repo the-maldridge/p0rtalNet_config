@@ -1,5 +1,5 @@
 resource "junos_interface_physical" "local_port" {
-  for_each = toset(["2", "3", "4", "5", "6", "7"])
+  for_each = toset(["4", "5", "6", "7"])
 
   name         = format("ge-0/0/%d", each.key)
   vlan_members = [junos_vlan.local.name]
@@ -51,7 +51,11 @@ resource "junos_security_nat_source" "nat_to_upstream" {
   rule {
     name = "local-nat-to-upstream"
     match {
-      source_address = ["172.16.30.0/24"]
+      source_address = [
+        "172.16.29.0/24",
+        "172.16.30.0/24",
+        "172.16.31.0/24",
+      ]
     }
     then {
       type = "interface"
