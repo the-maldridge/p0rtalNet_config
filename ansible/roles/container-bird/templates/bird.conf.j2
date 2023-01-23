@@ -53,8 +53,8 @@ protocol kernel {
 template bgp pn_external {
   hold time 180;
   ipv4 {
-    import filter pn_external_accept;
-    export filter pn_external_routables;
+    import filter reject_huge_prefixes;
+    export all;
   };
 }
 
