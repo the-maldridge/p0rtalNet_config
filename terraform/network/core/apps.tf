@@ -17,7 +17,7 @@ resource "junos_application" "minecraft" {
 }
 
 resource "junos_application" "wg_peers" {
-  for_each = toset(["51821", "51822", "51823", "51824", "51825", "52820"])
+  for_each = toset(["51821", "51822", "51823", "51824", "51825", "51826", "52820"])
 
   name             = "wireguard_bgp_${each.value}"
   protocol         = "udp"
