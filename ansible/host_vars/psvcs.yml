@@ -94,6 +94,9 @@ dnsmasq_networks:
       - name: leafsw2
         addr: 192.168.31.62
         mac: c8:9e:43:aa:ad:d4
+      - name: leafsw3
+        addr: 192.168.31.63
+        mac: 54:af:97:a6:92:f0
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
