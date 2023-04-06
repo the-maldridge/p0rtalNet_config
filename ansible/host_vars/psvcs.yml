@@ -190,6 +190,9 @@ dnsmasq_networks:
       - name: univac
         addr: 192.168.19.21
         mac: 50:2b:73:d9:e6:fd
+      - name: banister-lights
+        addr: 192.168.19.55
+        mac: 24:94:94:90:dd:87
   - name: telephony
     cidr: 192.168.20.0/24
     interface: tel0
