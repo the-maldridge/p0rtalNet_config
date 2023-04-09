@@ -87,7 +87,7 @@ dnsmasq_networks:
         mac: 44:48:c1:c5:d7:4e
       - name: coresw1
         addr: 192.168.31.60
-        mac: 6c:cd:d6:c4:43:98
+        mac: 28:80:23:76:ea:e0
       - name: leafsw1
         addr: 192.168.31.61
         mac: c8:9e:43:a4:c5:f4
