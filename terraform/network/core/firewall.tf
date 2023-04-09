@@ -80,7 +80,7 @@ resource "junos_security_policy" "inbound_peers" {
   to_zone   = junos_security_zone.zone["peer_internal"].name
 
   dynamic "policy" {
-    for_each = toset(["51821", "51822", "51823","51824", "51825", "51826", "52820"])
+    for_each = toset(["51821", "51822", "51823", "51824", "51825", "51826", "52820"])
     content {
       name                      = "wg-bgp-${policy.value}"
       match_source_address      = ["any"]

@@ -14,9 +14,8 @@ resource "junos_interface_logical" "upstream" {
   security_zone = junos_security_zone.upstream.name
   family_inet {
     dhcp {
-      srx_old_option_name = true
-      vendor_id           = "juniper-srx300"
-      update_server       = true
+      vendor_id     = "juniper-srx300"
+      update_server = true
     }
   }
 }
