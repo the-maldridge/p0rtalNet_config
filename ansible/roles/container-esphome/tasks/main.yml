@@ -9,7 +9,7 @@
     name: esphome
     state: started
     restart_policy: always
-    image: docker.io/esphome/esphome:2022.12
+    image: docker.io/esphome/esphome:2023.3
     mac_address: 02:00:00:02:00:04
     network: svcs
     dns:
