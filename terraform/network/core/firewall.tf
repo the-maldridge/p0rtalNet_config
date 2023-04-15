@@ -119,7 +119,7 @@ resource "junos_security_policy" "dmz_to_res" {
 }
 
 resource "junos_security_policy" "res_to_all" {
-  for_each = toset(["dmz", "services", "iot", "telephony"])
+  for_each = toset(["dmz", "services", "iot", "telephony", "peer_internal"])
 
   from_zone = junos_security_zone.zone["residential"].name
   to_zone   = each.key
@@ -138,20 +138,6 @@ resource "junos_security_policy" "mgmt_to_svcs" {
 
   policy {
     name                      = "mgmt-to-services"
-    match_source_address      = ["any"]
-    match_destination_address = ["any"]
-    match_application         = ["any"]
-  }
-}
-
-resource "junos_security_policy" "res_to_peers" {
-  depends_on = [junos_security_address_book.peer_addresses]
-
-  from_zone = junos_security_zone.zone["residential"].name
-  to_zone   = junos_security_zone.zone["peer_internal"].name
-
-  policy {
-    name                      = "res-to-cluster"
     match_source_address      = ["any"]
     match_destination_address = ["any"]
     match_application         = ["any"]
