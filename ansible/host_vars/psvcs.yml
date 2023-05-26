@@ -93,7 +93,7 @@ dnsmasq_networks:
         mac: 28:80:23:76:ea:e0
       - name: leafsw1
         addr: 192.168.31.61
-        mac: c8:9e:43:a4:c5:f4
+        mac: 80:c1:6e:d0:58:b0
       - name: leafsw2
         addr: 192.168.31.62
         mac: c8:9e:43:aa:ad:d4
