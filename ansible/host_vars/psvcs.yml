@@ -199,6 +199,9 @@ dnsmasq_networks:
       - name: lr4-upstairs
         addr: 192.168.19.22
         mac: b4:8a:0a:9e:a8:e0
+      - name: lr4-downstairs
+        addr: 192.168.19.23
+        mac: e0:5a:1b:4b:28:c4
       - name: banister-lights
         addr: 192.168.19.55
         mac: 24:94:94:90:dd:87
