@@ -88,6 +88,9 @@ dnsmasq_networks:
       - name: aruba1
         addr: 192.168.31.11
         mac: 44:48:c1:c5:d6:e2
+      - name: backboard0
+        addr: 192.168.31.59
+        mac: a0:2b:b8:03:51:60
       - name: coresw1
         addr: 192.168.31.60
         mac: 28:80:23:76:ea:e0
@@ -100,9 +103,6 @@ dnsmasq_networks:
       - name: leafsw3
         addr: 192.168.31.63
         mac: 54:af:97:a6:92:f0
-      - name: leafsw4
-        addr: 192.168.31.64
-        mac: 9c:a2:f4:4e:58:e6
   - name: residential
     cidr: 192.168.16.0/24
     interface: res0
