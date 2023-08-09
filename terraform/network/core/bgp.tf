@@ -72,3 +72,10 @@ resource "junos_bgp_neighbor" "sneakynet" {
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.1"
 }
+
+resource "junos_bgp_neighbor" "minitel" {
+  ip               = "169.254.255.7"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.1"
+}
