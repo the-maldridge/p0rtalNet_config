@@ -152,6 +152,12 @@ dnsmasq_networks:
       - name: fleet13
         mac: c8:21:58:0d:74:56
         addr: 192.168.16.113
+      - name: fleet-media-a
+        mac: e4:42:a6:a8:78:ac
+        addr: 192.168.16.120
+      - name: fleet-media-b
+        mac: 1c:4d:70:7e:3e:ed
+        addr: 192.168.16.121
   - name: guest
     cidr: 192.168.17.0/24
     interface: guest0
