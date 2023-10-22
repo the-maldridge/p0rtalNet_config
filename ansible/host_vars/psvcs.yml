@@ -82,6 +82,12 @@ dnsmasq_networks:
       - name: ziggy
         addr: 192.168.31.4
         mac: e0:d5:5e:80:ff:50
+      - name: univac
+        addr: 192.168.31.5
+        mac: 84:7b:eb:e9:7d:b3
+      - name: multivac
+        addr: 192.168.31.6
+        mac: 84:7b:eb:ec:a2:7e
       - name: aruba0
         addr: 192.168.31.10
         mac: 44:48:c1:c5:d7:4e
@@ -196,12 +202,6 @@ dnsmasq_networks:
       - name: sprinkler
         addr: 192.168.19.12
         mac: 2c:f4:32:29:b7:b5
-      - name: multivac
-        addr: 192.168.19.20
-        mac: 3c:33:00:03:0a:ac
-      - name: univac
-        addr: 192.168.19.21
-        mac: 50:2b:73:d9:e6:fd
       - name: lr4-upstairs
         addr: 192.168.19.22
         mac: b4:8a:0a:9e:a8:e0

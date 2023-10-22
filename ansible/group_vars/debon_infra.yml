@@ -1,2 +1,6 @@
 ---
 network_output_policy: ACCEPT
+
+nomad_region: debon
+
+nomad_server_join: ["192.168.31.3"]

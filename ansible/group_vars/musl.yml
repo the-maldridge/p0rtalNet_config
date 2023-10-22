@@ -1,7 +1,9 @@
 ---
 xbps_repoconf_repos_enabled:
   - 00-repository-main
+  - 10-repository-nonfree
 
-xbps_repository_main: https://{{xbps_repository_address}}/voidlinux/current/musl
-xbps_repository_address: mirrors.servercentral.com
+xbps_repository_main: https://{{xbps_repository_address}}/current/musl
+xbps_repository_nonfree: https://{{xbps_repository_address}}/current/musl/nonfree
+xbps_repository_address: repo-fastly.voidlinux.org
 xbps_repository_port: 443

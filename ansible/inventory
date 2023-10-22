@@ -20,11 +20,17 @@ globaldynamics ansible_host=192.168.31.3
 
 [nomad_server]
 marvin
+globaldynamics
+
+[nomad_client]
+univac
+multivac
 
 [sherman]
 marvin
 
 [debon_infra]
+globaldynamics
 multivac
 univac
 
