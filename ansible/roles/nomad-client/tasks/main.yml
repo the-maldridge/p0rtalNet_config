@@ -1,4 +1,9 @@
 ---
+- name: Install Packages
+  xbps:
+    pkg: nomad-driver-podman
+    state: present
+
 - name: Install Client Config
   template:
     src: 20-client.hcl.j2
