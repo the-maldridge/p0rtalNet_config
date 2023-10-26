@@ -234,9 +234,6 @@ dnsmasq_networks:
       - name: minecraft
         addr: 192.168.21.6
         mac: 02:00:00:01:00:02
-      - name: speedtest
-        addr: 192.168.21.7
-        mac: 02:00:00:01:00:03
   - name: peer
     cidr: 169.254.255.0/24
     interface: peer0
@@ -247,3 +244,10 @@ dnsmasq_networks:
       - name: mesh1edge1
         addr: 169.254.255.3
         mac: 02:00:00:ff:00:01
+
+nomad_datacenter: CONTROL
+
+nomad_volumes:
+  - name: dnsmasq_hosts
+    path: /nomad/dnsmasq_hosts
+    read_only: false

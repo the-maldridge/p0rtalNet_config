@@ -25,6 +25,7 @@ globaldynamics
 [nomad_client]
 univac
 multivac
+psvcs
 
 [sherman]
 marvin
@@ -33,6 +34,7 @@ marvin
 globaldynamics
 multivac
 univac
+psvcs
 
 [static_ip]
 psvcs

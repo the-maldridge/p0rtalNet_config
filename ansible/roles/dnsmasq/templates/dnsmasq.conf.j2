@@ -7,6 +7,9 @@ domain=dal.michaelwashere.net
 dhcp-option=option:domain-name,dal.michaelwashere.net
 dhcp-option=option:T1,300
 dhcp-option=option:T2,525
+
+# Include hosts from Nomad
+hostsdir=/nomad/dnsmasq_hosts/
 {% for network in dnsmasq_networks %}
 
 ###

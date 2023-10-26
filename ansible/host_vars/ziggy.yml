@@ -29,7 +29,7 @@ network_static_interfaces:
     parent: enp1s0
     id: 35
 
-podman_networks:
+cni_networks:
   - name: mgmt
     parent: mgmt0
   - name: dmz

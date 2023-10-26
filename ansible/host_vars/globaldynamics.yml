@@ -41,7 +41,7 @@ network_static_interfaces:
     parent: eno1
     id: 101
 
-podman_networks:
+cni_networks:
   - name: mgmt
     parent: mgmt0
   - name: dmz
@@ -50,3 +50,8 @@ podman_networks:
     parent: svcs0
   - name: peering
     parent: peer0
+
+nomad_volumes:
+  - name: speedtest_data
+    path: /nomad/speedtest
+    read_only: false
