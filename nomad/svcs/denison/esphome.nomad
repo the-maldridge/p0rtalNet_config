@@ -26,6 +26,10 @@ job "esphome" {
         network_mode = "host"
       }
 
+      resources {
+        memory = 1000
+      }
+
       volume_mount {
         volume = "esphome"
         destination = "/config"
