@@ -6,8 +6,8 @@ network_input_policy: ACCEPT
 
 nomad_volumes:
   - name: esphome
-    path: /mnt/ext/nomad/esphome
+    path: /nomad/esphome
     read_only: false
   - name: hass
-    path: /mnt/ext/nomad/hass
+    path: /nomad/hass
     read_only: false
