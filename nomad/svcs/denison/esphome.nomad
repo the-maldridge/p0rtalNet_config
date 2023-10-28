@@ -19,7 +19,7 @@ job "esphome" {
     }
 
     task "esphome" {
-      driver = "docker"
+      driver = "podman"
 
       config {
         image = "docker.io/esphome/esphome:2022.12.8"

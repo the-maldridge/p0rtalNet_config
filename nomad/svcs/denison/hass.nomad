@@ -19,7 +19,7 @@ job "homeassistant" {
     }
 
     task "homeassistant" {
-      driver = "docker"
+      driver = "podman"
 
       config {
         image = "ghcr.io/home-assistant/home-assistant:2022.11.4"
