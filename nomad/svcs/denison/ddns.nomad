@@ -32,14 +32,13 @@ job "ddns" {
 {
     "settings": [
         {
-            "provider": "google",
+            "provider": "namecheap",
             "domain": "michaelwashere.net",
-            "host": "kdns",
+            "host": "gyi",
 {{ with nomadVar "nomad/jobs/ddns" -}}
-            "username": "{{.username}}",
             "password": "{{.password}}",
 {{ end -}}
-            "ip_version": "ipv4"
+            "provider_ip": true
         }
     ]
 }
