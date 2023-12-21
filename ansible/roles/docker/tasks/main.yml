@@ -1,0 +1,11 @@
+---
+- name: Install Packages
+  community.general.xbps:
+    pkg: docker
+    state: present
+
+- name: Enable Service
+  ansible.builtin.runit:
+    name: docker
+    state: started
+    enabled: true
