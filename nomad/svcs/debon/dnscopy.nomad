@@ -49,7 +49,7 @@ EOF
         destination = "local/hosts"
         change_mode = "script"
         change_script {
-          command = "/usr/bin/cp"
+          command = "/bin/cp"
           args = [
             "/local/hosts",
             "/host/",
