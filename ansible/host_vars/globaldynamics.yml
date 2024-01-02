@@ -55,3 +55,6 @@ nomad_volumes:
   - name: speedtest_data
     path: /nomad/speedtest
     read_only: false
+  - name: ddns_data
+    path: /nomad/ddns_data
+    read_only: false
