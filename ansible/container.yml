@@ -12,8 +12,6 @@
   become_user: root
   roles:
     - container-bastion
-    - container-bird
-    - container-ddns
     - container-hass
     - container-esphome
     - container-jellyfin
