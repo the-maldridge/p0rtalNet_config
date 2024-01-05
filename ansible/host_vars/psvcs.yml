@@ -243,7 +243,7 @@ dnsmasq_networks:
         addr: 169.254.255.2
       - name: mesh1edge1
         addr: 169.254.255.3
-        mac: 02:00:00:ff:00:01
+        mac: 48:a9:8a:d5:cd:e6
 
 nomad_datacenter: CONTROL
 
