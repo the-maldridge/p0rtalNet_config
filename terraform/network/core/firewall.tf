@@ -44,7 +44,7 @@ resource "junos_security_nat_destination" "inbound_dnat" {
   rule {
     name                = "wireguard_bgp"
     destination_address = "0.0.0.0/0"
-    destination_port    = ["51821", "51822", "51823", "51824", "51825", "51826", "52820"]
+    destination_port    = ["51821", "51822", "51823", "51824", "51825", "51826", "51827", "52820"]
     then {
       type = "pool"
       pool = junos_security_nat_destination_pool.peer_bgp.name
