@@ -90,3 +90,10 @@ resource "junos_security_policy" "zone_to_self" {
     match_application         = ["any"]
   }
 }
+
+resource "junos_policyoptions_prefix_list" "prefixes" {
+  for_each = var.networks
+
+  name   = each.key
+  prefix = [each.value.cidr]
+}

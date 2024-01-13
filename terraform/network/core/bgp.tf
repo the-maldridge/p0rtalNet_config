@@ -29,6 +29,25 @@ resource "junos_policyoptions_policy_statement" "send_direct" {
   }
 }
 
+resource "junos_policyoptions_policy_statement" "mesh_exports" {
+  name = "mesh-exports"
+
+  term {
+    name = "res"
+    from {
+      prefix_list = [
+        junos_policyoptions_prefix_list.prefixes["residential"].name,
+        junos_policyoptions_prefix_list.prefixes["services"].name,
+        junos_policyoptions_prefix_list.prefixes["telephony"].name,
+        junos_policyoptions_prefix_list.prefixes["dmz"].name,
+      ]
+    }
+    then {
+      action = "accept"
+    }
+  }
+}
+
 resource "junos_bgp_group" "internal" {
   name             = "internal-peers"
   type             = "internal"
@@ -36,6 +55,15 @@ resource "junos_bgp_group" "internal" {
   local_address    = "169.254.255.1"
 
   export = [junos_policyoptions_policy_statement.send_direct.name]
+}
+
+resource "junos_bgp_group" "mesh" {
+  name             = "mesh-peers"
+  type             = "internal"
+  routing_instance = "default"
+  local_address    = "169.254.255.1"
+
+  export = [junos_policyoptions_policy_statement.mesh_exports.name]
 }
 
 resource "junos_bgp_neighbor" "minicluster" {
@@ -48,7 +76,7 @@ resource "junos_bgp_neighbor" "minicluster" {
 resource "junos_bgp_neighbor" "mesh1edge1" {
   ip               = "169.254.255.3"
   routing_instance = "default"
-  group            = junos_bgp_group.internal.name
+  group            = junos_bgp_group.mesh.name
   local_address    = "169.254.255.1"
 }
 
