@@ -62,6 +62,13 @@ resource "routeros_ip_firewall_filter" "accept_wg_peers" {
   place_before      = routeros_ip_firewall_filter.default_drop.id
 }
 
+resource "routeros_ip_firewall_filter" "accept_icmp" {
+  chain        = "input"
+  action       = "accept"
+  protocol     = "icmp"
+  place_before = routeros_ip_firewall_filter.default_drop.id
+}
+
 resource "routeros_ip_firewall_filter" "default_drop" {
   chain             = "input"
   action            = "drop"
@@ -111,7 +118,6 @@ resource "routeros_ip_firewall_filter" "drop_forward_default" {
   action            = "drop"
   comment           = "default-deny"
   in_interface_list = "!${routeros_interface_list.lan.name}"
-  disabled          = true
 }
 
 # srcnat section - Traffic masquerading outbound.
