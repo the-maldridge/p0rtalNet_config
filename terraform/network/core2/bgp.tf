@@ -27,6 +27,7 @@ resource "routeros_routing_bgp_connection" "internal" {
 
   output {
     default_originate = "if-installed"
+    redistribute      = "connected"
   }
 }
 
