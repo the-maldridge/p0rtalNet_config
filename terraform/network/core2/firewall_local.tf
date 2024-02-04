@@ -31,6 +31,15 @@ resource "routeros_ip_firewall_filter" "to_mesh" {
   place_before       = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
+resource "routeros_ip_firewall_filter" "mesh_to_mesh" {
+  chain              = "forward"
+  action             = "accept"
+  comment            = "mesh-to-mesh"
+  in_interface_list  = routeros_interface_list.mesh_peer.name
+  out_interface_list = routeros_interface_list.mesh_peer.name
+  place_before       = routeros_ip_firewall_filter.drop_forward_default.id
+}
+
 resource "routeros_ip_firewall_nat" "inbound_portmap" {
   for_each = {
     basion_ssh = { port = 22, proto = "tcp", target = "192.168.21.5" },
