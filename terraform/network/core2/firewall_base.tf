@@ -83,6 +83,7 @@ resource "routeros_ip_firewall_filter" "fasttrack_forward" {
   action           = "fasttrack-connection"
   connection_state = "established,related"
   comment          = "forward-fasttracked"
+  hw_offload       = true
   place_before     = routeros_ip_firewall_filter.drop_forward_default.id
 }
 

@@ -33,13 +33,13 @@ resource "routeros_routing_bgp_connection" "internal" {
 
 resource "routeros_routing_filter_rule" "mesh_import_no_overlap" {
   chain   = "mesh-import"
-  rule    = "if (dst in 192.168.16.0/20) {reject} else {accept}"
+  rule    = "if (dst in 192.168.16.0/20) {reject}"
   comment = "Do not accept overlapped prefixes"
 }
 
 resource "routeros_routing_filter_rule" "mesh_import_no_hugeprefix" {
   chain   = "mesh-import"
-  rule    = "if (dst-len < 15) {reject} else {accept}"
+  rule    = "if (dst-len < 15) {reject}"
   comment = "Do not accept huge prefixes"
 }
 
