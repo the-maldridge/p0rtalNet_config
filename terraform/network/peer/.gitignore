@@ -1,3 +1,0 @@
-peers.auto.tfvars
-terraform.tfstate*
-.terraform/
