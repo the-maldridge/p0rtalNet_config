@@ -17,6 +17,9 @@ resource "routeros_routing_bgp_connection" "internal" {
   cluster_id = "169.254.255.1"
   router_id  = "169.254.255.1"
 
+  hold_time      = "30s"
+  keepalive_time = "10s"
+
   local {
     role    = "ibgp"
     address = "169.254.255.1"
