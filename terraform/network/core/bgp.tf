@@ -35,16 +35,10 @@ resource "routeros_routing_bgp_connection" "internal" {
   }
 }
 
-resource "routeros_routing_filter_rule" "mesh_import_no_overlap" {
+resource "routeros_routing_filter_rule" "mesh_imports" {
   chain   = "mesh-import"
-  rule    = "if (dst in 192.168.16.0/20) {reject}"
-  comment = "Do not accept overlapped prefixes"
-}
-
-resource "routeros_routing_filter_rule" "mesh_import_no_hugeprefix" {
-  chain   = "mesh-import"
-  rule    = "if (dst-len < 15) {reject}"
-  comment = "Do not accept huge prefixes"
+  rule    = "if (dst in 192.168.16.0/20 || dst-len < 15) {reject} else {accept}"
+  comment = "Do not accept harmful routes."
 }
 
 resource "routeros_routing_bgp_connection" "peer" {
