@@ -22,7 +22,7 @@ job "esphome" {
       driver = "podman"
 
       config {
-        image = "docker.io/esphome/esphome:2022.12.8"
+        image = "docker.io/esphome/esphome:2024.2.0"
         network_mode = "host"
       }
 
