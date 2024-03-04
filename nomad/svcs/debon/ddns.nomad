@@ -32,7 +32,12 @@ job "ddns" {
       driver = "docker"
 
       config {
-        image = "ghcr.io/qdm12/ddns-updater:latest"
+        image = "ghcr.io/qdm12/ddns-updater:v2.6.0"
+        cap_add = ["NET_BIND_SERVICE"]
+      }
+
+      env {
+        LISTENING_ADDRESS=":80"
       }
 
       volume_mount {
