@@ -15,6 +15,6 @@
     env:
       TZ: America/Chicago
     dns:
-      - 192.168.18.2
+      - 192.168.18.1
     volume:
       - hass_data:/config
