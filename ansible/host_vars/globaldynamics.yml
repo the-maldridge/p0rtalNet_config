@@ -58,3 +58,6 @@ nomad_volumes:
   - name: ddns_data
     path: /nomad/ddns_data
     read_only: false
+  - name: zwave_data
+    path: /nomad/zwave_data
+    read_only: false
