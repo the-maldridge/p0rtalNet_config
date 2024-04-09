@@ -14,6 +14,7 @@ resource "routeros_ip_dhcp_server" "server" {
   address_pool       = routeros_ip_pool.pool[each.key].name
   comment            = each.value.description
   conflict_detection = true
+  lease_time         = "1h"
 }
 
 resource "routeros_ip_dhcp_server_network" "network" {
