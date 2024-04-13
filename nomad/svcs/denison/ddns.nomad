@@ -13,7 +13,7 @@ job "ddns" {
     }
 
     task "app" {
-      driver = "podman"
+      driver = "docker"
 
       config {
         image = "ghcr.io/qdm12/ddns-updater:v2.6.0"
