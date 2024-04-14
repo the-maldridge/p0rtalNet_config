@@ -45,6 +45,11 @@ job "zwave-js" {
           container_path = "/dev/zwave"
         }]
       }
+
+      volume_mount {
+        volume = "zwave_data"
+        destination = "/usr/src/app/store"
+      }
     }
   }
 }
