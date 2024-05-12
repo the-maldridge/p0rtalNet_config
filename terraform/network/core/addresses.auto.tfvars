@@ -71,6 +71,102 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  fleet00 = {
+    mac  = "e4:42:a6:19:ec:13"
+    addr = "192.168.16.60"
+    net  = "residential"
+  }
+
+  fleet01 = {
+    mac  = "c8:21:58:11:1c:af"
+    addr = "192.168.16.61"
+    net  = "residential"
+  }
+
+  fleet02 = {
+    mac  = "c8:21:58:56:1c:06"
+    addr = "192.168.16.62"
+    net  = "residential"
+  }
+
+  fleet03 = {
+    mac  = "c8:21:58:06:99:dd"
+    addr = "192.168.16.63"
+    net  = "residential"
+  }
+
+  fleet04 = {
+    mac  = "c8:21:58:0b:12:42"
+    addr = "192.168.16.64"
+    net  = "residential"
+  }
+
+  fleet05 = {
+    mac  = "c8:21:58:87:4b:d2"
+    addr = "192.168.16.65"
+    net  = "residential"
+  }
+
+  fleet06 = {
+    mac  = "c8:21:58:0d:7d:61"
+    addr = "192.168.16.66"
+    net  = "residential"
+  }
+
+  fleet07 = {
+    mac  = "c8:21:58:09:67:99"
+    addr = "192.168.16.67"
+    net  = "residential"
+  }
+
+  fleet08 = {
+    mac  = "c8:21:58:07:23:17"
+    addr = "192.168.16.68"
+    net  = "residential"
+  }
+
+  fleet09 = {
+    mac  = "c8:21:58:56:96:09"
+    addr = "192.168.16.69"
+    net  = "residential"
+  }
+
+  fleet10 = {
+    mac  = "c8:21:58:07:23:da"
+    addr = "192.168.16.70"
+    net  = "residential"
+  }
+
+  fleet11 = {
+    mac  = "c8:21:58:11:1c:41"
+    addr = "192.168.16.71"
+    net  = "residential"
+  }
+
+  fleet12 = {
+    mac  = "c8:21:58:02:8f:73"
+    addr = "192.168.16.72"
+    net  = "residential"
+  }
+
+  fleet13 = {
+    mac  = "c8:21:58:0d:74:56"
+    addr = "192.168.16.73"
+    net  = "residential"
+  }
+
+  fleet-media-a = {
+    mac  = "e4:42:a6:a8:78:ac"
+    addr = "192.168.16.74"
+    net  = "residential"
+  }
+
+  fleet-media-b = {
+    mac  = "1c:4d:70:7e:3e:ed"
+    addr = "192.168.16.75"
+    net  = "residential"
+  }
+
   salt-mine = {
     mac  = "b0:b9:8a:45:88:a8"
     addr = "192.168.18.5"
