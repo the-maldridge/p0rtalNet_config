@@ -20,6 +20,7 @@ job "ddns" {
       name = "ddns"
       port = "http"
       address_mode = "alloc"
+      tags = ["nomad-ddns"]
     }
 
     volume "ddns_data" {

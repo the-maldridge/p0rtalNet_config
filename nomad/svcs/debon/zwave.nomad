@@ -20,6 +20,7 @@ job "zwave-js" {
       name = "zwave-http"
       port = "http"
       address_mode = "alloc"
+      tags = ["nomad-ddns"]
     }
 
     service {

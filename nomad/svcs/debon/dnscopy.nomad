@@ -1,5 +1,9 @@
 job "dnscopy" {
-  type = "service"
+  type = "batch"
+
+  periodic {
+    crons = ["@hourly"]
+  }
 
   datacenters = ["CONTROL"]
   region = "debon"
@@ -8,53 +12,34 @@ job "dnscopy" {
   group "dnscopy" {
     count = 1
 
-    volume "dnsmasq_hosts" {
-      type = "host"
-      source = "dnsmasq_hosts"
-      read_only = false
-    }
-
     task "app" {
       driver = "docker"
 
+      identity {
+        env = true
+      }
+
       config {
-        image = "docker.io/library/alpine:latest"
-        entrypoint = ["/local/entrypoint"]
+        image = "ghcr.io/the-maldridge/mkt-nomad-dns:v0.0.1"
         init = true
       }
 
-      volume_mount {
-        volume = "dnsmasq_hosts"
-        destination = "/host"
+      env {
+        DNS_DOMAIN = "dal.michaelwashere.net"
+        NOMAD_ADDR = "unix:///secrets/api.sock"
+        NOMAD_TAG = "nomad-ddns"
       }
 
       template {
         data = <<EOF
-#!/bin/sh
-cp /local/hosts /host
-exec sleep infinity
+{{ with nomadVar "nomad/jobs/dnscopy" }}
+ROS_ADDRESS={{ .ROS_ADDRESS }}
+ROS_USERNAME={{ .ROS_USERNAME }}
+ROS_PASSWORD={{ .ROS_PASSWORD }}
+{{ end }}
 EOF
-        destination = "local/entrypoint"
-        perms = "755"
-      }
-
-      template {
-        data = <<EOF
-{{ range nomadServices -}}
-{{ range nomadService .Name -}}
-{{.Address}} {{.Name}}.dal.michaelwashere.net
-{{ end -}}
-{{ end -}}
-EOF
-        destination = "local/hosts"
-        change_mode = "script"
-        change_script {
-          command = "/bin/cp"
-          args = [
-            "/local/hosts",
-            "/host/",
-          ]
-        }
+        destination = "${NOMAD_SECRETS_DIR}/env"
+        env = true
       }
     }
   }

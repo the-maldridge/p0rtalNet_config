@@ -20,6 +20,7 @@ job "speedtest" {
       name = "speedtest"
       port = "http"
       address_mode = "alloc"
+      tags = ["nomad-ddns"]
     }
 
     volume "speedtest_data" {
