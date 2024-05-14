@@ -61,3 +61,6 @@ nomad_volumes:
   - name: zwave_data
     path: /nomad/zwave_data
     read_only: false
+  - name: esphome_data
+    path: /nomad/esphome_data
+    read_only: false
