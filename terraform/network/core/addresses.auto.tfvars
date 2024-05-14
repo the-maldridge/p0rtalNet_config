@@ -173,12 +173,6 @@ reserved_addresses = {
     net  = "services"
   }
 
-  ddns-client = {
-    mac  = "02:00:00:02:00:02"
-    addr = "192.168.18.11"
-    net  = "services"
-  }
-
   brother-laser = {
     mac  = "b4:22:00:3b:db:f6"
     addr = "192.168.18.12"
@@ -188,12 +182,6 @@ reserved_addresses = {
   hass = {
     mac  = "02:00:00:02:00:03"
     addr = "192.168.18.13"
-    net  = "services"
-  }
-
-  esphome = {
-    mac  = "02:00:00:02:00:04"
-    addr = "192.168.18.14"
     net  = "services"
   }
 
@@ -266,12 +254,6 @@ reserved_addresses = {
   minicluster = {
     mac  = "28:8a:1c:d0:04:87"
     addr = "169.254.255.2"
-    net  = "peer_internal"
-  }
-
-  mesh1edge1 = {
-    mac  = "48:a9:8a:d5:cd:e6"
-    addr = "169.254.255.3"
     net  = "peer_internal"
   }
 }
