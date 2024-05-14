@@ -13,5 +13,4 @@
   roles:
     - container-bastion
     - container-hass
-    - container-esphome
     - container-jellyfin
