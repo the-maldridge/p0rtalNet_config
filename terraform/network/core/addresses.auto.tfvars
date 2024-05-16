@@ -179,12 +179,6 @@ reserved_addresses = {
     net  = "services"
   }
 
-  hass = {
-    mac  = "02:00:00:02:00:03"
-    addr = "192.168.18.13"
-    net  = "services"
-  }
-
   jellyfin = {
     mac  = "02:00:00:02:00:05"
     addr = "192.168.18.15"

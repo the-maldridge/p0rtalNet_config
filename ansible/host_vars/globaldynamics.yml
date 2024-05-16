@@ -64,3 +64,6 @@ nomad_volumes:
   - name: esphome_data
     path: /nomad/esphome_data
     read_only: false
+  - name: homeassistant_data
+    path: /nomad/homeassistant_data
+    read_only: false
