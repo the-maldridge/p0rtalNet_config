@@ -12,5 +12,4 @@
   become_user: root
   roles:
     - container-bastion
-    - container-hass
     - container-jellyfin
