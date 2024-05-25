@@ -43,3 +43,18 @@ resource "routeros_ip_dns_record" "static_hosts" {
   address = each.value.addr
   type    = "A"
 }
+
+resource "routeros_ip_dns_record" "self_dns" {
+  name    = "edge01.dal.michaelwashere.net"
+  address = "192.168.31.1"
+  type    = "A"
+}
+
+# This record exists so that devices across the network can poll for
+# it to determine if the network is available yet.  The idea here is
+# to sort out the boot-time races that occur when Runit comes up.
+resource "routeros_ip_dns_record" "net_available" {
+  name    = "net-available.dal.michaelwashere.net"
+  address = "127.0.0.1"
+  type    = "A"
+}
