@@ -47,21 +47,15 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
+  coresw2 = {
+    mac = "88:3A:30:1A:20:20"
+    addr = "192.168.31.61"
+    net = "mgmt"
+  }
+
   leafsw1 = {
     mac  = "80:c1:6e:d0:58:b0"
-    addr = "192.168.31.61"
-    net  = "mgmt"
-  }
-
-  leafsw2 = {
-    mac  = "c8:9e:43:aa:ad:d4"
-    addr = "192.168.31.62"
-    net  = "mgmt"
-  }
-
-  leafsw3 = {
-    mac  = "54:af:97:a6:92:f0"
-    addr = "192.168.31.63"
+    addr = "192.168.31.65"
     net  = "mgmt"
   }
 
