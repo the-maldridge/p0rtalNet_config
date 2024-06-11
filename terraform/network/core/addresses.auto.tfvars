@@ -149,15 +149,39 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  fleet14 = {
+    mac = "5c:5f:67:5d:76:fe"
+    addr = "192.168.16.74"
+    net = "residential"
+  }
+
+  fleet15 = {
+    mac = "5c:5f:67:48:7a:c4"
+    addr = "192.168.16.75"
+    net = "residential"
+  }
+
+  fleet16 = {
+    mac = "e4:42:a6:7b:07:28"
+    addr = "192.168.16.76"
+    net = "residential"
+  }
+
+  fleet17 = {
+    mac = "e4:42:a6:72:e2:cd"
+    addr = "192.168.16.77"
+    net = "residential"
+  }
+
   fleet-media-a = {
     mac  = "e4:42:a6:a8:78:ac"
-    addr = "192.168.16.74"
+    addr = "192.168.16.80"
     net  = "residential"
   }
 
   fleet-media-b = {
     mac  = "1c:4d:70:7e:3e:ed"
-    addr = "192.168.16.75"
+    addr = "192.168.16.81"
     net  = "residential"
   }
 
