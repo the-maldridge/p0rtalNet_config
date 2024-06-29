@@ -1,5 +1,5 @@
 ---
-ansible_host: kdns.michaelwashere.net
+ansible_host: gyi.michaelwashere.net
 
 network_output_policy: ACCEPT
 network_input_policy: ACCEPT
@@ -10,4 +10,7 @@ nomad_volumes:
     read_only: false
   - name: hass
     path: /nomad/hass
+    read_only: false
+  - name: ddns
+    path: /nomad/ddns
     read_only: false

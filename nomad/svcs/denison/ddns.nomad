@@ -12,12 +12,19 @@ job "ddns" {
       port "http" { static = 8000 }
     }
 
+    volume "ddns_data" {
+      type = "host"
+      source = "ddns"
+      read_only = false
+    }
+
     task "app" {
       driver = "docker"
 
       config {
-        image = "ghcr.io/qdm12/ddns-updater:v2.6.0"
+        image = "ghcr.io/qdm12/ddns-updater:v2.7.0"
         cap_add = ["NET_BIND_SERVICE"]
+        volumes = ["secrets/config.json:/updater/data/config.json"]
       }
 
       env {
@@ -41,6 +48,11 @@ job "ddns" {
           ]
         })
         destination = "secrets/config.json"
+      }
+
+      volume_mount {
+        volume = "ddns_data"
+        destination = "/updater/data"
       }
     }
   }
