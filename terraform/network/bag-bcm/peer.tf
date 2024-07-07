@@ -41,7 +41,7 @@ resource "junos_security_policy" "accept_from_peer" {
 
   policy {
     name                      = "extres-to-local"
-    match_source_address      = ["resnet"]
+    match_source_address      = ["resnet", "p0rtalNet_telephony"]
     match_destination_address = ["any"]
     match_application         = ["any"]
   }

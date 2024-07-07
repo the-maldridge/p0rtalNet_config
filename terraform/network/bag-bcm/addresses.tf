@@ -21,6 +21,12 @@ resource "junos_security_address_book" "peer_addresses" {
   }
 
   network_address {
+    name        = "p0rtalNet_telephony"
+    description = "Static Telephony Services"
+    value       = "192.168.20.0/24"
+  }
+
+  network_address {
     name        = "sneakynet-bag"
     description = "SneakyNet Bag Router"
     value       = "172.16.31.0/24"
