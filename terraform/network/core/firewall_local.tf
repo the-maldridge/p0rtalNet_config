@@ -31,6 +31,17 @@ resource "routeros_ip_firewall_filter" "to_mesh" {
   place_before       = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
+resource "routeros_ip_firewall_filter" "from_mesh" {
+  for_each = toset(["dmz", "telephony"])
+
+  chain             = "forward"
+  action            = "accept"
+  comment           = format("mesh-to-%s", each.key)
+  in_interface_list = routeros_interface_list.mesh_peer.name
+  out_interface     = routeros_interface_vlan.vlan[each.key].name
+  place_before      = routeros_ip_firewall_filter.drop_forward_default.id
+}
+
 resource "routeros_ip_firewall_filter" "mesh_to_mesh" {
   chain              = "forward"
   action             = "accept"

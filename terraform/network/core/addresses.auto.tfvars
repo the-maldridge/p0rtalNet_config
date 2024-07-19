@@ -48,9 +48,9 @@ reserved_addresses = {
   }
 
   coresw2 = {
-    mac = "88:3A:30:1A:20:20"
+    mac  = "88:3A:30:1A:20:20"
     addr = "192.168.31.61"
-    net = "mgmt"
+    net  = "mgmt"
   }
 
   leafsw1 = {
@@ -150,27 +150,27 @@ reserved_addresses = {
   }
 
   fleet14 = {
-    mac = "5c:5f:67:5d:76:fe"
+    mac  = "5c:5f:67:5d:76:fe"
     addr = "192.168.16.74"
-    net = "residential"
+    net  = "residential"
   }
 
   fleet15 = {
-    mac = "5c:5f:67:48:7a:c4"
+    mac  = "5c:5f:67:48:7a:c4"
     addr = "192.168.16.75"
-    net = "residential"
+    net  = "residential"
   }
 
   fleet16 = {
-    mac = "e4:42:a6:7b:07:28"
+    mac  = "e4:42:a6:7b:07:28"
     addr = "192.168.16.76"
-    net = "residential"
+    net  = "residential"
   }
 
   fleet17 = {
-    mac = "e4:42:a6:72:e2:cd"
+    mac  = "e4:42:a6:72:e2:cd"
     addr = "192.168.16.77"
-    net = "residential"
+    net  = "residential"
   }
 
   fleet-media-a = {
