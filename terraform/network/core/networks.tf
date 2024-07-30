@@ -18,7 +18,7 @@ resource "routeros_interface_bridge" "br0" {
 
 resource "routeros_interface_bridge_vlan" "br_vlan" {
   bridge   = routeros_interface_bridge.br0.name
-  vlan_ids = join(",", flatten([[for net in var.networks : net.vlan_id], 110, 111]))
+  vlan_ids = flatten([[for net in var.networks : net.vlan_id], 110, 111])
   tagged   = [routeros_interface_bridge.br0.name]
 }
 

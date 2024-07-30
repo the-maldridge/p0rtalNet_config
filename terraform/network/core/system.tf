@@ -4,7 +4,7 @@ resource "routeros_system_identity" "identity" {
 
 resource "routeros_ip_dns" "dns" {
   allow_remote_requests = true
-  servers               = "8.8.8.8,8.8.4.4"
+  servers               = ["8.8.8.8", "8.8.4.4"]
 }
 
 resource "routeros_ip_service" "disabled" {

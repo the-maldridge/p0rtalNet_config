@@ -24,7 +24,7 @@ resource "routeros_ip_dhcp_server_network" "network" {
   comment    = "Options for ${each.value.description}"
   gateway    = cidrhost(each.value.cidr, 1)
   domain     = "dal.michaelwashere.net"
-  dns_server = cidrhost(each.value.cidr, 1)
+  dns_server = [cidrhost(each.value.cidr, 1)]
 }
 
 resource "routeros_ip_dhcp_server_lease" "static_lease" {
