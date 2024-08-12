@@ -3,9 +3,10 @@ variable "networks" {
     description           = string
     vlan_id               = number
     cidr                  = string
-    enable_upstream_nat   = bool
+    enable_upstream_nat   = optional(bool, true)
     enable_mesh_export    = optional(bool, false)
-    additional_nat_source = list(string)
+    additional_nat_source = optional(list(string), [])
+    enable_wifi           = optional(bool, false)
   }))
   description = "Input structure containing list of networks to provision"
 }
@@ -31,4 +32,16 @@ variable "bgp_peers" {
     as         = number
     bgp        = optional(bool, true)
   }))
+}
+
+variable "wifi" {
+  description = "WiFi SSIDs and PSKs"
+  type = map(list(object({
+    ssid = string
+    band = optional(list(string), ["5ghz"])
+    auth = optional(list(string), ["wpa2-psk", "wpa3-psk"])
+    psk  = string
+    hide = optional(bool, false)
+    master = optional(bool, false)
+  })))
 }

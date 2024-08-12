@@ -35,6 +35,12 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
+  cap1 = {
+    mac = "78:9a:18:cb:8b:f4"
+    addr = "192.168.31.20"
+    net = "mgmt"
+  }
+
   backboard0 = {
     mac  = "a0:2b:b8:03:51:60"
     addr = "192.168.31.59"
