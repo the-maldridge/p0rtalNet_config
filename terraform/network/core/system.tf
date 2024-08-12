@@ -38,3 +38,7 @@ resource "routeros_ip_service" "www_ssl" {
   address     = var.networks["mgmt"].cidr
   certificate = "self"
 }
+
+resource "routeros_ip_cloud" "ddns" {
+  ddns_enabled         = true
+}
