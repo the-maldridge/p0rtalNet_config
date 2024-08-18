@@ -11,6 +11,6 @@ provider "routeros" {
 }
 
 provider "routeros" {
-  alias = "cap1"
+  alias   = "cap1"
   hosturl = "https://192.168.31.20"
 }

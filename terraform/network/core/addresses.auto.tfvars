@@ -36,9 +36,9 @@ reserved_addresses = {
   }
 
   cap1 = {
-    mac = "78:9a:18:cb:8b:f4"
+    mac  = "78:9a:18:cb:8b:f4"
     addr = "192.168.31.20"
-    net = "mgmt"
+    net  = "mgmt"
   }
 
   backboard0 = {

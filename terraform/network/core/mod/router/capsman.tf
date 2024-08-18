@@ -3,10 +3,10 @@ locals {
     for netid, net in var.networks : [
       for cfg in var.wifi[netid] : [
         for band in cfg.band : {
-          name = format("%s-%s", cfg.ssid, band)
-          ssid = cfg.ssid
-          master = cfg.master
-          band = band
+          name     = format("%s-%s", cfg.ssid, band)
+          ssid     = cfg.ssid
+          master   = cfg.master
+          band     = band
           authtype = cfg.auth
           psk      = cfg.psk
           hide     = cfg.hide
@@ -22,7 +22,7 @@ resource "routeros_wifi_capsman" "mgr" {
   upgrade_policy = "require-same-version"
   certificate    = "auto"
   ca_certificate = "auto"
-  interfaces = [routeros_interface_vlan.vlan["mgmt"].name]
+  interfaces     = [routeros_interface_vlan.vlan["mgmt"].name]
 }
 
 resource "routeros_wifi_channel" "channel" {
@@ -70,15 +70,15 @@ resource "routeros_wifi_configuration" "config" {
 }
 
 resource "routeros_wifi_provisioning" "provision_5ghz" {
-  action = "create-dynamic-enabled"
-  master_configuration = one([for ssid in local.ssids : ssid.name if (ssid.band == "5ghz" && ssid.master)])
-  supported_bands = ["5ghz-ax"]
-#  slave_configurations = [for ssid in local.ssids : ssid.name if (ssid.band == "5ghz" && !ssid.master)]
+  action               = "create-dynamic-enabled"
+  master_configuration = one([for ssid in local.ssids : ssid.name if(ssid.band == "5ghz" && ssid.master)])
+  supported_bands      = ["5ghz-ax"]
+  #  slave_configurations = [for ssid in local.ssids : ssid.name if (ssid.band == "5ghz" && !ssid.master)]
 }
 
 resource "routeros_wifi_provisioning" "provision_2ghz" {
-  action = "create-dynamic-enabled"
-  master_configuration = one([for ssid in local.ssids : ssid.name if (ssid.band == "2ghz" && ssid.master)])
-  supported_bands = ["2ghz-n"]
-  slave_configurations = [for ssid in local.ssids : ssid.name if (ssid.band == "2ghz" && !ssid.master)]
+  action               = "create-dynamic-enabled"
+  master_configuration = one([for ssid in local.ssids : ssid.name if(ssid.band == "2ghz" && ssid.master)])
+  supported_bands      = ["2ghz-n"]
+  slave_configurations = [for ssid in local.ssids : ssid.name if(ssid.band == "2ghz" && !ssid.master)]
 }

@@ -1,11 +1,11 @@
 resource "routeros_wifi_cap" "settings" {
   caps_man_addresses = ["192.168.31.1"]
-  enabled = true
-  slaves_datapath = routeros_wifi_datapath.datapath.name
+  enabled            = true
+  slaves_datapath    = routeros_wifi_datapath.datapath.name
 }
 
 resource "routeros_wifi_datapath" "datapath" {
-  name = "capdp"
+  name   = "capdp"
   bridge = routeros_interface_bridge.br0.name
 }
 

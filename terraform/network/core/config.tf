@@ -15,7 +15,7 @@ module "cap1" {
 
   bootstrap = false
 
-  networks = var.networks
-  hostname = "cap1"
+  networks            = var.networks
+  hostname            = "cap1"
   capsman_certificate = module.edge01.capsman_certificate
 }

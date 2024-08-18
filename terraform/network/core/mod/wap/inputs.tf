@@ -1,16 +1,16 @@
 variable "bootstrap" {
-  type = bool
-  default = false
+  type        = bool
+  default     = false
   description = "Changes a number of parameters to avoid locking out the device"
 }
 
 variable "hostname" {
-  type = string
+  type        = string
   description = "Access Point Hostname"
 }
 
 variable "capsman_certificate" {
-  type = string
+  type        = string
   description = "Certificate to bind with capsman"
 }
 
