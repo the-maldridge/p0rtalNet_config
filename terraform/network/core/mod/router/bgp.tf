@@ -1,10 +1,6 @@
 resource "routeros_routing_bgp_connection" "internal" {
   for_each = {
     minicluster = "169.254.255.2"
-    bag-bcm     = "169.254.255.4"
-    bag-net     = "169.254.255.5"
-    sneakynet   = "169.254.255.6"
-    minitel     = "169.254.255.7"
   }
 
   as   = 64579
@@ -27,6 +23,46 @@ resource "routeros_routing_bgp_connection" "internal" {
 
   remote {
     address = each.value
+  }
+
+  output {
+    default_originate = "if-installed"
+    redistribute      = "connected"
+  }
+}
+
+resource "routeros_routing_bgp_connection" "sneakynet" {
+  for_each = {
+    bag-bcm   = "169.254.255.4"
+    bag-net   = "169.254.255.5"
+    sneakynet = "169.254.255.6"
+    minitel   = "169.254.255.7"
+  }
+
+  as   = 64579
+  name = each.key
+
+  connect        = true
+  listen         = true
+  nexthop_choice = "force-self"
+
+  router_id = "169.254.255.1"
+
+  hold_time      = "30s"
+  keepalive_time = "10s"
+
+  local {
+    role    = "ebgp"
+    address = "169.254.255.1"
+  }
+
+  remote {
+    address = each.value
+    as      = 64582
+  }
+
+  input {
+    filter = "mesh-import"
   }
 
   output {
