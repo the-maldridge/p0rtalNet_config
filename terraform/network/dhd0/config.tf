@@ -11,7 +11,7 @@ module "dhd0" {
 }
 
 variable "peer_config" {
-  type = object({
+  type = map(object({
     privkey    = string
     pubkey     = string
     listen     = number
@@ -19,6 +19,6 @@ variable "peer_config" {
     addr       = string
     endpoint   = optional(string)
     as         = number
-  })
-  description = "Configuration for BGP Peer"
+  }))
+  description = "Configuration for BGP Peers"
 }

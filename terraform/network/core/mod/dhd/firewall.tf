@@ -23,12 +23,12 @@ resource "routeros_ip_firewall_filter" "accept_icmp" {
 }
 
 resource "routeros_ip_firewall_filter" "accept_inbound" {
-  chain            = "input"
-  action           = "accept"
-  comment          = "accept-inbound"
-  src_address_list = "accept-remote"
-  in_interface     = routeros_interface_wireguard.peer.name
-  place_before     = routeros_ip_firewall_filter.default_drop.id
+  chain             = "input"
+  action            = "accept"
+  comment           = "accept-inbound"
+  src_address_list  = "accept-remote"
+  in_interface_list = routeros_interface_list.peers.name
+  place_before      = routeros_ip_firewall_filter.default_drop.id
 }
 
 resource "routeros_ip_firewall_filter" "accept_local" {
@@ -93,41 +93,41 @@ resource "routeros_ip_firewall_filter" "drop_forward_invalid" {
 }
 
 resource "routeros_ip_firewall_filter" "accept_forward_inbound" {
-  chain            = "forward"
-  action           = "accept"
-  comment          = "accept-inbound-forward"
-  in_interface     = routeros_interface_wireguard.peer.name
-  out_interface    = routeros_interface_vlan.lan.name
-  src_address_list = "accept-remote"
-  place_before     = routeros_ip_firewall_filter.drop_forward_default.id
+  chain             = "forward"
+  action            = "accept"
+  comment           = "accept-inbound-forward"
+  in_interface_list = routeros_interface_list.peers.name
+  out_interface     = routeros_interface_vlan.lan.name
+  src_address_list  = "accept-remote"
+  place_before      = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
 resource "routeros_ip_firewall_filter" "accept_forward_outbound" {
-  chain         = "forward"
-  action        = "accept"
-  comment       = "accept-outbound-forward"
-  in_interface  = routeros_interface_vlan.lan.name
-  out_interface = routeros_interface_wireguard.peer.name
-  place_before  = routeros_ip_firewall_filter.drop_forward_default.id
+  chain              = "forward"
+  action             = "accept"
+  comment            = "accept-outbound-forward"
+  in_interface       = routeros_interface_vlan.lan.name
+  out_interface_list = routeros_interface_list.peers.name
+  place_before       = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
 resource "routeros_ip_firewall_filter" "accept_gate_inbound" {
-  chain            = "forward"
-  action           = "accept"
-  comment          = "accept-gate-inbound"
-  in_interface     = routeros_interface_wireguard.peer.name
-  out_interface    = routeros_interface_vlan.gate.name
-  src_address_list = "accept-remote"
-  place_before     = routeros_ip_firewall_filter.drop_forward_default.id
+  chain             = "forward"
+  action            = "accept"
+  comment           = "accept-gate-inbound"
+  in_interface_list = routeros_interface_list.peers.name
+  out_interface     = routeros_interface_vlan.gate.name
+  src_address_list  = "accept-remote"
+  place_before      = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
 resource "routeros_ip_firewall_filter" "accept_gate_outbound" {
-  chain         = "forward"
-  action        = "accept"
-  comment       = "accept-gate-outbound"
-  in_interface  = routeros_interface_vlan.gate.name
-  out_interface = routeros_interface_wireguard.peer.name
-  place_before  = routeros_ip_firewall_filter.drop_forward_default.id
+  chain              = "forward"
+  action             = "accept"
+  comment            = "accept-gate-outbound"
+  in_interface       = routeros_interface_vlan.gate.name
+  out_interface_list = routeros_interface_list.peers.name
+  place_before       = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
 resource "routeros_ip_firewall_filter" "drop_forward_default" {
