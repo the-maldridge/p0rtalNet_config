@@ -32,7 +32,7 @@ resource "routeros_ip_firewall_filter" "to_mesh" {
 }
 
 resource "routeros_ip_firewall_filter" "from_mesh" {
-  for_each = toset(["dmz", "telephony"])
+  for_each = toset(["dmz", "telephony", "peer_internal"])
 
   chain             = "forward"
   action            = "accept"
