@@ -227,6 +227,12 @@ reserved_addresses = {
     net  = "iot"
   }
 
+  teletyper = {
+    mac  = "5c:61:99:41:f3:9b"
+    addr = "192.168.19.20"
+    net  = "iot"
+  }
+
   lr4-upstairs = {
     mac  = "b4:8a:0a:9e:a8:e0"
     addr = "192.168.19.22"
