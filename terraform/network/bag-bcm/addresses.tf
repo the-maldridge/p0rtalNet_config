@@ -37,4 +37,10 @@ resource "junos_security_address_book" "peer_addresses" {
     description = "SneakyNet Services Rack"
     value       = "172.16.29.0/24"
   }
+
+  network_address {
+    name = "vofr-oam"
+    description = "VoFR OAM Services"
+    value = "172.31.0.0/24"
+  }
 }
