@@ -63,6 +63,7 @@ resource "routeros_routing_bgp_connection" "peer" {
 
   hold_time      = "30s"
   keepalive_time = "10s"
+  nexthop_choice = "force-self"
 
   local {
     role    = "ebgp"
@@ -81,7 +82,7 @@ resource "routeros_routing_bgp_connection" "peer" {
   output {
     network           = "local-nets"
     default_originate = "if-installed"
-    redistribute      = "connected"
+    redistribute      = "connected,bgp"
   }
 }
 
@@ -113,6 +114,6 @@ resource "routeros_routing_bgp_connection" "gate" {
   output {
     network           = "local-nets"
     default_originate = "if-installed"
-    redistribute      = "connected"
+    redistribute      = "connected,bgp"
   }
 }
