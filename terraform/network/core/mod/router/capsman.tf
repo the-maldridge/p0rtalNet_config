@@ -73,7 +73,7 @@ resource "routeros_wifi_provisioning" "provision_5ghz" {
   action               = "create-dynamic-enabled"
   master_configuration = one([for ssid in local.ssids : ssid.name if(ssid.band == "5ghz" && ssid.master)])
   supported_bands      = ["5ghz-ax"]
-  #  slave_configurations = [for ssid in local.ssids : ssid.name if (ssid.band == "5ghz" && !ssid.master)]
+  slave_configurations = [for ssid in local.ssids : ssid.name if (ssid.band == "5ghz" && !ssid.master)]
 }
 
 resource "routeros_wifi_provisioning" "provision_2ghz" {
