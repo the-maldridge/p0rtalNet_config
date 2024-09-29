@@ -7,6 +7,7 @@ variable "networks" {
     enable_mesh_export    = optional(bool, false)
     additional_nat_source = optional(list(string), [])
     enable_wifi           = optional(bool, false)
+    bridge_mdns           = optional(bool, false)
   }))
   description = "Input structure containing list of networks to provision"
 }

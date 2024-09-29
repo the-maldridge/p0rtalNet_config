@@ -17,12 +17,14 @@ networks = {
     vlan_id            = 20
     cidr               = "192.168.18.0/24"
     enable_mesh_export = true
+    bridge_mdns        = true
   }
   iot = {
     description = "Internet Of Things"
     vlan_id     = 25
     cidr        = "192.168.19.0/24"
     enable_wifi = true
+    bridge_mdns = true
   }
   telephony = {
     description        = "Telephony Systems"
