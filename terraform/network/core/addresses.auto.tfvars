@@ -191,6 +191,12 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  zwave = {
+    mac  = "a4:bb:6d:29:58:62"
+    addr = "192.168.18.3"
+    net  = "services"
+  }
+
   salt-mine = {
     mac  = "b0:b9:8a:45:88:a8"
     addr = "192.168.18.5"
