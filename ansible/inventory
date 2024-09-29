@@ -30,12 +30,14 @@ marvin
 globaldynamics
 multivac
 univac
+zwave
 
 [static_ip]
 globaldynamics
 ziggy
 
 [musl]
+zwave
 ziggy
 marvin
 multivac

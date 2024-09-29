@@ -1,7 +1,10 @@
 ---
 - name: Install Packages
   community.general.xbps:
-    pkg: docker
+    pkg:
+      - docker
+      - python3-requests
+      - python3-docker
     state: present
 
 - name: Enable Service
