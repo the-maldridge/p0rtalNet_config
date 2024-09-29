@@ -1,7 +1,0 @@
----
-- hosts: network_control
-  become: yes
-  become_method: sudo
-  become_user: root
-  roles:
-    - avahi-reflector

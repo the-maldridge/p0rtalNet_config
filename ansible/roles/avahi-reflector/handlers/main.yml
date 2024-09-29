@@ -1,5 +1,0 @@
----
-- name: avahi
-  service:
-    name: avahi-daemon
-    state: restarted

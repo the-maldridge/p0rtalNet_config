@@ -11,9 +11,6 @@ eniac
 workstation_x64
 workstation_i686
 
-[network_control]
-psvcs ansible_host=192.168.31.2
-
 [container]
 ziggy ansible_host=192.168.31.4
 globaldynamics ansible_host=192.168.31.3
@@ -25,7 +22,6 @@ globaldynamics
 [nomad_client]
 univac
 multivac
-psvcs
 
 [sherman]
 marvin
@@ -34,15 +30,12 @@ marvin
 globaldynamics
 multivac
 univac
-psvcs
 
 [static_ip]
-psvcs
 globaldynamics
 ziggy
 
 [musl]
-psvcs
 ziggy
 marvin
 multivac
