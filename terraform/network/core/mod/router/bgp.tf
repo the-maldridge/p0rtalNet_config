@@ -37,6 +37,7 @@ resource "routeros_routing_bgp_connection" "sneakynet" {
     bag-net   = "169.254.255.5"
     sneakynet = "169.254.255.6"
     minitel   = "169.254.255.7"
+    net-a     = "169.254.255.8"
   }
 
   as   = 64579
