@@ -19,3 +19,16 @@ module "cap1" {
   hostname            = "cap1"
   capsman_certificate = module.edge01.capsman_certificate
 }
+
+module "cap2" {
+  source = "./mod/wap"
+  providers = {
+    routeros = routeros.cap2
+  }
+
+  bootstrap = false
+
+  networks            = var.networks
+  hostname            = "cap2"
+  capsman_certificate = module.edge01.capsman_certificate
+}

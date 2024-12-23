@@ -23,21 +23,15 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
-  aruba0 = {
-    mac  = "44:48:c1:c5:d7:4e"
-    addr = "192.168.31.10"
-    net  = "mgmt"
-  }
-
-  aruba1 = {
-    mac  = "44:48:c1:c5:d6:e2"
-    addr = "192.168.31.11"
-    net  = "mgmt"
-  }
-
   cap1 = {
     mac  = "78:9a:18:cb:8b:f4"
     addr = "192.168.31.20"
+    net  = "mgmt"
+  }
+
+  cap2 = {
+    mac  = "F4:1E:57:36:0F:8D"
+    addr = "192.168.31.21"
     net  = "mgmt"
   }
 
