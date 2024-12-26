@@ -64,3 +64,18 @@ resource "routeros_ip_firewall_nat" "inbound_portmap" {
   to_addresses      = each.value.target
   in_interface_list = routeros_interface_list.wan.name
 }
+
+resource "routeros_ip_firewall_filter" "inbound_portmap" {
+  for_each = {
+    basion_ssh = { port = 22, proto = "tcp", target = "192.168.21.5" },
+  }
+
+  chain             = "forward"
+  action            = "accept"
+  comment           = each.key
+  protocol          = each.value.proto
+  dst_port          = each.value.port
+  dst_address       = each.value.target
+  in_interface_list = routeros_interface_list.wan.name
+  place_before      = routeros_ip_firewall_filter.drop_forward_default.id
+}
