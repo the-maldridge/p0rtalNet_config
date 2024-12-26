@@ -26,7 +26,7 @@ resource "routeros_ip_address" "peer" {
 
 resource "routeros_routing_filter_rule" "import" {
   chain   = "p0rtalNet-import"
-  rule    = "if (dst in 192.168.16.0/20) {accept} else {reject}"
+  rule    = "if (dst in 192.168.16.0/20) { accept } else { reject }"
   comment = "Only accept known origins"
 }
 

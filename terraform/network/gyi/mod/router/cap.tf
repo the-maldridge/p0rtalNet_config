@@ -62,11 +62,11 @@ resource "routeros_capsman_configuration" "lan" {
 resource "routeros_capsman_provisioning" "provisioning_5ghz" {
   master_configuration = routeros_capsman_configuration.lan["wifi-5ghz"].name
   action               = "create-dynamic-enabled"
-  hw_supported_modes   = "ac"
+  hw_supported_modes   = ["ac"]
 }
 
 resource "routeros_capsman_provisioning" "provisioning_2ghz" {
   master_configuration = routeros_capsman_configuration.lan["wifi-2ghz"].name
   action               = "create-dynamic-enabled"
-  hw_supported_modes   = "gn"
+  hw_supported_modes   = ["gn"]
 }
