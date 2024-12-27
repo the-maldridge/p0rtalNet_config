@@ -27,6 +27,7 @@ resource "routeros_ip_firewall_filter" "accept_inbound" {
   action           = "accept"
   comment          = "accept-inbound"
   src_address_list = "accept-remote"
+  dst_address_type = "local"
   in_interface     = routeros_interface_wireguard.peer.name
   place_before     = routeros_ip_firewall_filter.default_drop.id
 }
