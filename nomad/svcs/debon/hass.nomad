@@ -30,7 +30,7 @@ job "homeassistant" {
       driver = "docker"
 
       config {
-        image = "ghcr.io/home-assistant/home-assistant:2024.5.1"
+        image = "ghcr.io/home-assistant/home-assistant:2024.12.1"
         devices = [{
           host_path = "/dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_44fa4919b4d8ed11a5036b6162c613ac-if00-port0"
           container_path = "/dev/ttyUSB0"
