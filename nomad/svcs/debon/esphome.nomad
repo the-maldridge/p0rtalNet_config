@@ -9,7 +9,10 @@ job "esphome" {
 
     network {
       mode = "cni/svcs"
-      port "http" { static = 6052 }
+      port "http" {
+        static = 6052
+        to = 6052
+      }
     }
 
     service {
@@ -30,7 +33,7 @@ job "esphome" {
       driver = "docker"
 
       config {
-        image = "docker.io/esphome/esphome:2024.7.0"
+        image = "docker.io/esphome/esphome:2024.12.0"
       }
 
       resources {
