@@ -22,7 +22,7 @@ job "esphome" {
       driver = "docker"
 
       config {
-        image = "docker.io/esphome/esphome:2024.6.0"
+        image = "docker.io/esphome/esphome:2024.12.1"
         network_mode = "host"
       }
 
