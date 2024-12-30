@@ -40,7 +40,7 @@
     name: jellyfin
     state: started
     restart_policy: always
-    image: docker.io/jellyfin/jellyfin:10.8.13
+    image: docker.io/jellyfin/jellyfin:10.10.3
     mac_address: 02:00:00:02:00:05
     network: svcs
     dns:
