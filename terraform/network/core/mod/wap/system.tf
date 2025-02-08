@@ -38,3 +38,7 @@ resource "routeros_ip_service" "www_ssl" {
   address     = var.networks["mgmt"].cidr
   certificate = "self"
 }
+
+resource "routeros_system_led_settings" "settings" {
+  all_leds_off = "immediate"
+}
