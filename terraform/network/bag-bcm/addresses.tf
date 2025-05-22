@@ -27,6 +27,12 @@ resource "junos_security_address_book" "peer_addresses" {
   }
 
   network_address {
+    name        = "net-a"
+    description = "Network Rack A"
+    value       = "172.16.34.0/24"
+  }
+
+  network_address {
     name        = "sneakynet-bag"
     description = "SneakyNet Bag Router"
     value       = "172.16.31.0/24"
@@ -39,8 +45,8 @@ resource "junos_security_address_book" "peer_addresses" {
   }
 
   network_address {
-    name = "vofr-oam"
+    name        = "vofr-oam"
     description = "VoFR OAM Services"
-    value = "172.31.0.0/24"
+    value       = "172.31.0.0/24"
   }
 }

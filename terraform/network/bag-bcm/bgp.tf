@@ -52,3 +52,10 @@ resource "junos_bgp_neighbor" "sneakynet_rack" {
   group            = junos_bgp_group.internal.name
   local_address    = "169.254.255.4"
 }
+
+resource "junos_bgp_neighbor" "sneakynet_net_a" {
+  ip               = "169.254.255.8"
+  routing_instance = "default"
+  group            = junos_bgp_group.internal.name
+  local_address    = "169.254.255.4"
+}

@@ -48,7 +48,7 @@ resource "junos_security_policy" "accept_from_peer" {
 
   policy {
     name                      = "sneakynet-to-local"
-    match_source_address      = ["sneakynet-bag", "sneakynet-rack"]
+    match_source_address      = ["sneakynet-bag", "sneakynet-rack", "net-a"]
     match_destination_address = ["any"]
     match_application         = ["any"]
   }
