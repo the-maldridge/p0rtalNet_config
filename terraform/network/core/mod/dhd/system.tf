@@ -41,5 +41,5 @@ resource "routeros_ip_service" "www_ssl" {
 }
 
 resource "routeros_ip_cloud" "ddns" {
-  ddns_enabled = true
+  ddns_enabled = "yes"
 }
