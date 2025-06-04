@@ -191,6 +191,12 @@ reserved_addresses = {
     net  = "services"
   }
 
+  hass = {
+    mac  = "E0:51:D8:19:EC:24"
+    addr = "192.168.18.4"
+    net  = "services"
+  }
+
   salt-mine = {
     mac  = "b0:b9:8a:45:88:a8"
     addr = "192.168.18.5"
