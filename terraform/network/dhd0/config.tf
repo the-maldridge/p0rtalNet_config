@@ -6,8 +6,12 @@ module "dhd0" {
   domain      = "dhd0.michaelwashere.net"
   peer_config = var.peer_config
 
-  main_subnet     = "192.168.33.0/24"
-  inbound_subnets = ["192.168.16.0/20", "172.16.31.0/24"]
+  main_subnet = "192.168.33.0/24"
+  inbound_subnets = [
+    "192.168.16.0/20",
+    "172.16.31.0/24",
+    "172.16.34.0/24",
+  ]
 }
 
 variable "peer_config" {
