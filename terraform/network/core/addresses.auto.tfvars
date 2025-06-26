@@ -185,12 +185,6 @@ reserved_addresses = {
     net  = "residential"
   }
 
-  zwave = {
-    mac  = "a4:bb:6d:29:58:62"
-    addr = "192.168.18.3"
-    net  = "services"
-  }
-
   hass = {
     mac  = "E0:51:D8:19:EC:24"
     addr = "192.168.18.4"
@@ -248,12 +242,6 @@ reserved_addresses = {
   lr4-downstairs = {
     mac  = "e0:5a:1b:4b:28:c4"
     addr = "192.168.19.23"
-    net  = "iot"
-  }
-
-  banister-lights = {
-    mac  = "24:94:94:90:dd:87"
-    addr = "192.168.19.55"
     net  = "iot"
   }
 
