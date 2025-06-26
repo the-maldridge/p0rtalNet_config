@@ -16,13 +16,6 @@ resource "routeros_interface_bridge_port" "bond0" {
   comment   = "Core Switch"
 }
 
-resource "routeros_interface_bridge_vlan" "bond0" {
-  bridge   = routeros_interface_bridge.br0.name
-  vlan_ids = local.switch_vlan_ids
-  tagged   = [routeros_interface_bonding.bond0.name]
-  comment  = "Core Switch Trunks"
-}
-
 resource "routeros_interface_bonding" "bond1" {
   name    = "bond1"
   slaves  = ["ether4", "ether7"]
@@ -35,11 +28,4 @@ resource "routeros_interface_bridge_port" "bond1" {
   interface = routeros_interface_bonding.bond1.name
   pvid      = 1
   comment   = "PoE Switch"
-}
-
-resource "routeros_interface_bridge_vlan" "bond1" {
-  bridge   = routeros_interface_bridge.br0.name
-  vlan_ids = local.switch_vlan_ids
-  tagged   = [routeros_interface_bonding.bond1.name]
-  comment  = "PoE Switch Trunks"
 }

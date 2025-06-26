@@ -43,3 +43,16 @@ resource "routeros_interface_list_member" "upstream" {
   interface = routeros_interface_vlan.upstream[each.key].name
   list      = routeros_interface_list.wan.name
 }
+
+resource "routeros_interface_bridge_vlan" "upstream_vlan" {
+  for_each = routeros_interface_vlan.upstream
+
+  comment  = each.value.comment
+  bridge   = routeros_interface_bridge.br0.name
+  vlan_ids = [tonumber(each.value.vlan_id)]
+  tagged = flatten([
+    routeros_interface_bridge.br0.name,
+    routeros_interface_bonding.bond0.name,
+    routeros_interface_bonding.bond1.name,
+  ])
+}

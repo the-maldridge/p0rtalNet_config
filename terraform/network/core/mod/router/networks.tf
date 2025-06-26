@@ -17,9 +17,16 @@ resource "routeros_interface_bridge" "br0" {
 }
 
 resource "routeros_interface_bridge_vlan" "br_vlan" {
+  for_each = routeros_interface_vlan.vlan
+
+  comment  = each.value.comment
   bridge   = routeros_interface_bridge.br0.name
-  vlan_ids = flatten([[for net in var.networks : net.vlan_id], 110, 111])
-  tagged   = [routeros_interface_bridge.br0.name]
+  vlan_ids = [tonumber(each.value.vlan_id)]
+  tagged = flatten([
+    routeros_interface_bridge.br0.name,
+    routeros_interface_bonding.bond0.name,
+    routeros_interface_bonding.bond1.name,
+  ])
 }
 
 resource "routeros_interface_vlan" "vlan" {
