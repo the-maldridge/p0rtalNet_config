@@ -33,7 +33,7 @@ job "esphome" {
       driver = "docker"
 
       config {
-        image = "docker.io/esphome/esphome:2025.4.0"
+        image = "docker.io/esphome/esphome:2025.6.2"
       }
 
       resources {
