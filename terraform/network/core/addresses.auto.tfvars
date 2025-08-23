@@ -23,6 +23,12 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
+  deep-thought = {
+    mac  = "9c:bf:0d:00:e3:6f"
+    addr = "192.168.31.7"
+    net  = "mgmt"
+  }
+
   cap1 = {
     mac  = "78:9a:18:cb:8b:f4"
     addr = "192.168.31.20"
