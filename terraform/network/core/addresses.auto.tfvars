@@ -67,7 +67,7 @@ reserved_addresses = {
 
   theGibson = {
     mac  = "1c:1b:0d:eb:ce:f0"
-    addr = "192.168.16.10"
+    addr = "192.168.16.12"
     net  = "residential"
   }
 
