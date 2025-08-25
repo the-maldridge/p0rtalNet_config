@@ -46,8 +46,14 @@ cni_networks:
     parent: svcs0
 
 nomad_volumes:
-  - name: sd_data
-    path: /nomad/sd_data
+  - name: sd_models
+    path: /nomad/sd/models
+    read_only: false
+  - name: sd_outputs
+    path: /nomad/sd/outputs
+    read_only: false
+  - name: sd_config
+    path: /nomad/sd/config
     read_only: false
   - name: llama_cache
     path: /nomad/llama_cache
