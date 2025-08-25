@@ -14,6 +14,7 @@ workstation_i686
 [container]
 ziggy ansible_host=192.168.31.4
 globaldynamics ansible_host=192.168.31.3
+deep-thought ansible_host=192.168.31.7
 
 [nomad_server]
 marvin
@@ -22,18 +23,21 @@ globaldynamics
 [nomad_client]
 univac
 multivac
+deep-thought
 
 [sherman]
 marvin
 
 [debon_infra]
 globaldynamics
+deep-thought
 multivac
 univac
 zwave
 
 [static_ip]
 globaldynamics
+deep-thought
 ziggy
 
 [musl]
@@ -42,3 +46,4 @@ ziggy
 marvin
 multivac
 univac
+deep-thought

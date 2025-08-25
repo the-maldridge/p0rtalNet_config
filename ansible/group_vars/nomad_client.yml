@@ -1,2 +1,2 @@
 ---
-nomad_datacenter: "WORKER"
+nomad_datacenter: WORKER

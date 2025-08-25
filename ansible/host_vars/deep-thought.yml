@@ -2,7 +2,7 @@
 network_output_policy: ACCEPT
 network_input_policy: ACCEPT
 network_forward_policy: ACCEPT
-network_hostname: global-dynamics
+network_hostname: deep-thought
 
 network_boot_hosts:
   - name: mirrors.servercentral.net
@@ -16,30 +16,26 @@ network_static_routes:
     via: 192.168.31.1
 
 network_static_interfaces:
-  - name: eno1
+  - name: enp191s0
     type: trunk
   - name: mgmt0
     type: vlan
-    parent: eno1
+    parent: enp191s0
     id: 99
     addrs:
-      - 192.168.31.3/24
+      - 192.168.31.7/24
   - name: svcs0
     type: vlan
-    parent: eno1
+    parent: enp191s0
     id: 20
   - name: tel0
     type: vlan
-    parent: eno1
+    parent: enp191s0
     id: 30
   - name: dmz0
     type: vlan
-    parent: eno1
+    parent: enp191s0
     id: 35
-  - name: peer0
-    type: vlan
-    parent: eno1
-    id: 101
 
 cni_networks:
   - name: mgmt
@@ -48,13 +44,11 @@ cni_networks:
     parent: dmz0
   - name: svcs
     parent: svcs0
-  - name: peering
-    parent: peer0
 
 nomad_volumes:
-  - name: speedtest_data
-    path: /nomad/speedtest
+  - name: sd_data
+    path: /nomad/sd_data
     read_only: false
-  - name: esphome_data
-    path: /nomad/esphome_data
+  - name: llama_cache
+    path: /nomad/llama_cache
     read_only: false
