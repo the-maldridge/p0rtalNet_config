@@ -9,10 +9,7 @@ job "esphome" {
 
     network {
       mode = "cni/svcs"
-      port "http" {
-        static = 6052
-        to = 6052
-      }
+      port "http" { to = 6052 }
     }
 
     service {
@@ -20,7 +17,7 @@ job "esphome" {
       name = "esphome"
       port = "http"
       address_mode = "alloc"
-      tags = ["nomad-ddns"]
+      tags = ["traefik.enable=true"]
     }
 
     volume "esphome" {
