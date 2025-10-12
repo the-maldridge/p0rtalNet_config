@@ -65,6 +65,12 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
+  gdesk1 = {
+    mac  = "70:10:6F:63:CB:30"
+    addr = "192.168.31.66"
+    net  = "mgmt"
+  }
+
   theGibson = {
     mac  = "1c:1b:0d:eb:ce:f0"
     addr = "192.168.16.12"
