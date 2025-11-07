@@ -32,7 +32,7 @@ job "proxy" {
       }
 
       config {
-        image = "traefik:v3.3.4"
+        image = "traefik:v3.5.2"
 
         args = [
           "--accesslog=false",
