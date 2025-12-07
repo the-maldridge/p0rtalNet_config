@@ -77,6 +77,12 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  angzarr = {
+    mac  = "30:56:0F:22:E6:98"
+    addr = "192.168.16.13"
+    net  = "residential"
+  }
+
   fleet00 = {
     mac  = "e4:42:a6:19:ec:13"
     addr = "192.168.16.60"
