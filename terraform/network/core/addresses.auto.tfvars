@@ -3,6 +3,8 @@ reserved_addresses = {
     mac  = "fc:3f:db:08:55:d9"
     addr = "192.168.31.3"
     net  = "mgmt"
+
+    cname = ["netauth"]
   }
 
   ziggy = {

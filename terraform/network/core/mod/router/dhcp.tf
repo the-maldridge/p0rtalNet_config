@@ -44,6 +44,14 @@ resource "routeros_ip_dns_record" "static_hosts" {
   type    = "A"
 }
 
+resource "routeros_ip_dns_record" "static_cnames" {
+  for_each = merge([for host, data in var.reserved_addresses : { for cname in data.cname : cname => host } if length(data.cname) > 0]...)
+
+  name  = endswith(each.key, ".") ? trimsuffix(each.key, ".") : format("%s.%s", each.key, "dal.michaelwashere.net")
+  type  = "CNAME"
+  cname = format("%s.%s", each.value, "dal.michaelwashere.net")
+}
+
 resource "routeros_ip_dns_record" "self_dns" {
   name    = "edge01.dal.michaelwashere.net"
   address = "192.168.31.1"

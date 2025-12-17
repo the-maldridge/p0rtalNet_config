@@ -17,6 +17,7 @@ variable "reserved_addresses" {
     mac  = string
     addr = string
     net  = string
+    cname = optional(set(string), [])
   }))
   description = "Map of machine to mac and address"
 }
