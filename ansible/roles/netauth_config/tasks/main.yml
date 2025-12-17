@@ -16,3 +16,32 @@
     group: root
     mode: '0644'
   tags: [configure_netauth]
+
+- name: Check if /etc/netauth/keys/tls.pem Exists
+  ansible.builtin.stat:
+    path: /etc/netauth/keys/tls.pem
+  register: netauth_tls
+  tags: [configure_netauth]
+
+- name: Fetch Certificate
+  when: not netauth_tls.stat.exists
+  tags: [configure_netauth]
+  block:
+    - name: Ensure CFSSL is Present
+      community.general.xbps:
+        pkg: cfssl
+        state: present
+
+    - name: Ensure /etc/netauth/keys is a Directory
+      ansible.builtin.file:
+        path: /etc/netauth/keys
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Retrieve Certificate
+      ansible.builtin.shell:
+        cmd: cfssl certinfo -domain netauth.dal.michaelwashere.net:1729 | jq --raw-output .pem > tls.pem
+        chdir: /etc/netauth/keys
+        creates: /etc/netauth/keys/tls.pem
