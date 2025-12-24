@@ -8,4 +8,4 @@ xbps_repository_port: 443
 
 sshd_banner: assets/sshd_banners/portalnet
 
-network_fqdn: "{{network_hostname}}.dal.michaelwashere.net"
+network_fqdn: "{{ network_hostname|default(inventory_hostname) }}.dal.michaelwashere.net"

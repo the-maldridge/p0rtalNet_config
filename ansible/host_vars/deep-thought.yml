@@ -58,3 +58,6 @@ nomad_volumes:
   - name: llama_cache
     path: /nomad/llama_cache
     read_only: false
+  - name: lifequest_data
+    path: /nomad/lifequest
+    read_only: false

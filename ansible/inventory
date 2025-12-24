@@ -1,8 +1,12 @@
 [workstation_x64]
-theGibson
+angzarr
 deepblue
-tricorder
+oambox
 stargazer
+supernode
+theGibson
+tricorder
+visiplate
 
 [workstation_i686]
 eniac
@@ -11,10 +15,18 @@ eniac
 workstation_x64
 workstation_i686
 
+[workstation_fixed]
+angzarr
+oambox
+stargazer
+supernode
+theGibson
+visiplate
+
 [container]
-ziggy ansible_host=192.168.31.4
-globaldynamics ansible_host=192.168.31.3
-deep-thought ansible_host=192.168.31.7
+ziggy
+globaldynamics
+deep-thought
 
 [netauth_server]
 globaldynamics
