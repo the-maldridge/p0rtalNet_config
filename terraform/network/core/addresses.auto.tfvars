@@ -85,6 +85,42 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  stargazer = {
+    mac  = "c8:d3:ff:9a:69:e9"
+    addr = "192.168.16.15"
+    net  = "residential"
+  }
+
+  supernode = {
+    mac  = "84:39:c0:02:03:b0"
+    addr = "192.168.16.16"
+    net  = "residential"
+  }
+
+  visiplate = {
+    mac  = "e0:51:d8:19:e0:c6"
+    addr = "192.168.16.17"
+    net  = "residential"
+  }
+
+  oambox = {
+    mac  = "98:e7:f4:58:37:97"
+    addr = "192.168.16.18"
+    net  = "residential"
+  }
+
+  workbox = {
+    mac  = "88:a4:c2:4a:a7:7c"
+    addr = "192.168.16.19"
+    net  = "residential"
+  }
+
+  eddie = {
+    mac  = "78:7b:8a:da:46:d5"
+    addr = "192.168.16.20"
+    net  = "residential"
+  }
+
   fleet00 = {
     mac  = "e4:42:a6:19:ec:13"
     addr = "192.168.16.60"
