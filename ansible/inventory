@@ -1,6 +1,7 @@
 [workstation_x64]
 angzarr
 deepblue
+eddie
 oambox
 stargazer
 supernode
@@ -17,6 +18,7 @@ workstation_i686
 
 [workstation_fixed]
 angzarr
+eddie
 oambox
 stargazer
 supernode

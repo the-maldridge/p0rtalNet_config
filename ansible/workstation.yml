@@ -2,4 +2,5 @@
 - hosts: workstation
   become: yes
   roles:
-    - graphical-session
+    - graphical_greeter
+    - graphical_session

@@ -1,0 +1,48 @@
+---
+- name: Install Packages
+  community.general.xbps:
+    pkg:
+      - sddm
+    state: present
+  tags: [install_graphical_greeter]
+
+- name: Install Greeters
+  ansible.builtin.git:
+    repo: "{{ item.url }}"
+    dest: /usr/share/sddm/themes/{{ item.name }}
+  loop:
+    - name: omnigreeter
+      url: https://github.com/the-maldridge/omnigreeter.git
+    - name: novell
+      url: https://github.com/the-maldridge/sddm-novell.git
+  loop_control:
+    label: "{{ item.name }}"
+  tags: [install_graphical_greeter]
+
+- name: Ensure /etc/sddm.conf.d Exists
+  ansible.builtin.file:
+    path: /etc/sddm.conf.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  tags: [install_graphical_greeter]
+
+- name: Configure Greeter
+  ansible.builtin.copy:
+    content: |
+      [Theme]
+      Current={{ graphical_greeter_theme|default("omnigreeter") }}
+    dest: /etc/sddm.conf.d/50-theme.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: sddm
+  tags: [install_graphical_greeter, configure_graphical_greeter]
+
+- name: Enable Services
+  ansible.builtin.service:
+    name: sddm
+    state: started
+    enabled: true
+  tags: [install_graphical_greeter, enable_graphical_greeter]

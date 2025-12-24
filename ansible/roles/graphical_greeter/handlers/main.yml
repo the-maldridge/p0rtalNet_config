@@ -1,0 +1,5 @@
+---
+- name: Restart SDDM
+  listen: sddm
+  ansible.builtin.debug:
+    msg: You need to restart SDDM
