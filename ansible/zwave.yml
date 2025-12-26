@@ -1,8 +1,0 @@
----
-- hosts: zwave
-  become: true
-  become_method: sudo
-  become_user: root
-  roles:
-    - docker
-    - zwavejs

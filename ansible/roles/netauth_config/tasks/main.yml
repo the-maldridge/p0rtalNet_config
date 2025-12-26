@@ -29,7 +29,9 @@
   block:
     - name: Ensure CFSSL is Present
       community.general.xbps:
-        pkg: cfssl
+        pkg:
+          - cfssl
+          - jq
         state: present
 
     - name: Ensure /etc/netauth/keys is a Directory

@@ -2,6 +2,7 @@
 - name: Install Packages
   community.general.xbps:
     pkg:
+      - git
       - sddm
     state: present
   tags: [install_graphical_greeter]
@@ -42,7 +43,10 @@
 
 - name: Enable Services
   ansible.builtin.service:
-    name: sddm
+    name: "{{ item }}"
     state: started
     enabled: true
+  loop:
+    - dbus
+    - sddm
   tags: [install_graphical_greeter, enable_graphical_greeter]

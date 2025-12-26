@@ -1,38 +1,77 @@
 ---
 - name: Install Terminal Components
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - font-inconsolata-otf
-    - rxvt-unicode
-    - urxvt-perls
-    - xsel
+  community.general.xbps:
+    pkg:
+      - font-inconsolata-otf
+      - rxvt-unicode
+      - urxvt-perls
+      - xsel
+    state: present
+  tags: [install_graphical_session]
 
 - name: Install dotfiles deps
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - feh
-    - tmux
-    
+  community.general.xbps:
+    pkg:
+      - feh
+      - tmux
+    state: present
+  tags: [install_graphical_session]
+
 - name: Install Web browsers
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - firefox
+  community.general.xbps:
+    pkg:
+      - firefox
+    state: present
+  tags: [install_graphical_session]
 
 - name: Install development tools
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - emacs
-    - git-all
+  community.general.xbps:
+    pkg:
+      - emacs
+      - git-all
+    state: present
+  tags: [install_graphical_session]
 
 - name: Install Mail programs
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - gnupg2
-    - pinentry-gtk
+  community.general.xbps:
+    pkg:
+      - gnupg2
+      - pinentry-gtk
+    state: present
+  tags: [install_graphical_session]
 
 - name: Install misc. programs
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - mosh
-    - xlockmore
-    - xscreensaver
+  community.general.xbps:
+    pkg:
+      - mosh
+      - xlockmore
+      - xscreensaver
+      - pipewire
+      - pavucontrol
+      - wireplumber
+      - dumb_runtime_dir
+    state: present
+  tags: [install_graphical_session]
+
+- name: Configure PipeWire (1/2)
+  ansible.builtin.file:
+    path: /etc/pipewire/pipewire.conf.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  tags: [install_graphical_session, configure_graphical_session]
+
+- name: Configure PipeWire (2/2)
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: /etc/pipewire/pipewire.conf.d/{{ item.name }}
+    state: link
+  loop:
+    - name: 10-wireplumber.conf
+      src: /usr/share/examples/wireplumber/10-wireplumber.conf
+    - name: 20-pipewire-pulse.conf
+      src: /usr/share/examples/pipewire/20-pipewire-pulse.conf
+  loop_control:
+    label: "{{ item.name }}"
+  tags: [install_graphical_session, configure_graphical_session]
