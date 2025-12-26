@@ -121,6 +121,12 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  earth = {
+    mac  = "e0:51:d8:1b:9d:8e"
+    addr = "192.168.16.21"
+    net  = "residential"
+  }
+
   fleet00 = {
     mac  = "e4:42:a6:19:ec:13"
     addr = "192.168.16.60"
