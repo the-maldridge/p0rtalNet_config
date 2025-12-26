@@ -31,7 +31,7 @@ job "llama" {
 
       config {
         image = "llama-cpp:vulkan"
-        args  = ["-c", "16384", "-hf", "cognitivecomputations/Dolphin3.0-Llama3.1-8B-GGUF"]
+        args  = ["-c", "16384", "-hf", "Doctor-Shotgun/MS3.2-24B-Magnum-Diamond-GGUF"]
         devices = [{
           host_path      = "/dev/dri"
           container_path = "/dev/dri"
