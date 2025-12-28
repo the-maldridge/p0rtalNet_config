@@ -17,8 +17,8 @@ module "router" {
       addr = "192.168.64.2"
     }
 
-    marvin = {
-      mac  = "D8:CB:8A:21:D6:74"
+    hass = {
+      mac  = "e0:51:d8:1c:3a:43"
       addr = "192.168.64.3"
     }
   }
