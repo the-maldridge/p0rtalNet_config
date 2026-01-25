@@ -31,6 +31,12 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
+  ups0 = {
+    mac  = "28:29:86:07:94:5F"
+    addr = "192.168.31.13"
+    net  = "mgmt"
+  }
+
   cap1 = {
     mac  = "78:9a:18:cb:8b:f4"
     addr = "192.168.31.20"
