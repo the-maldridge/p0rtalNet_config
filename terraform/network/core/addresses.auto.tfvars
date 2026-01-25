@@ -307,6 +307,12 @@ reserved_addresses = {
     net  = "iot"
   }
 
+  kitchen-moulding = {
+    mac  = "00:70:07:2B:9A:C7"
+    addr = "192.168.19.24"
+    net  = "iot"
+  }
+
   DLLSTXPO01T = {
     mac  = "00:1D:46:F1:B2:70"
     addr = "192.168.20.4"
