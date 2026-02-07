@@ -24,8 +24,7 @@ resource "routeros_interface_bridge_vlan" "br_vlan" {
   vlan_ids = [tonumber(each.value.vlan_id)]
   tagged = flatten([
     routeros_interface_bridge.br0.name,
-    routeros_interface_bonding.bond0.name,
-    routeros_interface_bonding.bond1.name,
+    [for iface, attrs in routeros_interface_bonding.bond : iface],
   ])
 }
 
@@ -36,14 +35,6 @@ resource "routeros_interface_vlan" "vlan" {
   name      = each.key
   comment   = each.value.description
   vlan_id   = each.value.vlan_id
-}
-
-resource "routeros_interface_bridge_port" "vlan" {
-  for_each = var.networks
-
-  interface = routeros_interface_vlan.vlan[each.key].name
-  pvid      = each.value.vlan_id
-  bridge    = routeros_interface_bridge.br0.name
 }
 
 resource "routeros_ip_address" "addr" {

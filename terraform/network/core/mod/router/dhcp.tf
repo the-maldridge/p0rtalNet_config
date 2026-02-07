@@ -15,6 +15,8 @@ resource "routeros_ip_dhcp_server" "server" {
   comment            = each.value.description
   conflict_detection = true
   lease_time         = "1h"
+
+  dynamic_lease_identifiers = "client-mac,client-id"
 }
 
 resource "routeros_ip_dhcp_server_network" "network" {
@@ -50,6 +52,14 @@ resource "routeros_ip_dns_record" "static_cnames" {
   name  = endswith(each.key, ".") ? trimsuffix(each.key, ".") : format("%s.%s", each.key, "dal.michaelwashere.net")
   type  = "CNAME"
   cname = format("%s.%s", each.value, "dal.michaelwashere.net")
+}
+
+resource "routeros_ip_dns_record" "proxy_records" {
+  for_each = var.proxy_records
+
+  name  = format("%s.dal.michaelwashere.net", each.key)
+  type  = "CNAME"
+  cname = "proxy.dal.michaelwashere.net"
 }
 
 resource "routeros_ip_dns_record" "self_dns" {

@@ -1,10 +1,14 @@
 module "edge01" {
   source = "./mod/router"
 
+  bootstrap = true
+
   networks           = var.networks
   reserved_addresses = var.reserved_addresses
   bgp_peers          = var.bgp_peers
   wifi               = var.wifi
+
+  proxy_records = ["llama", "sdcpp", "lifequest"]
 }
 
 module "cap1" {

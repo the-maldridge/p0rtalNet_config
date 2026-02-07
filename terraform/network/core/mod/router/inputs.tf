@@ -1,3 +1,9 @@
+variable "bootstrap" {
+  type        = bool
+  description = "Enable bootstrap mode"
+  default     = false
+}
+
 variable "networks" {
   type = map(object({
     description           = string
@@ -14,9 +20,9 @@ variable "networks" {
 
 variable "reserved_addresses" {
   type = map(object({
-    mac  = string
-    addr = string
-    net  = string
+    mac   = string
+    addr  = string
+    net   = string
     cname = optional(set(string), [])
   }))
   description = "Map of machine to mac and address"
@@ -46,4 +52,10 @@ variable "wifi" {
     hide   = optional(bool, false)
     master = optional(bool, false)
   })))
+}
+
+variable "proxy_records" {
+  description = "Additional names to point at proxy"
+  type        = set(string)
+  default     = []
 }

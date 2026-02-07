@@ -55,14 +55,14 @@ reserved_addresses = {
     net  = "mgmt"
   }
 
-  coresw1 = {
-    mac  = "28:80:23:76:ea:e0"
+  coresw0 = {
+    mac  = "08:97:34:6D:54:40"
     addr = "192.168.31.60"
     net  = "mgmt"
   }
 
-  coresw2 = {
-    mac  = "88:3A:30:1A:20:20"
+  compute0 = {
+    mac  = "28:80:23:76:EA:E0"
     addr = "192.168.31.61"
     net  = "mgmt"
   }
@@ -316,6 +316,24 @@ reserved_addresses = {
   kitchen-moulding = {
     mac  = "00:70:07:2B:9A:C7"
     addr = "192.168.19.24"
+    net  = "iot"
+  }
+
+  floor1-eaves = {
+    mac  = "A4:F0:0F:91:73:4B"
+    addr = "192.168.19.25"
+    net  = "iot"
+  }
+
+  floor2-eaves = {
+    mac  = "B0:CB:D8:E1:9B:A3"
+    addr = "192.168.19.26"
+    net  = "iot"
+  }
+
+  banister = {
+    mac  = "A4:F0:0F:8F:AC:43"
+    addr = "192.168.19.27"
     net  = "iot"
   }
 

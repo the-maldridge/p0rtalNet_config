@@ -74,6 +74,7 @@ resource "routeros_ip_firewall_filter" "default_drop" {
   action            = "drop"
   comment           = "default-deny"
   in_interface_list = "!${routeros_interface_list.lan.name}"
+  disabled          = var.bootstrap
 }
 
 # Forward Section.  Traffic routed locally.
@@ -83,7 +84,6 @@ resource "routeros_ip_firewall_filter" "fasttrack_forward" {
   action           = "fasttrack-connection"
   connection_state = "established,related"
   comment          = "forward-fasttracked"
-  hw_offload       = true
   place_before     = routeros_ip_firewall_filter.drop_forward_default.id
 }
 

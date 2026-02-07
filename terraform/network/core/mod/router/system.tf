@@ -1,5 +1,5 @@
 resource "routeros_system_identity" "identity" {
-  name = "core0"
+  name = "edge0"
 }
 
 resource "routeros_ip_dns" "dns" {
@@ -34,12 +34,12 @@ resource "routeros_ip_service" "enabled" {
   address = var.networks["mgmt"].cidr
 }
 
-resource "routeros_ip_service" "www_ssl" {
-  numbers     = "www-ssl"
-  port        = 443
-  address     = var.networks["mgmt"].cidr
-  certificate = "self"
-}
+# resource "routeros_ip_service" "www_ssl" {
+#   numbers     = "www-ssl"
+#   port        = 443
+#   address     = var.networks["mgmt"].cidr
+#   certificate = "self"
+# }
 
 resource "routeros_ip_cloud" "ddns" {
   ddns_enabled = "yes"

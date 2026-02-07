@@ -1,17 +1,23 @@
+resource "routeros_routing_bgp_instance" "internal" {
+  as         = 64579
+  name       = "Internal"
+  comment    = "Internal Peers"
+  cluster_id = "169.254.255.1"
+  router_id  = "169.254.255.1"
+}
+
 resource "routeros_routing_bgp_connection" "internal" {
   for_each = {
     minicluster = "169.254.255.2"
   }
 
-  as   = 64579
-  name = each.key
+  as       = 64579
+  name     = each.key
+  instance = routeros_routing_bgp_instance.internal.name
 
   connect        = true
   listen         = true
   nexthop_choice = "force-self"
-
-  cluster_id = "169.254.255.1"
-  router_id  = "169.254.255.1"
 
   hold_time      = "30s"
   keepalive_time = "10s"
@@ -31,6 +37,14 @@ resource "routeros_routing_bgp_connection" "internal" {
   }
 }
 
+resource "routeros_routing_bgp_instance" "sneakynet" {
+  as         = 64579
+  name       = "SneakyNet"
+  comment    = "SneakyNet Peers"
+  cluster_id = "169.254.255.1"
+  router_id  = "169.254.255.1"
+}
+
 resource "routeros_routing_bgp_connection" "sneakynet" {
   for_each = {
     bag-bcm   = "169.254.255.4"
@@ -40,14 +54,13 @@ resource "routeros_routing_bgp_connection" "sneakynet" {
     net-a     = "169.254.255.8"
   }
 
-  as   = 64579
-  name = each.key
+  as       = 64579
+  name     = each.key
+  instance = routeros_routing_bgp_instance.sneakynet.name
 
   connect        = true
   listen         = true
   nexthop_choice = "force-self"
-
-  router_id = "169.254.255.1"
 
   hold_time      = "30s"
   keepalive_time = "10s"
@@ -78,18 +91,25 @@ resource "routeros_routing_filter_rule" "mesh_imports" {
   comment = "Do not accept harmful routes."
 }
 
+resource "routeros_routing_bgp_instance" "mesh" {
+  as         = 64579
+  name       = "Mesh"
+  comment    = "Mesh Peers"
+  cluster_id = "169.254.255.1"
+  router_id  = "169.254.255.1"
+}
+
 resource "routeros_routing_bgp_connection" "peer" {
   for_each = var.bgp_peers
 
-  as   = 64579
-  name = each.key
+  as       = 64579
+  name     = each.key
+  instance = routeros_routing_bgp_instance.mesh.name
 
   disabled = !lookup(each.value, "bgp", true)
 
   connect = true
   listen  = true
-
-  router_id = "169.254.255.1"
 
   hold_time      = "30s"
   keepalive_time = "10s"

@@ -1,7 +1,6 @@
 locals {
   upstreams = {
     "frontier" : { link = 110, distance = 100 },
-    "spectrum" : { link = 111, distance = 120 },
   }
 }
 
@@ -29,14 +28,6 @@ resource "routeros_ip_dhcp_client" "upstream" {
   use_peer_ntp           = false
 }
 
-resource "routeros_interface_bridge_port" "upstream" {
-  for_each = local.upstreams
-
-  interface = routeros_interface_vlan.upstream[each.key].name
-  bridge    = routeros_interface_bridge.br0.name
-  pvid      = each.value.link
-}
-
 resource "routeros_interface_list_member" "upstream" {
   for_each = local.upstreams
 
@@ -52,7 +43,6 @@ resource "routeros_interface_bridge_vlan" "upstream_vlan" {
   vlan_ids = [tonumber(each.value.vlan_id)]
   tagged = flatten([
     routeros_interface_bridge.br0.name,
-    routeros_interface_bonding.bond0.name,
-    routeros_interface_bonding.bond1.name,
+    [for iface, attrs in routeros_interface_bonding.bond : iface],
   ])
 }
