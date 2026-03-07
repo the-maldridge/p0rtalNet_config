@@ -12,9 +12,9 @@ job "proxy" {
     }
 
     service {
-      name = "proxy"
-      port     = "http"
-      provider = "nomad"
+      name         = "proxy"
+      port         = "http"
+      provider     = "nomad"
       address_mode = "alloc"
       tags = [
         "traefik.http.routers.dashboard.rule=Host(`proxy.dal.michaelwashere.net`)",
