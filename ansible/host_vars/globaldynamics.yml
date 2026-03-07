@@ -55,6 +55,3 @@ nomad_volumes:
   - name: speedtest_data
     path: /nomad/speedtest
     read_only: false
-  - name: esphome_data
-    path: /nomad/esphome_data
-    read_only: false
