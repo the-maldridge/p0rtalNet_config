@@ -36,16 +36,12 @@ deep-thought
 globaldynamics
 
 [nomad_server]
-marvin
 globaldynamics
 
 [nomad_client]
 univac
 multivac
 deep-thought
-
-[sherman]
-marvin
 
 [debon_infra]
 globaldynamics
@@ -60,7 +56,6 @@ ziggy
 
 [musl]
 deep-thought
-marvin
 multivac
 supernode
 univac
