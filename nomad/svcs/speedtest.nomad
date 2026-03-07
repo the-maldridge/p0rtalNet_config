@@ -2,30 +2,30 @@ job "speedtest" {
   type = "service"
 
   datacenters = ["CONTROL"]
-  region = "debon"
-  namespace = "default"
+  region      = "debon"
+  namespace   = "default"
 
   group "speedtest" {
     count = 1
 
     network {
-      mode = "cni/dmz"
+      mode     = "cni/dmz"
       hostname = "speedtest"
 
-      port "http" { static = 80 }
+      port "http" { to = 80 }
     }
 
     service {
-      provider = "nomad"
-      name = "speedtest"
-      port = "http"
+      provider     = "nomad"
+      name         = "speedtest"
+      port         = "http"
       address_mode = "alloc"
-      tags = ["nomad-ddns"]
+      tags         = ["traefik.enable=true"]
     }
 
     volume "speedtest_data" {
-      type = "host"
-      source = "speedtest_data"
+      type      = "host"
+      source    = "speedtest_data"
       read_only = false
     }
 
@@ -37,7 +37,7 @@ job "speedtest" {
       }
 
       volume_mount {
-        volume = "speedtest_data"
+        volume      = "speedtest_data"
         destination = "/app/results"
       }
     }
