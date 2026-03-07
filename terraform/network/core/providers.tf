@@ -4,6 +4,12 @@ terraform {
       source = "terraform-routeros/routeros"
     }
   }
+
+  backend "http" {
+    address        = "http://terrastate.dal.michaelwashere.net/state/prod/net-core"
+    lock_address   = "http://terrastate.dal.michaelwashere.net/state/prod/net-core"
+    unlock_address = "http://terrastate.dal.michaelwashere.net/state/prod/net-core"
+  }
 }
 
 provider "routeros" {

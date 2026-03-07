@@ -8,7 +8,13 @@ module "edge01" {
   bgp_peers          = var.bgp_peers
   wifi               = var.wifi
 
-  proxy_records = ["llama", "sdcpp", "lifequest", "speedtest"]
+  proxy_records = [
+    "lifequest",
+    "llama",
+    "sdcpp",
+    "speedtest",
+    "terrastate",
+  ]
 }
 
 module "cap1" {
