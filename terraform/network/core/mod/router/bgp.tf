@@ -48,10 +48,11 @@ resource "routeros_routing_bgp_instance" "sneakynet" {
 resource "routeros_routing_bgp_connection" "sneakynet" {
   for_each = {
     bag-bcm   = "169.254.255.4"
-    bag-net   = "169.254.255.5"
     sneakynet = "169.254.255.6"
     minitel   = "169.254.255.7"
     net-a     = "169.254.255.8"
+    net-b     = "169.254.255.5"
+    net-c     = "169.254.255.9"
   }
 
   as       = 64579
