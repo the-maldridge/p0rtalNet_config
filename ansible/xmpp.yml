@@ -1,0 +1,8 @@
+---
+- name: Configure XMPP Servers
+  hosts: xmpp
+  become: true
+  become_user: root
+  become_method: ansible.builtin.sudo
+  roles:
+    - prosody

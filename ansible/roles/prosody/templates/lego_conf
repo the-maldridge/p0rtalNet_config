@@ -1,0 +1,2 @@
+export NAMECHEAP_API_USER={{ namecheap_api_user }}
+export NAMECHEAP_API_KEY={{ namecheap_api_key }}

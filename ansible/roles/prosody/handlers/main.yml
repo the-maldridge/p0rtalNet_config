@@ -1,0 +1,12 @@
+---
+- name: Reload Prosody
+  listen: prosody
+  ansible.builtin.service:
+    name: prosody
+    state: reloaded
+
+- name: Restart COTURN
+  listen: coturn
+  ansible.builtin.service:
+    name: coturn
+    state: restarted

@@ -54,10 +54,13 @@ globaldynamics
 deep-thought
 ziggy
 
+[xmpp]
+chat.maldridge.us
+
 [musl]
 deep-thought
 multivac
 supernode
 univac
-visiplate
 ziggy
+chat.maldridge.us

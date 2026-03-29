@@ -1,0 +1,15 @@
+listening-port=3478
+tls-listening-port=5349
+listening-device=eth0
+listening-ip=134.199.236.85
+external-ip=134.199.236.85
+use-auth-secret
+static-auth-secret={{ lookup('ansible.builtin.password', '/dev/null', seed=ansible_facts['eth0'].macaddress) }}
+realm=chat.maldridge.us
+relay-device=eth0
+min-port=49152
+max-port=65535
+no-tcp-relay
+no-multicast-peers
+cert=/etc/prosody/lego/certificates/maldridge.us.crt
+pkey=/etc/prosody/lego/certificates/maldridge.us.key

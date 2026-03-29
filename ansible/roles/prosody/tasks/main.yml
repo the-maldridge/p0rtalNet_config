@@ -1,0 +1,112 @@
+---
+- name: Install Packages
+  community.general.xbps:
+    name:
+      - prosody
+      - lego
+      - coturn
+    state: present
+  tags: [install_prosody]
+
+- name: Create /etc/prosody/lego
+  ansible.builtin.file:
+    path: /etc/prosody/lego
+    state: directory
+    owner: prosody
+    group: prosody
+    mode: "0700"
+  tags: [install_prosody, configure_prosody]
+
+- name: Create Lego Service (1/2)
+  ansible.builtin.file:
+    path: /etc/sv/prosody-certs
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  tags: [install_prosody, configure_prosody]
+
+- name: Configure Lego Service (2/2)
+  ansible.builtin.template:
+    src: lego_run.j2
+    dest: /etc/sv/prosody-certs/run
+    owner: root
+    group: root
+    mode: "0700"
+  tags: [install_prosody, configure_prosody]
+
+- name: Configure Lego Secrets
+  ansible.builtin.template:
+    src: lego_conf
+    dest: /etc/sv/prosody-certs/conf
+    owner: root
+    group: root
+    mode: "0400"
+  when:
+    - namecheap_api_user is defined
+    - namecheap_api_key is defined
+  tags: [install_prosody, configure_prosody]
+
+- name: Enable Lego Service
+  ansible.builtin.service:
+    name: prosody-certs
+    state: started
+    enabled: true
+  tags: [install_prosody, enable_prosody]
+
+- name: Write TURN Secret
+  ansible.builtin.copy:
+    content: |
+      {{ lookup('ansible.builtin.password', '/dev/null', seed=ansible_facts['eth0'].macaddress ) }}
+    dest: /etc/prosody/coturn_secret
+    owner: prosody
+    group: prosody
+    mode: "0640"
+  tags: [install_prosody, configure_prosody]
+
+- name: Configure COTURN
+  ansible.builtin.template:
+    src: turnserver.conf.j2
+    dest: /etc/turnserver.conf
+    owner: root
+    group: _coturn
+    mode: "0640"
+  notify:
+    - coturn
+  tags: [install_prosody, configure_prosody]
+
+- name: Configure Prosody
+  ansible.builtin.template:
+    src: prosody.cfg.lua.j2
+    dest: /etc/prosody/prosody.cfg.lua
+    owner: root
+    group: prosody
+    mode: "0640"
+  notify:
+    - prosody
+  tags: [install_prosody, configure_prosody]
+
+- name: Install Firewall Rules
+  ansible.builtin.copy:
+    src: 50prosody.rules
+    dest: /etc/iptables.d/50prosody.rules
+    owner: root
+    group: root
+    mode: "0640"
+  notify:
+    - iptables
+  tags: [install_prosody, configure_prosody]
+
+- name: Enable Service (Prosody)
+  ansible.builtin.service:
+    name: prosody
+    state: started
+    enabled: true
+  tags: [install_prosody, enable_prosody]
+
+- name: Enable Service (COTURN)
+  ansible.builtin.service:
+    name: coturnserver
+    state: started
+    enabled: true
+  tags: [install_prosody, enable_prosody]

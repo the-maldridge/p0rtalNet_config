@@ -1,0 +1,20 @@
+#!/bin/sh
+
+: "${ACTION:=renew}"
+: "${SERVER:=https://acme-v02.api.letsencrypt.org/directory}"
+
+[ -f ./conf ] && . ./conf
+
+chpst -u prosody:prosody lego \
+    --accept-tos \
+    --email aldridge.mac@gmail.com \
+    --path /etc/prosody/lego \
+    --dns namecheap \
+    --dns.resolvers 8.8.8.8:53 \
+    --domains 'maldridge.us' \
+    --domains 'share.maldridge.us' \
+    --domains 'conf.maldridge.us' \
+    --server $SERVER \
+    $ACTION
+
+sleep 86400
