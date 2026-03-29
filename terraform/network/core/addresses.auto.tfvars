@@ -349,12 +349,6 @@ reserved_addresses = {
     net  = "telephony"
   }
 
-  DLLSTXPO01K0 = {
-    mac  = "a4:bb:6d:22:5b:7a"
-    addr = "192.168.20.6"
-    net  = "telephony"
-  }
-
   bastion = {
     mac  = "02:00:00:01:00:01"
     addr = "192.168.21.5"
