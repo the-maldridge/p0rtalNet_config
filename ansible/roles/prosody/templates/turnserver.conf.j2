@@ -1,8 +1,8 @@
 listening-port=3478
 tls-listening-port=5349
 listening-device=eth0
-listening-ip=134.199.236.85
-external-ip=134.199.236.85
+listening-ip=147.182.197.135
+external-ip=147.182.197.135
 use-auth-secret
 static-auth-secret={{ lookup('ansible.builtin.password', '/dev/null', seed=ansible_facts['eth0'].macaddress) }}
 realm=chat.maldridge.us
