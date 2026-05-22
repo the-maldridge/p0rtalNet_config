@@ -33,6 +33,12 @@ resource "junos_security_address_book" "peer_addresses" {
   }
 
   network_address {
+    name        = "net-trust"
+    description = "Network Rack Trust LAN"
+    value       = "100.64.32.0/20"
+  }
+
+  network_address {
     name        = "sneakynet-bag"
     description = "SneakyNet Bag Router"
     value       = "172.16.31.0/24"
