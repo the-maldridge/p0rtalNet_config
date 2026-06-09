@@ -30,8 +30,8 @@ job "llama" {
       driver = "docker"
 
       config {
-        image = "llama-cpp:vulkan"
-        args  = ["-c", "16384", "-hf", "Doctor-Shotgun/MS3.2-24B-Magnum-Diamond-GGUF"]
+        image = "llama-cpp/vulkan:b46812de7"
+        args  = ["-hf", "Doctor-Shotgun/MS3.2-24B-Magnum-Diamond-GGUF", "--fit", "off"]
         devices = [{
           host_path      = "/dev/dri"
           container_path = "/dev/dri"
