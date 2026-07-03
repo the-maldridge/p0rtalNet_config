@@ -30,8 +30,17 @@ job "llama" {
       driver = "docker"
 
       config {
-        image = "llama-cpp/vulkan:b46812de7"
+        image = "llama-cpp/vulkan:3ac3c20c9"
         args  = ["-hf", "Doctor-Shotgun/MS3.2-24B-Magnum-Diamond-GGUF", "--fit", "off"]
+        # args = [
+        #   "-hf", "unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q4_K_XL",
+        #   "--temp", "1.0",
+        #   "--top-p", "0.95",
+        #   "--top-k", "20",
+        #   "--min-p", "0.00",
+        #   "--spec-type", "draft-mtp", "--spec-draft-n-max", "2",
+        # ]
+
         devices = [{
           host_path      = "/dev/dri"
           container_path = "/dev/dri"
@@ -39,7 +48,7 @@ job "llama" {
       }
 
       resources {
-        memory = 4000
+        memory = 20000
       }
 
       volume_mount {
