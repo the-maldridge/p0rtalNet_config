@@ -133,6 +133,12 @@ reserved_addresses = {
     net  = "residential"
   }
 
+  nightsky = {
+    mac  = "d8:cb:8a:21:d6:74"
+    addr = "192.168.16.22"
+    net  = "residential"
+  }
+
   fleet00 = {
     mac  = "e4:42:a6:19:ec:13"
     addr = "192.168.16.60"
