@@ -3,6 +3,7 @@ angzarr
 deepblue
 earth
 eddie
+nightsky
 oambox
 stargazer
 supernode
@@ -21,6 +22,7 @@ workstation_i686
 angzarr
 earth
 eddie
+nightsky
 oambox
 stargazer
 supernode
@@ -58,9 +60,10 @@ ziggy
 chat.maldridge.us
 
 [musl]
+chat.maldridge.us
 deep-thought
 multivac
+nightsky
 supernode
 univac
 ziggy
-chat.maldridge.us
