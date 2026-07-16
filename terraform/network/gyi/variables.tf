@@ -6,6 +6,14 @@ variable "wifi" {
   description = "WiFi Parameters"
 }
 
+variable "guest" {
+  type = object({
+    ssid = string
+    psk  = string
+  })
+  description = "WiFi Parameters"
+}
+
 variable "peer_config" {
   type = object({
     privkey    = string

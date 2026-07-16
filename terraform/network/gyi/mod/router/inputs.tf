@@ -4,6 +4,12 @@ variable "main_subnet" {
   default     = "192.168.64.0/24"
 }
 
+variable "guest_subnet" {
+  type        = string
+  description = "Main address pool for all guest things."
+  default     = "192.168.65.0/24"
+}
+
 variable "inbound_subnets" {
   type        = set(string)
   description = "Addresses that will be accepted from remotes"
@@ -44,6 +50,14 @@ variable "reserved_addresses" {
 }
 
 variable "wifi" {
+  type = object({
+    ssid = string
+    psk  = string
+  })
+  description = "WiFi Parameters"
+}
+
+variable "guest" {
   type = object({
     ssid = string
     psk  = string

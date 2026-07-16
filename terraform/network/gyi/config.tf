@@ -11,6 +11,11 @@ module "router" {
     psk  = var.wifi.psk
   }
 
+  guest = {
+    ssid = var.guest.ssid
+    psk  = var.guest.psk
+  }
+
   reserved_addresses = {
     cap1 = {
       mac  = "78:9A:18:78:A6:21"

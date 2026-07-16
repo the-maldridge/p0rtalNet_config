@@ -29,6 +29,8 @@ resource "routeros_capsman_datapath" "lan" {
 
   local_forwarding = true
   vlan_mode        = "use-tag"
+
+  client_to_client_forwarding = true
 }
 
 resource "routeros_capsman_security" "lan" {
@@ -59,14 +61,57 @@ resource "routeros_capsman_configuration" "lan" {
   }
 }
 
+resource "routeros_capsman_datapath" "guest" {
+  name    = "guest"
+  vlan_id = routeros_interface_vlan.guest.vlan_id
+  bridge  = routeros_interface_bridge.br0.name
+
+  local_forwarding = true
+  vlan_mode        = "use-tag"
+
+  client_to_client_forwarding = true
+}
+
+resource "routeros_capsman_security" "guest" {
+  name                 = "guest"
+  authentication_types = ["wpa2-psk"]
+  passphrase           = var.guest.psk
+  encryption           = ["tkip", "aes-ccm"]
+}
+
+resource "routeros_capsman_configuration" "guest" {
+  for_each = routeros_capsman_channel.channel
+
+  name    = format("guest-%s", each.key)
+  ssid    = var.guest.ssid
+  mode    = "ap"
+  country = "united states3"
+
+  channel = {
+    config = routeros_capsman_channel.channel[each.key].name
+  }
+
+  security = {
+    config = routeros_capsman_security.guest.name
+  }
+
+  datapath = {
+    config = routeros_capsman_datapath.guest.name
+  }
+}
+
 resource "routeros_capsman_provisioning" "provisioning_5ghz" {
   master_configuration = routeros_capsman_configuration.lan["wifi-5ghz"].name
   action               = "create-dynamic-enabled"
   hw_supported_modes   = ["ac"]
+
+  slave_configurations = [routeros_capsman_configuration.guest["wifi-5ghz"].name]
 }
 
 resource "routeros_capsman_provisioning" "provisioning_2ghz" {
   master_configuration = routeros_capsman_configuration.lan["wifi-2ghz"].name
   action               = "create-dynamic-enabled"
   hw_supported_modes   = ["gn"]
+
+  slave_configurations = [routeros_capsman_configuration.guest["wifi-2ghz"].name]
 }

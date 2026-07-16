@@ -104,6 +104,15 @@ resource "routeros_ip_firewall_filter" "accept_forward_outbound" {
   place_before  = routeros_ip_firewall_filter.drop_forward_default.id
 }
 
+resource "routeros_ip_firewall_filter" "accept_guest_outbound" {
+  chain         = "forward"
+  action        = "accept"
+  comment       = "accept-outbound-forward"
+  in_interface  = routeros_interface_vlan.guest.name
+  out_interface = routeros_interface_vlan.wan.name
+  place_before  = routeros_ip_firewall_filter.drop_forward_default.id
+}
+
 resource "routeros_ip_firewall_filter" "drop_forward_default" {
   chain        = "forward"
   action       = "drop"
@@ -120,5 +129,13 @@ resource "routeros_ip_firewall_nat" "srcnat" {
   action        = "masquerade"
   out_interface = routeros_interface_vlan.wan.name
   src_address   = var.main_subnet
+  comment       = "nat-masquerade"
+}
+
+resource "routeros_ip_firewall_nat" "srcnat_guest" {
+  chain         = "srcnat"
+  action        = "masquerade"
+  out_interface = routeros_interface_vlan.wan.name
+  src_address   = var.guest_subnet
   comment       = "nat-masquerade"
 }

@@ -9,6 +9,8 @@ resource "routeros_ip_dhcp_server" "lan" {
   address_pool       = routeros_ip_pool.pool.name
   conflict_detection = true
   lease_time         = "1h"
+
+  dynamic_lease_identifiers = "client-mac,client-id"
 }
 
 resource "routeros_ip_dhcp_server_network" "network" {
@@ -16,6 +18,28 @@ resource "routeros_ip_dhcp_server_network" "network" {
   gateway    = cidrhost(var.main_subnet, 1)
   domain     = var.domain
   dns_server = [cidrhost(var.main_subnet, 1)]
+}
+
+resource "routeros_ip_pool" "guest" {
+  name   = "guest"
+  ranges = ["${cidrhost(var.guest_subnet, 3)}-${cidrhost(var.guest_subnet, 100)}"]
+}
+
+resource "routeros_ip_dhcp_server" "guest" {
+  interface          = routeros_interface_vlan.guest.name
+  name               = "GUEST"
+  address_pool       = routeros_ip_pool.guest.name
+  conflict_detection = true
+  lease_time         = "1h"
+
+  dynamic_lease_identifiers = "client-mac,client-id"
+}
+
+resource "routeros_ip_dhcp_server_network" "guest" {
+  address    = var.guest_subnet
+  gateway    = cidrhost(var.guest_subnet, 1)
+  domain     = var.domain
+  dns_server = [cidrhost(var.guest_subnet, 1)]
 }
 
 resource "routeros_ip_dhcp_server_lease" "static_lease" {

@@ -11,6 +11,12 @@ resource "routeros_interface_vlan" "lan" {
   vlan_id   = 20
 }
 
+resource "routeros_interface_vlan" "guest" {
+  interface = routeros_interface_bridge.br0.name
+  name      = "guest0"
+  vlan_id   = 21
+}
+
 resource "routeros_interface_vlan" "wan" {
   interface = routeros_interface_bridge.br0.name
   name      = "wan0"
@@ -21,6 +27,7 @@ resource "routeros_interface_bridge_vlan" "br_vlan" {
   bridge = routeros_interface_bridge.br0.name
   vlan_ids = [
     routeros_interface_vlan.lan.vlan_id,
+    routeros_interface_vlan.guest.vlan_id,
     routeros_interface_vlan.wan.vlan_id,
   ]
   tagged = [routeros_interface_bridge.br0.name]
@@ -29,6 +36,11 @@ resource "routeros_interface_bridge_vlan" "br_vlan" {
 resource "routeros_ip_address" "lan0" {
   address   = format("%s/%s", cidrhost(var.main_subnet, 1), split("/", var.main_subnet)[1])
   interface = routeros_interface_vlan.lan.name
+}
+
+resource "routeros_ip_address" "guest" {
+  address   = format("%s/%s", cidrhost(var.guest_subnet, 1), split("/", var.guest_subnet)[1])
+  interface = routeros_interface_vlan.guest.name
 }
 
 resource "routeros_ip_dhcp_client" "wan0" {
@@ -41,6 +53,11 @@ resource "routeros_ip_dhcp_client" "wan0" {
 resource "routeros_ip_firewall_addr_list" "local_nets" {
   list    = "local-nets"
   address = var.main_subnet
+}
+
+resource "routeros_ip_firewall_addr_list" "guest_nets" {
+  list    = "local-nets"
+  address = var.guest_subnet
 }
 
 resource "routeros_ip_firewall_addr_list" "accept_remote" {
