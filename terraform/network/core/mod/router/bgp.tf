@@ -82,7 +82,7 @@ resource "routeros_routing_bgp_connection" "sneakynet" {
 
   output {
     default_originate = "if-installed"
-    redistribute      = "connected"
+    redistribute      = "connected,bgp"
   }
 }
 
@@ -130,5 +130,6 @@ resource "routeros_routing_bgp_connection" "peer" {
 
   output {
     network = "mesh_enabled"
+    redistribute = "connected,bgp"
   }
 }
