@@ -61,3 +61,6 @@ nomad_volumes:
   - name: lifequest_data
     path: /nomad/lifequest
     read_only: false
+  - name: want_data
+    path: /nomad/want
+    read_only: false
