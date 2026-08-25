@@ -14,6 +14,7 @@ module "edge01" {
     "sdcpp",
     "speedtest",
     "terrastate",
+    "want",
   ]
 }
 
