@@ -130,6 +130,6 @@ resource "routeros_routing_bgp_connection" "peer" {
 
   output {
     network = "mesh_enabled"
-    redistribute = "connected,bgp"
+    redistribute = "bgp"
   }
 }
