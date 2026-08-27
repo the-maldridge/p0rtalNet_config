@@ -134,7 +134,7 @@ reserved_addresses = {
   }
 
   nightsky = {
-    mac  = "d8:cb:8a:21:d6:74"
+    mac  = "54:48:10:e2:30:6b"
     addr = "192.168.16.22"
     net  = "residential"
   }
