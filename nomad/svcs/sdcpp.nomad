@@ -34,7 +34,7 @@ job "sdcpp" {
       driver = "docker"
 
       config {
-        image = "sdwebui:484b1a3"
+        image = "sdwebui:b24791d"
         devices = [{
           host_path      = "/dev/dri"
           container_path = "/dev/dri"
