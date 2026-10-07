@@ -27,7 +27,7 @@ variable "interfaces" {
   type = map(object({
     name     = string
     tagged   = optional(list(string), [])
-    untagged = optional(list(string), [])
+    untagged = optional(string, "")
   }))
   default     = {}
   description = "Interface Configuration"

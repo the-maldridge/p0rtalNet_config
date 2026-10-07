@@ -32,7 +32,7 @@ resource "aoss_vlan" "vlan" {
   ])
   untagged = flatten([
     each.value.untagged,
-    [for iface, attrs in var.interfaces : iface if contains(lookup(attrs, "untagged", []), each.key)]
+    [for iface, attrs in var.interfaces : iface if attrs.untagged == each.key]
   ])
 }
 
