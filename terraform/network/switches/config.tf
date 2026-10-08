@@ -103,6 +103,7 @@ locals {
         mgmt = { id = 99, name = "Management", is_mgmt = true, use_dhcp = true }
       }
       interfaces = {
+        7  = { name = "res-tail", untagged = "res" }
         8  = { name = "theGibson", untagged = "res", tagged = ["mgmt"] }
         9  = { name = "trk1-p0" }
         10 = { name = "trk1-p1" }
@@ -114,7 +115,7 @@ locals {
 module "switch" {
   source = "${path.module}/switch"
 
-  hostname   = terraform.workspace
+  hostname   = "${terraform.workspace}.dal.michaelwashere.net"
   trunks     = local.switches[terraform.workspace].trunks
   vlans      = local.switches[terraform.workspace].vlans
   interfaces = local.switches[terraform.workspace].interfaces
