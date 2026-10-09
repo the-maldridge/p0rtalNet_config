@@ -80,12 +80,14 @@ locals {
         tel   = { id = 30, name = "Telephony" }
         dmz   = { id = 35, name = "DMZ" }
         mgmt  = { id = 99, name = "Management", is_mgmt = true, use_dhcp = true }
+        peer  = { id = 101, name = "Internal Peering" }
       }
       interfaces = {
         1  = { name = "globaldynamics", tagged = ["res", "guest", "svcs", "iot", "tel", "dmz", "mgmt"] }
         2  = { name = "deep-thought", tagged = ["res", "guest", "svcs", "iot", "tel", "dmz", "mgmt"] }
         3  = { name = "SaltMine-Leg1" }
         4  = { name = "SaltMine-Leg2" }
+        20 = { name = "net-dock1", untagged = "peer" }
         22 = { name = "ups0", untagged = "mgmt" }
         23 = { name = "DLLSTXPO01T", untagged = "tel" }
         24 = { name = "DLLSTXPO01DS0`", untagged = "tel" }
@@ -103,6 +105,7 @@ locals {
         mgmt = { id = 99, name = "Management", is_mgmt = true, use_dhcp = true }
       }
       interfaces = {
+        6  = { name = "res-tail", untagged = "res" }
         7  = { name = "res-tail", untagged = "res" }
         8  = { name = "theGibson", untagged = "res", tagged = ["mgmt"] }
         9  = { name = "trk1-p0" }
@@ -115,7 +118,7 @@ locals {
 module "switch" {
   source = "${path.module}/switch"
 
-  hostname   = "${terraform.workspace}.dal.michaelwashere.net"
+  hostname   = terraform.workspace
   trunks     = local.switches[terraform.workspace].trunks
   vlans      = local.switches[terraform.workspace].vlans
   interfaces = local.switches[terraform.workspace].interfaces
