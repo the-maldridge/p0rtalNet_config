@@ -27,12 +27,13 @@ resource "aoss_vlan" "vlan" {
   dhcp    = each.value.use_dhcp
   tagged = flatten([
     each.value.tagged,
-    [for t in keys(var.trunks) : title(t)],
+    [for t, attr in var.trunks : title(t) if attr.untagged == null],
     [for iface, attrs in var.interfaces : iface if contains(lookup(attrs, "tagged", []), each.key)]
   ])
   untagged = flatten([
     each.value.untagged,
-    [for iface, attrs in var.interfaces : iface if attrs.untagged == each.key]
+    [for iface, attrs in var.interfaces : iface if attrs.untagged == each.key],
+    [for iface, attrs in var.trunks : title(iface) if attrs.untagged == each.key],
   ])
 }
 

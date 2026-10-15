@@ -5,7 +5,8 @@ variable "hostname" {
 
 variable "trunks" {
   type = map(object({
-    members = list(number)
+    members  = list(number)
+    untagged = optional(string, null)
   }))
   description = "Map of Trunk interface to Member Interfaces"
 }

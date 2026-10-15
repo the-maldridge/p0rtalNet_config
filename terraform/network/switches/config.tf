@@ -70,7 +70,7 @@ locals {
     compute0 = {
       trunks = {
         trk1 = { members = formatlist("%s", [27, 28]) }
-        trk2 = { members = formatlist("%s", [3, 4]) }
+        trk2 = { members = formatlist("%s", [3, 4]), untagged = "svcs" }
       }
       vlans = {
         res   = { id = 10, name = "Residential", is_primary = true }
@@ -88,6 +88,7 @@ locals {
         3  = { name = "SaltMine-Leg1" }
         4  = { name = "SaltMine-Leg2" }
         20 = { name = "net-dock1", untagged = "peer" }
+        21 = { name = "res-tail1", untagged = "res" }
         22 = { name = "ups0", untagged = "mgmt" }
         23 = { name = "DLLSTXPO01T", untagged = "tel" }
         24 = { name = "DLLSTXPO01DS0`", untagged = "tel" }
