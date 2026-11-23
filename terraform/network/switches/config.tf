@@ -87,6 +87,7 @@ locals {
         2  = { name = "deep-thought", tagged = ["res", "guest", "svcs", "iot", "tel", "dmz", "mgmt"] }
         3  = { name = "SaltMine-Leg1" }
         4  = { name = "SaltMine-Leg2" }
+        8  = { name = "framework", untagged = "res" }
         20 = { name = "net-dock1", untagged = "peer" }
         21 = { name = "res-tail1", untagged = "res" }
         22 = { name = "ups0", untagged = "mgmt" }
