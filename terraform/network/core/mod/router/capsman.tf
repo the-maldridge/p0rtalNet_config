@@ -48,7 +48,7 @@ resource "routeros_wifi_security" "security" {
   name                 = each.key
   authentication_types = each.value.authtype
   passphrase           = each.value.psk
-  encryption           = ["ccmp", "ccmp-256", "gcmp", "gcmp-256"]
+  encryption           = ["ccmp", "ccmp-256"]
 }
 
 resource "routeros_wifi_configuration" "config" {
